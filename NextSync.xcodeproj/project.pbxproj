@@ -16,6 +16,7 @@
 		5377B2012BD2B15300D660B8 /* NextSyncUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5377B2002BD2B15300D660B8 /* NextSyncUITestsLaunchTests.swift */; };
 		5377B20F2BD2B2CB00D660B8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5377B20E2BD2B2CB00D660B8 /* README.md */; };
 		53E38F2D2BD2BF000095ACFC /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F2C2BD2BF000095ACFC /* WebView.swift */; };
+		53E38F2F2BD2CC370095ACFC /* LoginWebViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F2E2BD2CC370095ACFC /* LoginWebViewDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		5377B20D2BD2B18C00D660B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5377B20E2BD2B2CB00D660B8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		53E38F2C2BD2BF000095ACFC /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		53E38F2E2BD2CC370095ACFC /* LoginWebViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWebViewDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 		53E38F262BD2BB0D0095ACFC /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				53E38F2E2BD2CC370095ACFC /* LoginWebViewDelegate.swift */,
 				53E38F2C2BD2BF000095ACFC /* WebView.swift */,
 			);
 			path = Login;
@@ -275,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5377B1E62BD2B15100D660B8 /* ContentView.swift in Sources */,
+				53E38F2F2BD2CC370095ACFC /* LoginWebViewDelegate.swift in Sources */,
 				5377B1E42BD2B15100D660B8 /* NextSyncApp.swift in Sources */,
 				53E38F2D2BD2BF000095ACFC /* WebView.swift in Sources */,
 			);
