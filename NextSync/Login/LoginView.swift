@@ -12,6 +12,10 @@ struct LoginView: View {
     @State var serverString = ""
     @State var serverUrl: URL? 
 
+    private static let httpPrefix = "http://"
+    private static let httpsPrefix = "https://"
+    private static let loginFlowSuffix = "/index.php/login/flow"
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -28,6 +32,19 @@ struct LoginView: View {
     }
 
     private func updateServerUrl() {
-        serverUrl = URL(string: serverString)
+        let sanitisedServerString = Self.sanitiseServerString(serverString) + Self.loginFlowSuffix
+        serverUrl = URL(string: sanitisedServerString)
+    }
+
+    private static func sanitiseServerString(_ serverString: String) -> String {
+        var sanitisedServerString = serverString
+        sanitisedServerString.trimPrefix(Self.httpPrefix)
+        if !sanitisedServerString.hasPrefix(Self.httpsPrefix) {
+            sanitisedServerString = Self.httpsPrefix + sanitisedServerString
+        }
+        if sanitisedServerString.last == "/" {
+            sanitisedServerString.removeLast()
+        }
+        return sanitisedServerString
     }
 }
