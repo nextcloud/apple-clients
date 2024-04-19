@@ -10,7 +10,7 @@ import SwiftUI
 
 struct LoginView: View {
     @State var serverString = ""
-    @State var serverUrl: URL? 
+    @State var serverUrl: URL?
 
     private static let httpPrefix = "http://"
     private static let httpsPrefix = "https://"
@@ -23,7 +23,9 @@ struct LoginView: View {
                 TextField("Nextcloud server location", text: $serverString)
                     .onChange(of: serverString) { updateServerUrl() }
                 NavigationLink {
-                    LoginWebView(serverUrl: $serverUrl)
+                    if let serverUrl {
+                        LoginWebView(serverUrl: serverUrl)
+                    }
                 } label: {
                     Label("Go", systemImage: "arrow.right")
                 }
