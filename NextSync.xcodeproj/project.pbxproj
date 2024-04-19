@@ -19,6 +19,7 @@
 		53E38F2F2BD2CC370095ACFC /* LoginWebViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F2E2BD2CC370095ACFC /* LoginWebViewDelegate.swift */; };
         53E38F282BD2BB280095ACFC /* LoginWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F272BD2BB280095ACFC /* LoginWebView.swift */; };
         53E38F2A2BD2BD140095ACFC /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F292BD2BD140095ACFC /* LoginView.swift */; };
+        5377B2142BD2B5B000D660B8 /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5377B2132BD2B5B000D660B8 /* AccountModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		53E38F2E2BD2CC370095ACFC /* LoginWebViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWebViewDelegate.swift; sourceTree = "<group>"; };
         53E38F272BD2BB280095ACFC /* LoginWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWebView.swift; sourceTree = "<group>"; };
         53E38F292BD2BD140095ACFC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+        5377B2132BD2B5B000D660B8 /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 		5377B1E22BD2B15100D660B8 /* NextSync */ = {
 			isa = PBXGroup;
 			children = (
+				5377B2102BD2B36800D660B8 /* Account */,
 				53E38F262BD2BB0D0095ACFC /* Login */,
 				5377B20D2BD2B18C00D660B8 /* Info.plist */,
 				5377B1E32BD2B15100D660B8 /* NextSyncApp.swift */,
@@ -139,6 +142,14 @@
 				5377B2002BD2B15300D660B8 /* NextSyncUITestsLaunchTests.swift */,
 			);
 			path = NextSyncUITests;
+			sourceTree = "<group>";
+		};
+		5377B2102BD2B36800D660B8 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				5377B2132BD2B5B000D660B8 /* AccountModel.swift */,
+			);
+			path = Account;
 			sourceTree = "<group>";
 		};
 		53E38F262BD2BB0D0095ACFC /* Login */ = {
@@ -288,6 +299,7 @@
 				53E38F2F2BD2CC370095ACFC /* LoginWebViewDelegate.swift in Sources */,
 				5377B1E42BD2B15100D660B8 /* NextSyncApp.swift in Sources */,
 				53E38F2D2BD2BF000095ACFC /* WebView.swift in Sources */,
+				5377B2142BD2B5B000D660B8 /* AccountModel.swift in Sources */,
 				53E38F2A2BD2BD140095ACFC /* LoginView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
