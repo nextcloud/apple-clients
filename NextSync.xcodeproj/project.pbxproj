@@ -20,6 +20,7 @@
         53E38F282BD2BB280095ACFC /* LoginWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F272BD2BB280095ACFC /* LoginWebView.swift */; };
         53E38F2A2BD2BD140095ACFC /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F292BD2BD140095ACFC /* LoginView.swift */; };
         5377B2142BD2B5B000D660B8 /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5377B2132BD2B5B000D660B8 /* AccountModel.swift */; };
+        5377B2122BD2B39000D660B8 /* AccountsActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5377B2112BD2B39000D660B8 /* AccountsActor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
         53E38F272BD2BB280095ACFC /* LoginWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWebView.swift; sourceTree = "<group>"; };
         53E38F292BD2BD140095ACFC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
         5377B2132BD2B5B000D660B8 /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
+        5377B2112BD2B39000D660B8 /* AccountsActor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsActor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 		5377B2102BD2B36800D660B8 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				5377B2112BD2B39000D660B8 /* AccountsActor.swift */,
 				5377B2132BD2B5B000D660B8 /* AccountModel.swift */,
 			);
 			path = Account;
@@ -298,6 +301,7 @@
 				53E38F282BD2BB280095ACFC /* LoginWebView.swift in Sources */,
 				53E38F2F2BD2CC370095ACFC /* LoginWebViewDelegate.swift in Sources */,
 				5377B1E42BD2B15100D660B8 /* NextSyncApp.swift in Sources */,
+				5377B2122BD2B39000D660B8 /* AccountsActor.swift in Sources */,
 				53E38F2D2BD2BF000095ACFC /* WebView.swift in Sources */,
 				5377B2142BD2B5B000D660B8 /* AccountModel.swift in Sources */,
 				53E38F2A2BD2BD140095ACFC /* LoginView.swift in Sources */,
