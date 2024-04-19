@@ -18,6 +18,7 @@
 		53E38F2D2BD2BF000095ACFC /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F2C2BD2BF000095ACFC /* WebView.swift */; };
 		53E38F2F2BD2CC370095ACFC /* LoginWebViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F2E2BD2CC370095ACFC /* LoginWebViewDelegate.swift */; };
         53E38F282BD2BB280095ACFC /* LoginWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F272BD2BB280095ACFC /* LoginWebView.swift */; };
+        53E38F2A2BD2BD140095ACFC /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F292BD2BD140095ACFC /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		53E38F2C2BD2BF000095ACFC /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		53E38F2E2BD2CC370095ACFC /* LoginWebViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWebViewDelegate.swift; sourceTree = "<group>"; };
         53E38F272BD2BB280095ACFC /* LoginWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWebView.swift; sourceTree = "<group>"; };
+        53E38F292BD2BD140095ACFC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 		53E38F262BD2BB0D0095ACFC /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				53E38F292BD2BD140095ACFC /* LoginView.swift */,
 				53E38F272BD2BB280095ACFC /* LoginWebView.swift */,
 				53E38F2E2BD2CC370095ACFC /* LoginWebViewDelegate.swift */,
 				53E38F2C2BD2BF000095ACFC /* WebView.swift */,
