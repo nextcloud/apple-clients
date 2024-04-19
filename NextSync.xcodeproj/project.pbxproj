@@ -15,12 +15,12 @@
 		5377B1FF2BD2B15300D660B8 /* NextSyncUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5377B1FE2BD2B15300D660B8 /* NextSyncUITests.swift */; };
 		5377B2012BD2B15300D660B8 /* NextSyncUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5377B2002BD2B15300D660B8 /* NextSyncUITestsLaunchTests.swift */; };
 		5377B20F2BD2B2CB00D660B8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5377B20E2BD2B2CB00D660B8 /* README.md */; };
-		53E38F2D2BD2BF000095ACFC /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F2C2BD2BF000095ACFC /* WebView.swift */; };
+		5377B2122BD2B39000D660B8 /* AccountsActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5377B2112BD2B39000D660B8 /* AccountsActor.swift */; };
+		5377B2142BD2B5B000D660B8 /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5377B2132BD2B5B000D660B8 /* AccountModel.swift */; };
+		53E38F282BD2BB280095ACFC /* LoginWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F272BD2BB280095ACFC /* LoginWebView.swift */; };
+		53E38F2A2BD2BD140095ACFC /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F292BD2BD140095ACFC /* LoginView.swift */; };
+		53E38F2D2BD2BF000095ACFC /* WebViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F2C2BD2BF000095ACFC /* WebViewRepresentable.swift */; };
 		53E38F2F2BD2CC370095ACFC /* LoginWebViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F2E2BD2CC370095ACFC /* LoginWebViewDelegate.swift */; };
-        53E38F282BD2BB280095ACFC /* LoginWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F272BD2BB280095ACFC /* LoginWebView.swift */; };
-        53E38F2A2BD2BD140095ACFC /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F292BD2BD140095ACFC /* LoginView.swift */; };
-        5377B2142BD2B5B000D660B8 /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5377B2132BD2B5B000D660B8 /* AccountModel.swift */; };
-        5377B2122BD2B39000D660B8 /* AccountsActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5377B2112BD2B39000D660B8 /* AccountsActor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,12 +53,12 @@
 		5377B2002BD2B15300D660B8 /* NextSyncUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextSyncUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5377B20D2BD2B18C00D660B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5377B20E2BD2B2CB00D660B8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		53E38F2C2BD2BF000095ACFC /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		5377B2112BD2B39000D660B8 /* AccountsActor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsActor.swift; sourceTree = "<group>"; };
+		5377B2132BD2B5B000D660B8 /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
+		53E38F272BD2BB280095ACFC /* LoginWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWebView.swift; sourceTree = "<group>"; };
+		53E38F292BD2BD140095ACFC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		53E38F2C2BD2BF000095ACFC /* WebViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewRepresentable.swift; sourceTree = "<group>"; };
 		53E38F2E2BD2CC370095ACFC /* LoginWebViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWebViewDelegate.swift; sourceTree = "<group>"; };
-        53E38F272BD2BB280095ACFC /* LoginWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWebView.swift; sourceTree = "<group>"; };
-        53E38F292BD2BD140095ACFC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-        5377B2132BD2B5B000D660B8 /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
-        5377B2112BD2B39000D660B8 /* AccountsActor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsActor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,7 +161,7 @@
 				53E38F292BD2BD140095ACFC /* LoginView.swift */,
 				53E38F272BD2BB280095ACFC /* LoginWebView.swift */,
 				53E38F2E2BD2CC370095ACFC /* LoginWebViewDelegate.swift */,
-				53E38F2C2BD2BF000095ACFC /* WebView.swift */,
+				53E38F2C2BD2BF000095ACFC /* WebViewRepresentable.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -302,7 +302,7 @@
 				53E38F2F2BD2CC370095ACFC /* LoginWebViewDelegate.swift in Sources */,
 				5377B1E42BD2B15100D660B8 /* NextSyncApp.swift in Sources */,
 				5377B2122BD2B39000D660B8 /* AccountsActor.swift in Sources */,
-				53E38F2D2BD2BF000095ACFC /* WebView.swift in Sources */,
+				53E38F2D2BD2BF000095ACFC /* WebViewRepresentable.swift in Sources */,
 				5377B2142BD2B5B000D660B8 /* AccountModel.swift in Sources */,
 				53E38F2A2BD2BD140095ACFC /* LoginView.swift in Sources */,
 			);

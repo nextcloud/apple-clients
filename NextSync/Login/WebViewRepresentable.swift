@@ -10,13 +10,13 @@ import SwiftUI
 import WebKit
 
 #if os(iOS)
-typealias WebViewRepresentable = UIViewRepresentable
+typealias InternalViewRepresentable = UIViewRepresentable
 #elseif os(macOS)
-typealias WebViewRepresentable = NSViewRepresentable
+typealias InternalViewRepresentable = NSViewRepresentable
 #endif
 
 #if os(iOS) || os(macOS)
-public struct WebView: WebViewRepresentable {
+public struct WebViewRepresentable: InternalViewRepresentable {
     private let url: URL?
     private let configuration: WKWebViewConfiguration
     private let setup: (WKWebView) -> Void

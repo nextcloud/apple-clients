@@ -21,7 +21,7 @@ struct LoginWebView: View {
     }
 
     var body: some View {
-        WebView(url: serverUrl, configuration: configuration) { view in
+        WebViewRepresentable(url: serverUrl, configuration: configuration) { view in
             view.navigationDelegate = navigationDelegate
         }
     }
