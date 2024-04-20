@@ -22,6 +22,7 @@
 		53E38F2D2BD2BF000095ACFC /* WebViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F2C2BD2BF000095ACFC /* WebViewRepresentable.swift */; };
 		53E38F2F2BD2CC370095ACFC /* LoginWebViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F2E2BD2CC370095ACFC /* LoginWebViewDelegate.swift */; };
 		53E38F312BD3B2960095ACFC /* URLSchemeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F302BD3B2960095ACFC /* URLSchemeHandler.swift */; };
+		53E38F352BD3CA9F0095ACFC /* Logger+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F342BD3CA9F0095ACFC /* Logger+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		53E38F2C2BD2BF000095ACFC /* WebViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewRepresentable.swift; sourceTree = "<group>"; };
 		53E38F2E2BD2CC370095ACFC /* LoginWebViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWebViewDelegate.swift; sourceTree = "<group>"; };
 		53E38F302BD3B2960095ACFC /* URLSchemeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSchemeHandler.swift; sourceTree = "<group>"; };
+		53E38F342BD3CA9F0095ACFC /* Logger+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				5377B2102BD2B36800D660B8 /* Account */,
+				53E38F332BD3CA8E0095ACFC /* Extensions */,
 				53E38F262BD2BB0D0095ACFC /* Login */,
 				53E38F322BD3B5110095ACFC /* Web */,
 				5377B20D2BD2B18C00D660B8 /* Info.plist */,
@@ -175,6 +178,14 @@
 				53E38F2C2BD2BF000095ACFC /* WebViewRepresentable.swift */,
 			);
 			path = Web;
+			sourceTree = "<group>";
+		};
+		53E38F332BD3CA8E0095ACFC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				53E38F342BD3CA9F0095ACFC /* Logger+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,6 +328,7 @@
 				5377B2142BD2B5B000D660B8 /* AccountModel.swift in Sources */,
 				53E38F2A2BD2BD140095ACFC /* LoginView.swift in Sources */,
 				53E38F312BD3B2960095ACFC /* URLSchemeHandler.swift in Sources */,
+				53E38F352BD3CA9F0095ACFC /* Logger+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

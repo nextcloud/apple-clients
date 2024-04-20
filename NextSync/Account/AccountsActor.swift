@@ -7,9 +7,12 @@
 
 import Foundation
 import SwiftData
+import OSLog
 
 @ModelActor
 actor AccountsActor {
+    private let logger = Logger(subsystem: Logger.subsystem, category: "accounts-actor")
+
     var anyAccountsConfigured: Bool {
         let accountPredicate = FetchDescriptor<AccountModel>()
         return (try? modelContext.fetchCount(accountPredicate) > 0) ?? false
@@ -19,9 +22,9 @@ actor AccountsActor {
         modelContext.insert(accountModel)
         do {
             try modelContext.save()
-            debugPrint("Saved account \(accountModel.description)")
+            logger.debug("Saved account \(accountModel.description)")
         } catch {
-            fatalError("Error saving account: \(error), account: \(accountModel.description)")
+            logger.error("Error saving account: \(error), account: \(accountModel.description)")
         }
     }
 }

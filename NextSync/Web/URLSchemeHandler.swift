@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftData
+import OSLog
 
 fileprivate let internalScheme = "nc"
 fileprivate let internalSchemePrefix = internalScheme + "://"
@@ -17,6 +18,7 @@ class URLSchemeHandler {
     private static let loginPrefix = internalSchemePrefix + "login/"
     private static let keyValuePairSeparator = "&"
     private static let keyValueSeparator = ":"
+    private static let logger = Logger(subsystem: Logger.subsystem, category: "url-scheme-handler")
 
     static func handle(url: URL, container: ModelContainer) {
         guard url.scheme == Self.scheme else { return }
@@ -31,13 +33,14 @@ class URLSchemeHandler {
         let loginDetails = url.absoluteString.trimmingPrefix(Self.loginPrefix)
         let keyValuePairs = loginDetails.split(separator: Self.keyValuePairSeparator)
         guard keyValuePairs.count >= 3 else {
-            fatalError(
+            Self.logger.error(
                 """
                 Key-value pair count in login string is lower than expected and cannot contain
                 the required information. Cannot proceed with login!
                 Login string is: \(loginDetails)
                 """
             )
+            return
         }
 
         var server = ""
@@ -60,7 +63,7 @@ class URLSchemeHandler {
         print(server, username, password)
 
         guard !server.isEmpty, !username.isEmpty, !password.isEmpty else {
-            fatalError(
+            Self.logger.error(
                 """
                 Parsed login url string did not provide expected values!
                 server: \(server)
@@ -68,10 +71,11 @@ class URLSchemeHandler {
                 password: \(password.isEmpty ? "EMPTY" : "NON-EMPTY")
                 """
             )
+            return
         }
 
         guard let serverUrl = URL(string: server) else {
-            fatalError("Could not generate url for server url string \(server)!")
+            Self.logger.error("Could not generate url for server url string \(server)!")
             return
         }
 
