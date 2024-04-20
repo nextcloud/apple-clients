@@ -9,13 +9,12 @@ import Foundation
 import SwiftUI
 import WebKit
 
-#if os(iOS)
-typealias InternalViewRepresentable = UIViewRepresentable
-#elseif os(macOS)
+#if os(macOS)
 typealias InternalViewRepresentable = NSViewRepresentable
+#else
+typealias InternalViewRepresentable = UIViewRepresentable
 #endif
 
-#if os(iOS) || os(macOS)
 public struct WebViewRepresentable: InternalViewRepresentable {
     private let url: URL?
     private let request: URLRequest?
@@ -34,7 +33,13 @@ public struct WebViewRepresentable: InternalViewRepresentable {
         self.setup = setup
     }
 
-    #if os(iOS)
+    #if os(macOS)
+    public func makeNSView(context: Context) -> WKWebView {
+        makeView()
+    }
+
+    public func updateNSView(_ view: WKWebView, context: Context) {}
+    #else
     public func makeUIView(context: Context) -> WKWebView {
         makeView()
     }
@@ -42,13 +47,6 @@ public struct WebViewRepresentable: InternalViewRepresentable {
     public func updateUIView(_ uiView: WKWebView, context: Context) {}
     #endif
 
-    #if os(macOS)
-    public func makeNSView(context: Context) -> WKWebView {
-        makeView()
-    }
-
-    public func updateNSView(_ view: WKWebView, context: Context) {}
-    #endif
 
     func makeView() -> WKWebView {
         let view = WKWebView(frame: .null, configuration: configuration)
@@ -66,4 +64,3 @@ public struct WebViewRepresentable: InternalViewRepresentable {
         }
     }
 }
-#endif
