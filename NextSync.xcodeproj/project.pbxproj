@@ -114,6 +114,7 @@
 			children = (
 				5377B2102BD2B36800D660B8 /* Account */,
 				53E38F262BD2BB0D0095ACFC /* Login */,
+				53E38F322BD3B5110095ACFC /* Web */,
 				5377B20D2BD2B18C00D660B8 /* Info.plist */,
 				5377B1E32BD2B15100D660B8 /* NextSyncApp.swift */,
 				5377B1E52BD2B15100D660B8 /* ContentView.swift */,
@@ -163,10 +164,17 @@
 				53E38F292BD2BD140095ACFC /* LoginView.swift */,
 				53E38F272BD2BB280095ACFC /* LoginWebView.swift */,
 				53E38F2E2BD2CC370095ACFC /* LoginWebViewDelegate.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		53E38F322BD3B5110095ACFC /* Web */ = {
+			isa = PBXGroup;
+			children = (
 				53E38F302BD3B2960095ACFC /* URLSchemeHandler.swift */,
 				53E38F2C2BD2BF000095ACFC /* WebViewRepresentable.swift */,
 			);
-			path = Login;
+			path = Web;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
