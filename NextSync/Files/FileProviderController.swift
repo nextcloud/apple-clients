@@ -13,6 +13,9 @@ import NextSyncKit
 import OSLog
 
 class FileProviderController: ObservableObject {
+    private enum DomainAuthError: Error {
+        case nullService, nullRemoteObject, nonConformingRemoteService
+    }
     private var logger = Logger(subsystem: Logger.subsystem, category: "fileprovider-controller")
 
     init(modelContainer: ModelContainer) {
@@ -33,18 +36,56 @@ class FileProviderController: ObservableObject {
         do {
             return try await NSFileProviderManager.domains().contains(domain)
         } catch let error {
-            logger.error("Could not check if domain \(domain.identifier.rawValue) exists: \(error)")
+            logger.error("Could not check if domain \(domain.rawIdentifier) exists: \(error)")
             return false
         }
     }
 
     func createDomain(account: AccountModel) async {
         let domain = domain(account: account)
-        guard await !domainExists(domain) else { return }
+
+        guard await !domainExists(domain) else {
+            await authenticateDomain(domain, account: account)
+            return
+        }
         do {
             try await NSFileProviderManager.add(domain)
+            await authenticateDomain(domain, account: account)
         } catch let error {
-            logger.error("Could not add domain for \(domain.identifier.rawValue): \(error)")
+            logger.error("Could not add domain for \(domain.rawIdentifier): \(error)")
+        }
+    }
+
+    func authenticateDomain(_ domain: NSFileProviderDomain, account: AccountModel) async {
+        guard let manager = NSFileProviderManager(for: domain) else {
+            logger.error("Could not acquire manager for domain: \(domain.rawIdentifier)")
+            return
+        }
+
+        do {
+            guard let service = try await manager.service(
+                named: AppCommunicationServiceName, for: .rootContainer
+            ) else { throw DomainAuthError.nullService }
+            let connection = try await service.fileProviderConnection()
+            let logStringPrefix = "AppCommunicationService connection for \(domain.rawIdentifier)"
+
+            connection.remoteObjectInterface = NSXPCInterface(with: AppCommunicationService.self)
+            connection.interruptionHandler = { self.logger.debug("\(logStringPrefix) interrupted") }
+            connection.invalidationHandler = { self.logger.debug("\(logStringPrefix) invalidated") }
+            connection.resume()
+
+            guard let remoteService = connection.remoteObjectInterface else {
+                throw DomainAuthError.nullRemoteObject
+            }
+            guard let appCommService = remoteService as? AppCommunicationService else {
+                throw DomainAuthError.nonConformingRemoteService
+            }
+            
+            appCommService.authenticate(
+                serverUrl: account.serverUrl, username: account.username, password: account.password
+            )
+        } catch let error {
+            logger.error("Could not authenticate domain \(domain.rawIdentifier): \(error)")
         }
     }
 }

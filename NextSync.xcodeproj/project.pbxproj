@@ -43,6 +43,7 @@
 		53E38F8C2BD429D80095ACFC /* Logger+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F342BD3CA9F0095ACFC /* Logger+Extension.swift */; };
 		53E38F932BD435460095ACFC /* FileProviderExtension+Servicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F922BD435460095ACFC /* FileProviderExtension+Servicing.swift */; };
 		53E38F992BD435C40095ACFC /* AppCommunicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F982BD435C40095ACFC /* AppCommunicationService.swift */; };
+		53E38F962BD435AA0095ACFC /* AppCommunicationServiceSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F952BD435AA0095ACFC /* AppCommunicationServiceSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +174,7 @@
 		53E38F762BD427A40095ACFC /* NextSyncKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextSyncKitTests.swift; sourceTree = "<group>"; };
 		53E38F922BD435460095ACFC /* FileProviderExtension+Servicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileProviderExtension+Servicing.swift"; sourceTree = "<group>"; };
 		53E38F982BD435C40095ACFC /* AppCommunicationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommunicationService.swift; sourceTree = "<group>"; };
+		53E38F952BD435AA0095ACFC /* AppCommunicationServiceSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommunicationServiceSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,6 +353,7 @@
 		53E38F4E2BD4017C0095ACFC /* FileProviderExtension */ = {
 			isa = PBXGroup;
 			children = (
+				53E38F942BD4358D0095ACFC /* Services */,
 				53E38F4F2BD4017C0095ACFC /* FileProviderExtension.swift */,
 				53E38F922BD435460095ACFC /* FileProviderExtension+Servicing.swift */,
 				53E38F512BD4017C0095ACFC /* FileProviderItem.swift */,
@@ -396,6 +399,14 @@
 				53E38F982BD435C40095ACFC /* AppCommunicationService.swift */,
 			);
 			path = "File Provider";
+            sourceTree = "<group>";
+        };
+		53E38F942BD4358D0095ACFC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				53E38F952BD435AA0095ACFC /* AppCommunicationServiceSource.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -678,6 +689,7 @@
 				53E38F502BD4017C0095ACFC /* FileProviderExtension.swift in Sources */,
 				53E38F932BD435460095ACFC /* FileProviderExtension+Servicing.swift in Sources */,
 				53E38F522BD4017C0095ACFC /* FileProviderItem.swift in Sources */,
+				53E38F962BD435AA0095ACFC /* AppCommunicationServiceSource.swift in Sources */,
 				53E38F542BD4017C0095ACFC /* FileProviderEnumerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
