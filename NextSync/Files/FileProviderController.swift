@@ -9,6 +9,7 @@ import SwiftData
 import SwiftUI
 import Foundation
 import FileProvider
+import NextSyncKit
 import OSLog
 
 class FileProviderController: ObservableObject {

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import NextSyncKit
 import SwiftUI
 
 struct MainDetailView: View {

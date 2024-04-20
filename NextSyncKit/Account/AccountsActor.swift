@@ -10,15 +10,15 @@ import SwiftData
 import OSLog
 
 @ModelActor
-actor AccountsActor {
+public actor AccountsActor {
     private let logger = Logger(subsystem: Logger.subsystem, category: "accounts-actor")
 
-    var anyAccountsConfigured: Bool {
+    public var anyAccountsConfigured: Bool {
         let accountPredicate = FetchDescriptor<AccountModel>()
         return (try? modelContext.fetchCount(accountPredicate) > 0) ?? false
     }
 
-    func addAccount(_ accountModel: AccountModel) {
+    public func addAccount(_ accountModel: AccountModel) {
         modelContext.insert(accountModel)
         do {
             try modelContext.save()

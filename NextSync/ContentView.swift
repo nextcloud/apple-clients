@@ -5,6 +5,7 @@
 //  Created by Claudio Cambra on 19/4/24.
 //
 
+import NextSyncKit
 import SwiftData
 import SwiftUI
 

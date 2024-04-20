@@ -9,13 +9,13 @@ import Foundation
 import SwiftData
 
 @Model
-final class AccountModel {
-    var serverUrl: URL
-    var displayname: String
-    var username: String
-    @Attribute(.allowsCloudEncryption) var password: String
+public final class AccountModel {
+    public var serverUrl: URL
+    public var displayname: String
+    public var username: String
+    @Attribute(.allowsCloudEncryption) public var password: String
 
-    @Transient var description: String {
+    @Transient public var description: String {
         """
         AccountModel
         serverUrl: \(serverUrl),
@@ -25,7 +25,7 @@ final class AccountModel {
         """
     }
 
-    init(
+    public init(
         serverUrl: URL,
         displayname: String = "",
         username: String,
