@@ -21,6 +21,7 @@ struct LoginView: View {
             VStack {
                 Text("Welcome to NextSync!")
                 TextField("Nextcloud server location", text: $serverString)
+                    .textContentType(.URL)
                     .onChange(of: serverString) { updateServerUrl() }
                 NavigationLink {
                     if let serverUrl {
