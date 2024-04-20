@@ -14,6 +14,7 @@ struct MainSidebar: View {
     }
 
     @Binding var selection: Panel?
+    @Binding var accountSelection: AccountModel?
 
     var body: some View {
         List(selection: $selection) {
@@ -25,6 +26,11 @@ struct MainSidebar: View {
             }
             NavigationLink(value: Panel.settings) {
                 Label("Settings", systemImage: "gear")
+            }
+
+            Section("Accounts") {
+                AccountPicker(selection: $accountSelection)
+                    .labelsHidden()
             }
         }
         .navigationTitle("NextSync")

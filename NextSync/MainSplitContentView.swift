@@ -10,10 +10,11 @@ import SwiftUI
 
 struct MainSplitContentView: View {
     @State var sidebarSelection: MainSidebar.Panel?
+    @State var accountSelection: AccountModel?
 
     var body: some View {
         NavigationSplitView {
-            MainSidebar(selection: $sidebarSelection)
+            MainSidebar(selection: $sidebarSelection, accountSelection: $accountSelection)
         } detail: {
             NavigationStack {
                 MainDetailView(selection: $sidebarSelection)

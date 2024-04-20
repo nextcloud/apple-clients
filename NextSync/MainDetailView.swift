@@ -10,6 +10,7 @@ import SwiftUI
 
 struct MainDetailView: View {
     @Binding var selection: MainSidebar.Panel?
+    @State var accountSelection: AccountModel?
 
     var body: some View {
         List(selection: $selection) {
