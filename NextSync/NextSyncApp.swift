@@ -10,11 +10,13 @@ import SwiftUI
 
 @main
 struct NextSyncApp: App {
+    var container = try! ModelContainer(for: AccountModel.self)
+
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .onOpenURL { URLSchemeHandler.handle(url: $0) }
+                .onOpenURL { URLSchemeHandler.handle(url: $0, container: container) }
         }
-        .modelContainer(for: AccountModel.self)
+        .modelContainer(container)
     }
 }

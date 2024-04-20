@@ -18,16 +18,16 @@ class URLSchemeHandler {
     private static let keyValuePairSeparator = "&"
     private static let keyValueSeparator = ":"
 
-    static func handle(url: URL) {
+    static func handle(url: URL, container: ModelContainer) {
         guard url.scheme == Self.scheme else { return }
 
         let urlString = url.absoluteString
         if urlString.hasPrefix(loginPrefix) {
-            Self.handleLogin(url: url)
+            Self.handleLogin(url: url, container: container)
         }
     }
 
-    private static func handleLogin(url: URL) {
+    private static func handleLogin(url: URL, container: ModelContainer) {
         let loginDetails = url.absoluteString.trimmingPrefix(Self.loginPrefix)
         let keyValuePairs = loginDetails.split(separator: Self.keyValuePairSeparator)
         guard keyValuePairs.count >= 3 else {
@@ -75,13 +75,8 @@ class URLSchemeHandler {
             return
         }
 
-        do {
-            let account = AccountModel(serverUrl: serverUrl, username: username, password: password)
-            let modelContainer = try ModelContainer(for: AccountModel.self)
-            let accountsActor = AccountsActor(modelContainer: modelContainer)
-            Task { await accountsActor.addAccount(account) }
-        } catch let error {
-            fatalError("Could not save account details! \(error)")
-        }
+        let account = AccountModel(serverUrl: serverUrl, username: username, password: password)
+        let accountsActor = AccountsActor(modelContainer: container)
+        Task { await accountsActor.addAccount(account) }
     }
 }
