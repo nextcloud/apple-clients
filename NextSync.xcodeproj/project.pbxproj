@@ -27,6 +27,7 @@
 		53E38F392BD3CC040095ACFC /* MainSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F382BD3CC040095ACFC /* MainSidebar.swift */; };
 		53E38F3B2BD3CC170095ACFC /* MainDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F3A2BD3CC170095ACFC /* MainDetailView.swift */; };
 		53E38F422BD3D23C0095ACFC /* AccountPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F412BD3D23C0095ACFC /* AccountPicker.swift */; };
+		53E38F452BD3E2DF0095ACFC /* FileProviderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F442BD3E2DF0095ACFC /* FileProviderController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		53E38F382BD3CC040095ACFC /* MainSidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSidebar.swift; sourceTree = "<group>"; };
 		53E38F3A2BD3CC170095ACFC /* MainDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDetailView.swift; sourceTree = "<group>"; };
 		53E38F412BD3D23C0095ACFC /* AccountPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPicker.swift; sourceTree = "<group>"; };
+		53E38F442BD3E2DF0095ACFC /* FileProviderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileProviderController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 			children = (
 				5377B2102BD2B36800D660B8 /* Account */,
 				53E38F332BD3CA8E0095ACFC /* Extensions */,
+				53E38F432BD3E2B60095ACFC /* Files */,
 				53E38F262BD2BB0D0095ACFC /* Login */,
 				53E38F322BD3B5110095ACFC /* Web */,
 				5377B20D2BD2B18C00D660B8 /* Info.plist */,
@@ -198,6 +201,14 @@
 				53E38F342BD3CA9F0095ACFC /* Logger+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		53E38F432BD3E2B60095ACFC /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				53E38F442BD3E2DF0095ACFC /* FileProviderController.swift */,
+			);
+			path = Files;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,6 +349,7 @@
 				5377B1E42BD2B15100D660B8 /* NextSyncApp.swift in Sources */,
 				5377B2122BD2B39000D660B8 /* AccountsActor.swift in Sources */,
 				53E38F2D2BD2BF000095ACFC /* WebViewRepresentable.swift in Sources */,
+				53E38F452BD3E2DF0095ACFC /* FileProviderController.swift in Sources */,
 				53E38F372BD3CBCD0095ACFC /* MainSplitContentView.swift in Sources */,
 				5377B2142BD2B5B000D660B8 /* AccountModel.swift in Sources */,
 				53E38F422BD3D23C0095ACFC /* AccountPicker.swift in Sources */,
