@@ -41,6 +41,7 @@
 		53E38F872BD428160095ACFC /* NextSyncKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E38F662BD427A40095ACFC /* NextSyncKit.framework */; };
 		53E38F882BD428160095ACFC /* NextSyncKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E38F662BD427A40095ACFC /* NextSyncKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		53E38F8C2BD429D80095ACFC /* Logger+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F342BD3CA9F0095ACFC /* Logger+Extension.swift */; };
+		53E38F932BD435460095ACFC /* FileProviderExtension+Servicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F922BD435460095ACFC /* FileProviderExtension+Servicing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +170,7 @@
 		53E38F692BD427A40095ACFC /* NextSyncKit.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = NextSyncKit.docc; sourceTree = "<group>"; };
 		53E38F6F2BD427A40095ACFC /* NextSyncKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NextSyncKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53E38F762BD427A40095ACFC /* NextSyncKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextSyncKitTests.swift; sourceTree = "<group>"; };
+		53E38F922BD435460095ACFC /* FileProviderExtension+Servicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileProviderExtension+Servicing.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -348,6 +350,7 @@
 			isa = PBXGroup;
 			children = (
 				53E38F4F2BD4017C0095ACFC /* FileProviderExtension.swift */,
+				53E38F922BD435460095ACFC /* FileProviderExtension+Servicing.swift */,
 				53E38F512BD4017C0095ACFC /* FileProviderItem.swift */,
 				53E38F532BD4017C0095ACFC /* FileProviderEnumerator.swift */,
 				53E38F552BD4017C0095ACFC /* Info.plist */,
@@ -662,6 +665,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53E38F502BD4017C0095ACFC /* FileProviderExtension.swift in Sources */,
+				53E38F932BD435460095ACFC /* FileProviderExtension+Servicing.swift in Sources */,
 				53E38F522BD4017C0095ACFC /* FileProviderItem.swift in Sources */,
 				53E38F542BD4017C0095ACFC /* FileProviderEnumerator.swift in Sources */,
 			);
