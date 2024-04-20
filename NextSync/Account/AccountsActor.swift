@@ -14,4 +14,19 @@ actor AccountsActor {
         let accountPredicate = FetchDescriptor<AccountModel>()
         return (try? modelContext.fetchCount(accountPredicate) > 0) ?? false
     }
+
+    func addAccount(_ accountModel: AccountModel) {
+        modelContext.insert(accountModel)
+        do {
+            try modelContext.save()
+        } catch {
+            fatalError(
+                """
+                Error saving account: \(error)
+                username: \(accountModel.username)
+                server: \(accountModel.serverUrl)
+                """
+            )
+        }
+    }
 }
