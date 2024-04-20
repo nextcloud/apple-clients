@@ -26,7 +26,7 @@ struct MainSplitContentView: View {
                 }
         } detail: {
             NavigationStack {
-                MainDetailView(selection: $sidebarSelection)
+                MainDetailView(selection: $sidebarSelection, accountSelection: $accountSelection)
             }
         }
     }
