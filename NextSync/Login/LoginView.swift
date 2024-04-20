@@ -15,6 +15,7 @@ struct LoginView: View {
 
     @State var serverString = ""
     @State var serverUrl: URL?
+    @State private var webNavigationDelegate = LoginWebNavigationDelegate()
     @State private var path = [LoginType]()
 
     private static let httpPrefix = "http://"
@@ -33,9 +34,15 @@ struct LoginView: View {
             }
             .navigationDestination(for: LoginType.self) { loginType in
                 if let serverUrl, loginType == .webFlow {
-                    LoginWebView(serverUrl: serverUrl)
+                    LoginWebView(serverUrl: serverUrl, navigationDelegate: webNavigationDelegate)
+                        .onChange(of: webNavigationDelegate.finished) {
+                            if webNavigationDelegate.finished {
+                                path.removeAll { $0 == .webFlow }
+                            }
+                        }
                 }
             }
+            .padding()
         }
     }
 

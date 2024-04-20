@@ -10,17 +10,18 @@ import SwiftUI
 import WebKit
 
 struct LoginWebView: View {
-    let navigationDelegate = LoginWebNavigationDelegate()
+    let navigationDelegate: LoginWebNavigationDelegate
     let configuration = WKWebViewConfiguration()
     let request: URLRequest
 
-    init(serverUrl: URL) {
+    init(serverUrl: URL, navigationDelegate: LoginWebNavigationDelegate) {
         var request = URLRequest(url: serverUrl)
         request.addValue("true", forHTTPHeaderField: "OCS-APIRequest")
         if let language = Locale.preferredLanguages.first {
             request.addValue(language, forHTTPHeaderField: "Accept-Language")
         }
         self.request = request
+        self.navigationDelegate = navigationDelegate
         configuration.websiteDataStore = .nonPersistent()
     }
 
