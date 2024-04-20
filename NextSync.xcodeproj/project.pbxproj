@@ -42,6 +42,7 @@
 		53E38F882BD428160095ACFC /* NextSyncKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E38F662BD427A40095ACFC /* NextSyncKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		53E38F8C2BD429D80095ACFC /* Logger+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F342BD3CA9F0095ACFC /* Logger+Extension.swift */; };
 		53E38F932BD435460095ACFC /* FileProviderExtension+Servicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F922BD435460095ACFC /* FileProviderExtension+Servicing.swift */; };
+		53E38F992BD435C40095ACFC /* AppCommunicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F982BD435C40095ACFC /* AppCommunicationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +172,7 @@
 		53E38F6F2BD427A40095ACFC /* NextSyncKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NextSyncKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53E38F762BD427A40095ACFC /* NextSyncKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextSyncKitTests.swift; sourceTree = "<group>"; };
 		53E38F922BD435460095ACFC /* FileProviderExtension+Servicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileProviderExtension+Servicing.swift"; sourceTree = "<group>"; };
+		53E38F982BD435C40095ACFC /* AppCommunicationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommunicationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -364,6 +366,7 @@
 			children = (
 				53E38F862BD427FE0095ACFC /* Account */,
 				53E38F332BD3CA8E0095ACFC /* Extensions */,
+				53E38F972BD435B30095ACFC /* File Provider */,
 				53E38F682BD427A40095ACFC /* NextSyncKit.h */,
 				53E38F692BD427A40095ACFC /* NextSyncKit.docc */,
 			);
@@ -385,6 +388,14 @@
 				5377B2132BD2B5B000D660B8 /* AccountModel.swift */,
 			);
 			path = Account;
+			sourceTree = "<group>";
+		};
+		53E38F972BD435B30095ACFC /* File Provider */ = {
+			isa = PBXGroup;
+			children = (
+				53E38F982BD435C40095ACFC /* AppCommunicationService.swift */,
+			);
+			path = "File Provider";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -675,6 +686,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53E38F992BD435C40095ACFC /* AppCommunicationService.swift in Sources */,
 				53E38F6A2BD427A40095ACFC /* NextSyncKit.docc in Sources */,
 				53E38F8C2BD429D80095ACFC /* Logger+Extension.swift in Sources */,
 				53E38F852BD427E70095ACFC /* AccountModel.swift in Sources */,
