@@ -34,6 +34,12 @@
 		53E38F542BD4017C0095ACFC /* FileProviderEnumerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F532BD4017C0095ACFC /* FileProviderEnumerator.swift */; };
 		53E38F592BD4017C0095ACFC /* FileProviderExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 53E38F4A2BD4017C0095ACFC /* FileProviderExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		53E38F602BD40F9C0095ACFC /* NextcloudFileProviderKit in Frameworks */ = {isa = PBXBuildFile; productRef = 53E38F5F2BD40F9C0095ACFC /* NextcloudFileProviderKit */; };
+		53E38F6A2BD427A40095ACFC /* NextSyncKit.docc in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F692BD427A40095ACFC /* NextSyncKit.docc */; };
+		53E38F702BD427A40095ACFC /* NextSyncKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E38F662BD427A40095ACFC /* NextSyncKit.framework */; };
+		53E38F772BD427A40095ACFC /* NextSyncKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F762BD427A40095ACFC /* NextSyncKitTests.swift */; };
+		53E38F782BD427A40095ACFC /* NextSyncKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 53E38F682BD427A40095ACFC /* NextSyncKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		53E38F7B2BD427A40095ACFC /* NextSyncKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E38F662BD427A40095ACFC /* NextSyncKit.framework */; };
+		53E38F7C2BD427A40095ACFC /* NextSyncKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53E38F662BD427A40095ACFC /* NextSyncKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +64,27 @@
 			remoteGlobalIDString = 53E38F492BD4017C0095ACFC;
 			remoteInfo = FileProviderExtension;
 		};
+		53E38F712BD427A40095ACFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5377B1D82BD2B15100D660B8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 53E38F652BD427A40095ACFC;
+			remoteInfo = NextSyncKit;
+		};
+		53E38F732BD427A40095ACFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5377B1D82BD2B15100D660B8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5377B1DF2BD2B15100D660B8;
+			remoteInfo = NextSync;
+		};
+		53E38F792BD427A40095ACFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5377B1D82BD2B15100D660B8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 53E38F652BD427A40095ACFC;
+			remoteInfo = NextSyncKit;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -70,6 +97,17 @@
 				53E38F592BD4017C0095ACFC /* FileProviderExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53E38F802BD427A40095ACFC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				53E38F7C2BD427A40095ACFC /* NextSyncKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -107,6 +145,11 @@
 		53E38F532BD4017C0095ACFC /* FileProviderEnumerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileProviderEnumerator.swift; sourceTree = "<group>"; };
 		53E38F552BD4017C0095ACFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53E38F562BD4017C0095ACFC /* FileProviderExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FileProviderExtension.entitlements; sourceTree = "<group>"; };
+		53E38F662BD427A40095ACFC /* NextSyncKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NextSyncKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		53E38F682BD427A40095ACFC /* NextSyncKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NextSyncKit.h; sourceTree = "<group>"; };
+		53E38F692BD427A40095ACFC /* NextSyncKit.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = NextSyncKit.docc; sourceTree = "<group>"; };
+		53E38F6F2BD427A40095ACFC /* NextSyncKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NextSyncKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		53E38F762BD427A40095ACFC /* NextSyncKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextSyncKitTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53E38F7B2BD427A40095ACFC /* NextSyncKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +184,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		53E38F632BD427A40095ACFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53E38F6C2BD427A40095ACFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53E38F702BD427A40095ACFC /* NextSyncKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -151,6 +210,8 @@
 				5377B1E22BD2B15100D660B8 /* NextSync */,
 				5377B1F32BD2B15300D660B8 /* NextSyncTests */,
 				5377B1FD2BD2B15300D660B8 /* NextSyncUITests */,
+				53E38F672BD427A40095ACFC /* NextSyncKit */,
+				53E38F752BD427A40095ACFC /* NextSyncKitTests */,
 				53E38F4B2BD4017C0095ACFC /* Frameworks */,
 				5377B1E12BD2B15100D660B8 /* Products */,
 			);
@@ -163,6 +224,8 @@
 				5377B1F02BD2B15300D660B8 /* NextSyncTests.xctest */,
 				5377B1FA2BD2B15300D660B8 /* NextSyncUITests.xctest */,
 				53E38F4A2BD4017C0095ACFC /* FileProviderExtension.appex */,
+				53E38F662BD427A40095ACFC /* NextSyncKit.framework */,
+				53E38F6F2BD427A40095ACFC /* NextSyncKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -277,7 +340,35 @@
 			path = FileProviderExtension;
 			sourceTree = "<group>";
 		};
+		53E38F672BD427A40095ACFC /* NextSyncKit */ = {
+			isa = PBXGroup;
+			children = (
+				53E38F682BD427A40095ACFC /* NextSyncKit.h */,
+				53E38F692BD427A40095ACFC /* NextSyncKit.docc */,
+			);
+			path = NextSyncKit;
+			sourceTree = "<group>";
+		};
+		53E38F752BD427A40095ACFC /* NextSyncKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				53E38F762BD427A40095ACFC /* NextSyncKitTests.swift */,
+			);
+			path = NextSyncKitTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		53E38F612BD427A40095ACFC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53E38F782BD427A40095ACFC /* NextSyncKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		5377B1DF2BD2B15100D660B8 /* NextSync */ = {
@@ -288,11 +379,13 @@
 				5377B1DD2BD2B15100D660B8 /* Frameworks */,
 				5377B1DE2BD2B15100D660B8 /* Resources */,
 				53E38F5D2BD4017C0095ACFC /* Embed Foundation Extensions */,
+				53E38F802BD427A40095ACFC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				53E38F582BD4017C0095ACFC /* PBXTargetDependency */,
+				53E38F7A2BD427A40095ACFC /* PBXTargetDependency */,
 			);
 			name = NextSync;
 			productName = NextSync;
@@ -355,6 +448,43 @@
 			productReference = 53E38F4A2BD4017C0095ACFC /* FileProviderExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		53E38F652BD427A40095ACFC /* NextSyncKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 53E38F7D2BD427A40095ACFC /* Build configuration list for PBXNativeTarget "NextSyncKit" */;
+			buildPhases = (
+				53E38F612BD427A40095ACFC /* Headers */,
+				53E38F622BD427A40095ACFC /* Sources */,
+				53E38F632BD427A40095ACFC /* Frameworks */,
+				53E38F642BD427A40095ACFC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NextSyncKit;
+			productName = NextSyncKit;
+			productReference = 53E38F662BD427A40095ACFC /* NextSyncKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		53E38F6E2BD427A40095ACFC /* NextSyncKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 53E38F812BD427A40095ACFC /* Build configuration list for PBXNativeTarget "NextSyncKitTests" */;
+			buildPhases = (
+				53E38F6B2BD427A40095ACFC /* Sources */,
+				53E38F6C2BD427A40095ACFC /* Frameworks */,
+				53E38F6D2BD427A40095ACFC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				53E38F722BD427A40095ACFC /* PBXTargetDependency */,
+				53E38F742BD427A40095ACFC /* PBXTargetDependency */,
+			);
+			name = NextSyncKitTests;
+			productName = NextSyncKitTests;
+			productReference = 53E38F6F2BD427A40095ACFC /* NextSyncKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -379,6 +509,13 @@
 					53E38F492BD4017C0095ACFC = {
 						CreatedOnToolsVersion = 15.3;
 					};
+					53E38F652BD427A40095ACFC = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					53E38F6E2BD427A40095ACFC = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 5377B1DF2BD2B15100D660B8;
+					};
 				};
 			};
 			buildConfigurationList = 5377B1DB2BD2B15100D660B8 /* Build configuration list for PBXProject "NextSync" */;
@@ -401,6 +538,8 @@
 				5377B1EF2BD2B15300D660B8 /* NextSyncTests */,
 				5377B1F92BD2B15300D660B8 /* NextSyncUITests */,
 				53E38F492BD4017C0095ACFC /* FileProviderExtension */,
+				53E38F652BD427A40095ACFC /* NextSyncKit */,
+				53E38F6E2BD427A40095ACFC /* NextSyncKitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -431,6 +570,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		53E38F482BD4017C0095ACFC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53E38F642BD427A40095ACFC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53E38F6D2BD427A40095ACFC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -489,6 +642,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		53E38F622BD427A40095ACFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53E38F6A2BD427A40095ACFC /* NextSyncKit.docc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53E38F6B2BD427A40095ACFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53E38F772BD427A40095ACFC /* NextSyncKitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -506,6 +675,21 @@
 			isa = PBXTargetDependency;
 			target = 53E38F492BD4017C0095ACFC /* FileProviderExtension */;
 			targetProxy = 53E38F572BD4017C0095ACFC /* PBXContainerItemProxy */;
+		};
+		53E38F722BD427A40095ACFC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 53E38F652BD427A40095ACFC /* NextSyncKit */;
+			targetProxy = 53E38F712BD427A40095ACFC /* PBXContainerItemProxy */;
+		};
+		53E38F742BD427A40095ACFC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5377B1DF2BD2B15100D660B8 /* NextSync */;
+			targetProxy = 53E38F732BD427A40095ACFC /* PBXContainerItemProxy */;
+		};
+		53E38F7A2BD427A40095ACFC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 53E38F652BD427A40095ACFC /* NextSyncKit */;
+			targetProxy = 53E38F792BD427A40095ACFC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -847,6 +1031,138 @@
 			};
 			name = Release;
 		};
+		53E38F7E2BD427A40095ACFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = C4QUVLMPQU;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.claucambra.NextSync.NextSyncKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = auto;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		53E38F7F2BD427A40095ACFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = C4QUVLMPQU;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.claucambra.NextSync.NextSyncKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = auto;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		53E38F822BD427A40095ACFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C4QUVLMPQU;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.claucambra.NextSync.NextSyncKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NextSync.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NextSync";
+			};
+			name = Debug;
+		};
+		53E38F832BD427A40095ACFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C4QUVLMPQU;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.claucambra.NextSync.NextSyncKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NextSync.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NextSync";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -891,6 +1207,24 @@
 			buildConfigurations = (
 				53E38F5B2BD4017C0095ACFC /* Debug */,
 				53E38F5C2BD4017C0095ACFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		53E38F7D2BD427A40095ACFC /* Build configuration list for PBXNativeTarget "NextSyncKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53E38F7E2BD427A40095ACFC /* Debug */,
+				53E38F7F2BD427A40095ACFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		53E38F812BD427A40095ACFC /* Build configuration list for PBXNativeTarget "NextSyncKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53E38F822BD427A40095ACFC /* Debug */,
+				53E38F832BD427A40095ACFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
