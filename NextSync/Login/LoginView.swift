@@ -9,26 +9,31 @@ import Foundation
 import SwiftUI
 
 struct LoginView: View {
+    enum LoginType {
+        case webFlow
+    }
+
     @State var serverString = ""
     @State var serverUrl: URL?
+    @State private var path = [LoginType]()
 
     private static let httpPrefix = "http://"
     private static let httpsPrefix = "https://"
     private static let loginFlowSuffix = "/index.php/login/flow"
 
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             VStack {
                 Text("Welcome to NextSync!")
                 TextField("Nextcloud server location", text: $serverString)
                     .textContentType(.URL)
                     .onChange(of: serverString) { updateServerUrl() }
-                NavigationLink {
-                    if let serverUrl {
-                        LoginWebView(serverUrl: serverUrl)
-                    }
-                } label: {
-                    Label("Go", systemImage: "arrow.right")
+                    .onSubmit { path = [.webFlow] }
+                NavigationLink("Go", value: LoginType.webFlow)
+            }
+            .navigationDestination(for: LoginType.self) { loginType in
+                if let serverUrl, loginType == .webFlow {
+                    LoginWebView(serverUrl: serverUrl)
                 }
             }
         }
