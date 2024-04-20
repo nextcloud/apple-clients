@@ -6,17 +6,21 @@
 //
 
 import Foundation
+import SwiftUI
 import WebKit
 
-class LoginWebNavigationDelegate: NSObject, WKNavigationDelegate {
-    private static let ncScheme = "nc://"
+@Observable class LoginWebNavigationDelegate: NSObject, WKNavigationDelegate {
+    var finished = false
 
     func webView(
         _ webView: WKWebView,
         didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!
     ) {
         guard let url = webView.url else { return }
-        print(url, url.scheme)
-        //if url.scheme ==
+        let urlString = url.absoluteString
+        if urlString.hasPrefix(URLSchemeHandler.scheme) {
+            // We are done, go back and let the URL scheme handler take it from here
+            finished = true
+        }
     }
 }
