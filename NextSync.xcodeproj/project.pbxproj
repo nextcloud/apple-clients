@@ -28,6 +28,11 @@
 		53E38F3B2BD3CC170095ACFC /* MainDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F3A2BD3CC170095ACFC /* MainDetailView.swift */; };
 		53E38F422BD3D23C0095ACFC /* AccountPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F412BD3D23C0095ACFC /* AccountPicker.swift */; };
 		53E38F452BD3E2DF0095ACFC /* FileProviderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F442BD3E2DF0095ACFC /* FileProviderController.swift */; };
+		53E38F4D2BD4017C0095ACFC /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E38F4C2BD4017C0095ACFC /* UniformTypeIdentifiers.framework */; };
+		53E38F502BD4017C0095ACFC /* FileProviderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F4F2BD4017C0095ACFC /* FileProviderExtension.swift */; };
+		53E38F522BD4017C0095ACFC /* FileProviderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F512BD4017C0095ACFC /* FileProviderItem.swift */; };
+		53E38F542BD4017C0095ACFC /* FileProviderEnumerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F532BD4017C0095ACFC /* FileProviderEnumerator.swift */; };
+		53E38F592BD4017C0095ACFC /* FileProviderExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 53E38F4A2BD4017C0095ACFC /* FileProviderExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +50,28 @@
 			remoteGlobalIDString = 5377B1DF2BD2B15100D660B8;
 			remoteInfo = NextSync;
 		};
+		53E38F572BD4017C0095ACFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5377B1D82BD2B15100D660B8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 53E38F492BD4017C0095ACFC;
+			remoteInfo = FileProviderExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		53E38F5D2BD4017C0095ACFC /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				53E38F592BD4017C0095ACFC /* FileProviderExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5377B1E02BD2B15100D660B8 /* NextSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NextSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +99,13 @@
 		53E38F3A2BD3CC170095ACFC /* MainDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDetailView.swift; sourceTree = "<group>"; };
 		53E38F412BD3D23C0095ACFC /* AccountPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPicker.swift; sourceTree = "<group>"; };
 		53E38F442BD3E2DF0095ACFC /* FileProviderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileProviderController.swift; sourceTree = "<group>"; };
+		53E38F4A2BD4017C0095ACFC /* FileProviderExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FileProviderExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		53E38F4C2BD4017C0095ACFC /* UniformTypeIdentifiers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniformTypeIdentifiers.framework; path = System/Library/Frameworks/UniformTypeIdentifiers.framework; sourceTree = SDKROOT; };
+		53E38F4F2BD4017C0095ACFC /* FileProviderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileProviderExtension.swift; sourceTree = "<group>"; };
+		53E38F512BD4017C0095ACFC /* FileProviderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileProviderItem.swift; sourceTree = "<group>"; };
+		53E38F532BD4017C0095ACFC /* FileProviderEnumerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileProviderEnumerator.swift; sourceTree = "<group>"; };
+		53E38F552BD4017C0095ACFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53E38F562BD4017C0095ACFC /* FileProviderExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FileProviderExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +130,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		53E38F472BD4017C0095ACFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53E38F4D2BD4017C0095ACFC /* UniformTypeIdentifiers.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -104,9 +145,11 @@
 			isa = PBXGroup;
 			children = (
 				5377B20E2BD2B2CB00D660B8 /* README.md */,
+				53E38F4E2BD4017C0095ACFC /* FileProviderExtension */,
 				5377B1E22BD2B15100D660B8 /* NextSync */,
 				5377B1F32BD2B15300D660B8 /* NextSyncTests */,
 				5377B1FD2BD2B15300D660B8 /* NextSyncUITests */,
+				53E38F4B2BD4017C0095ACFC /* Frameworks */,
 				5377B1E12BD2B15100D660B8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -117,6 +160,7 @@
 				5377B1E02BD2B15100D660B8 /* NextSync.app */,
 				5377B1F02BD2B15300D660B8 /* NextSyncTests.xctest */,
 				5377B1FA2BD2B15300D660B8 /* NextSyncUITests.xctest */,
+				53E38F4A2BD4017C0095ACFC /* FileProviderExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -211,6 +255,26 @@
 			path = Files;
 			sourceTree = "<group>";
 		};
+		53E38F4B2BD4017C0095ACFC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				53E38F4C2BD4017C0095ACFC /* UniformTypeIdentifiers.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		53E38F4E2BD4017C0095ACFC /* FileProviderExtension */ = {
+			isa = PBXGroup;
+			children = (
+				53E38F4F2BD4017C0095ACFC /* FileProviderExtension.swift */,
+				53E38F512BD4017C0095ACFC /* FileProviderItem.swift */,
+				53E38F532BD4017C0095ACFC /* FileProviderEnumerator.swift */,
+				53E38F552BD4017C0095ACFC /* Info.plist */,
+				53E38F562BD4017C0095ACFC /* FileProviderExtension.entitlements */,
+			);
+			path = FileProviderExtension;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -221,10 +285,12 @@
 				5377B1DC2BD2B15100D660B8 /* Sources */,
 				5377B1DD2BD2B15100D660B8 /* Frameworks */,
 				5377B1DE2BD2B15100D660B8 /* Resources */,
+				53E38F5D2BD4017C0095ACFC /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				53E38F582BD4017C0095ACFC /* PBXTargetDependency */,
 			);
 			name = NextSync;
 			productName = NextSync;
@@ -267,6 +333,23 @@
 			productReference = 5377B1FA2BD2B15300D660B8 /* NextSyncUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		53E38F492BD4017C0095ACFC /* FileProviderExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 53E38F5A2BD4017C0095ACFC /* Build configuration list for PBXNativeTarget "FileProviderExtension" */;
+			buildPhases = (
+				53E38F462BD4017C0095ACFC /* Sources */,
+				53E38F472BD4017C0095ACFC /* Frameworks */,
+				53E38F482BD4017C0095ACFC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FileProviderExtension;
+			productName = FileProviderExtension;
+			productReference = 53E38F4A2BD4017C0095ACFC /* FileProviderExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -288,6 +371,9 @@
 						CreatedOnToolsVersion = 15.3;
 						TestTargetID = 5377B1DF2BD2B15100D660B8;
 					};
+					53E38F492BD4017C0095ACFC = {
+						CreatedOnToolsVersion = 15.3;
+					};
 				};
 			};
 			buildConfigurationList = 5377B1DB2BD2B15100D660B8 /* Build configuration list for PBXProject "NextSync" */;
@@ -306,6 +392,7 @@
 				5377B1DF2BD2B15100D660B8 /* NextSync */,
 				5377B1EF2BD2B15300D660B8 /* NextSyncTests */,
 				5377B1F92BD2B15300D660B8 /* NextSyncUITests */,
+				53E38F492BD4017C0095ACFC /* FileProviderExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -329,6 +416,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5377B1F82BD2B15300D660B8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53E38F482BD4017C0095ACFC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -377,6 +471,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		53E38F462BD4017C0095ACFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53E38F502BD4017C0095ACFC /* FileProviderExtension.swift in Sources */,
+				53E38F522BD4017C0095ACFC /* FileProviderItem.swift in Sources */,
+				53E38F542BD4017C0095ACFC /* FileProviderEnumerator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -389,6 +493,11 @@
 			isa = PBXTargetDependency;
 			target = 5377B1DF2BD2B15100D660B8 /* NextSync */;
 			targetProxy = 5377B1FB2BD2B15300D660B8 /* PBXContainerItemProxy */;
+		};
+		53E38F582BD4017C0095ACFC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 53E38F492BD4017C0095ACFC /* FileProviderExtension */;
+			targetProxy = 53E38F572BD4017C0095ACFC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -515,6 +624,7 @@
 		5377B2052BD2B15300D660B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -554,6 +664,7 @@
 		5377B2062BD2B15300D660B8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -666,6 +777,68 @@
 			};
 			name = Release;
 		};
+		53E38F5B2BD4017C0095ACFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = FileProviderExtension/FileProviderExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C4QUVLMPQU;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FileProviderExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FileProviderExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.claucambra.NextSync.FileProviderExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+			};
+			name = Debug;
+		};
+		53E38F5C2BD4017C0095ACFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = FileProviderExtension/FileProviderExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C4QUVLMPQU;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FileProviderExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FileProviderExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.claucambra.NextSync.FileProviderExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -701,6 +874,15 @@
 			buildConfigurations = (
 				5377B20B2BD2B15300D660B8 /* Debug */,
 				5377B20C2BD2B15300D660B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		53E38F5A2BD4017C0095ACFC /* Build configuration list for PBXNativeTarget "FileProviderExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53E38F5B2BD4017C0095ACFC /* Debug */,
+				53E38F5C2BD4017C0095ACFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
