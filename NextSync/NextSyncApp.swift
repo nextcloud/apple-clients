@@ -13,6 +13,7 @@ struct NextSyncApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onOpenURL { URLSchemeHandler.handle(url: $0) }
         }
         .modelContainer(for: AccountModel.self)
     }
