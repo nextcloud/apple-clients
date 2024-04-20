@@ -21,6 +21,7 @@
 		53E38F2A2BD2BD140095ACFC /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F292BD2BD140095ACFC /* LoginView.swift */; };
 		53E38F2D2BD2BF000095ACFC /* WebViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F2C2BD2BF000095ACFC /* WebViewRepresentable.swift */; };
 		53E38F2F2BD2CC370095ACFC /* LoginWebViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F2E2BD2CC370095ACFC /* LoginWebViewDelegate.swift */; };
+		53E38F312BD3B2960095ACFC /* URLSchemeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F302BD3B2960095ACFC /* URLSchemeHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		53E38F292BD2BD140095ACFC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		53E38F2C2BD2BF000095ACFC /* WebViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewRepresentable.swift; sourceTree = "<group>"; };
 		53E38F2E2BD2CC370095ACFC /* LoginWebViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWebViewDelegate.swift; sourceTree = "<group>"; };
+		53E38F302BD3B2960095ACFC /* URLSchemeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSchemeHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 				53E38F292BD2BD140095ACFC /* LoginView.swift */,
 				53E38F272BD2BB280095ACFC /* LoginWebView.swift */,
 				53E38F2E2BD2CC370095ACFC /* LoginWebViewDelegate.swift */,
+				53E38F302BD3B2960095ACFC /* URLSchemeHandler.swift */,
 				53E38F2C2BD2BF000095ACFC /* WebViewRepresentable.swift */,
 			);
 			path = Login;
@@ -305,6 +308,7 @@
 				53E38F2D2BD2BF000095ACFC /* WebViewRepresentable.swift in Sources */,
 				5377B2142BD2B5B000D660B8 /* AccountModel.swift in Sources */,
 				53E38F2A2BD2BD140095ACFC /* LoginView.swift in Sources */,
+				53E38F312BD3B2960095ACFC /* URLSchemeHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
