@@ -19,14 +19,9 @@ actor AccountsActor {
         modelContext.insert(accountModel)
         do {
             try modelContext.save()
+            debugPrint("Saved account \(accountModel.description)")
         } catch {
-            fatalError(
-                """
-                Error saving account: \(error)
-                username: \(accountModel.username)
-                server: \(accountModel.serverUrl)
-                """
-            )
+            fatalError("Error saving account: \(error), account: \(accountModel.description)")
         }
     }
 }
