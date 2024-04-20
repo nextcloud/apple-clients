@@ -15,6 +15,16 @@ final class AccountModel {
     var username: String
     @Attribute(.allowsCloudEncryption) var password: String
 
+    @Transient var description: String {
+        """
+        AccountModel
+        serverUrl: \(serverUrl),
+        displayname: \(displayname),
+        username: \(username),
+        password: \(password.isEmpty ? "EMPTY" : "NON-EMPTY")
+        """
+    }
+
     init(
         serverUrl: URL,
         displayname: String = "",
