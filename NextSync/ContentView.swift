@@ -15,13 +15,7 @@ struct ContentView: View {
         if accounts.isEmpty {
             LoginView()
         } else {
-            VStack {
-                Image(systemName: "globe")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
-                Text("Hello, world!")
-            }
-            .padding()
+            MainSplitContentView()
         }
     }
 }

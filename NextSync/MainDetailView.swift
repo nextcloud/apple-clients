@@ -1,0 +1,26 @@
+//
+//  MainDetailView.swift
+//  NextSync
+//
+//  Created by Claudio Cambra on 20/4/24.
+//
+
+import Foundation
+import SwiftUI
+
+struct MainDetailView: View {
+    @Binding var selection: MainSidebar.Panel?
+
+    var body: some View {
+        List(selection: $selection) {
+            switch selection ?? .files {
+            case .files:
+                EmptyView()
+            case .photos:
+                EmptyView()
+            case .settings:
+                EmptyView()
+            }
+        }
+    }
+}
