@@ -8,10 +8,16 @@
 import FileProvider
 import Foundation
 import NextSyncKit
+import OSLog
 
-class AppCommunicationServiceSource: AppCommunicationService {
+class AppCommunicationServiceSource:
+    NSObject, AppCommunicationService, NSFileProviderServiceSource, NSXPCListenerDelegate
+{
+    let serviceName = AppCommunicationServiceName
     let domainIdentifier: NSFileProviderDomainIdentifier
     let authenticationHandler: (_ serverUrl: URL, _ username: String, _ password: String) -> Void
+    let listener = NSXPCListener.anonymous()
+    private let logger = Logger(subsystem: Logger.subsystem, category: "app-comm-service-source")
 
     init(
         domainIdentifier: NSFileProviderDomainIdentifier,
@@ -21,11 +27,31 @@ class AppCommunicationServiceSource: AppCommunicationService {
         self.authenticationHandler = authenticationHandler
     }
 
+    // MARK: - AppCommunicationService conformance
     func domainIdentifierString() async -> String {
         domainIdentifier.rawValue
     }
     
     func authenticate(serverUrl: URL, username: String, password: String) {
+        logger.info("Received authentication info: \(serverUrl), \(username)")
         authenticationHandler(serverUrl, username, password)
+    }
+
+    // MARK: - NSFileProviderServiceSource conformance
+    func makeListenerEndpoint() throws -> NSXPCListenerEndpoint {
+        listener.delegate = self
+        listener.resume()
+        return listener.endpoint
+    }
+
+    // MARK: - NSXPCListenerDelegate conformance
+    func listener(
+        _ listener: NSXPCListener,
+        shouldAcceptNewConnection newConnection: NSXPCConnection
+    ) -> Bool {
+        newConnection.exportedInterface = NSXPCInterface(with: AppCommunicationService.self)
+        newConnection.exportedObject = self
+        newConnection.resume()
+        return true
     }
 }
