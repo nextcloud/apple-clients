@@ -33,6 +33,7 @@
 		53E38F522BD4017C0095ACFC /* FileProviderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F512BD4017C0095ACFC /* FileProviderItem.swift */; };
 		53E38F542BD4017C0095ACFC /* FileProviderEnumerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F532BD4017C0095ACFC /* FileProviderEnumerator.swift */; };
 		53E38F592BD4017C0095ACFC /* FileProviderExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 53E38F4A2BD4017C0095ACFC /* FileProviderExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		53E38F602BD40F9C0095ACFC /* NextcloudFileProviderKit in Frameworks */ = {isa = PBXBuildFile; productRef = 53E38F5F2BD40F9C0095ACFC /* NextcloudFileProviderKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +136,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53E38F4D2BD4017C0095ACFC /* UniformTypeIdentifiers.framework in Frameworks */,
+				53E38F602BD40F9C0095ACFC /* NextcloudFileProviderKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +348,9 @@
 			dependencies = (
 			);
 			name = FileProviderExtension;
+			packageProductDependencies = (
+				53E38F5F2BD40F9C0095ACFC /* NextcloudFileProviderKit */,
+			);
 			productName = FileProviderExtension;
 			productReference = 53E38F4A2BD4017C0095ACFC /* FileProviderExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -385,6 +390,9 @@
 				Base,
 			);
 			mainGroup = 5377B1D72BD2B15100D660B8;
+			packageReferences = (
+				53E38F5E2BD40F9C0095ACFC /* XCRemoteSwiftPackageReference "NextcloudFileProviderKit" */,
+			);
 			productRefGroup = 5377B1E12BD2B15100D660B8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -888,6 +896,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		53E38F5E2BD40F9C0095ACFC /* XCRemoteSwiftPackageReference "NextcloudFileProviderKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/claucambra/NextcloudFileProviderKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		53E38F5F2BD40F9C0095ACFC /* NextcloudFileProviderKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53E38F5E2BD40F9C0095ACFC /* XCRemoteSwiftPackageReference "NextcloudFileProviderKit" */;
+			productName = NextcloudFileProviderKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5377B1D82BD2B15100D660B8 /* Project object */;
 }
