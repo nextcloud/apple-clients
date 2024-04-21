@@ -119,14 +119,10 @@ class FileProviderController: ObservableObject {
             connection.invalidationHandler = { self.logger.debug("\(logStringPrefix) invalidated") }
             connection.resume()
 
-            guard let remoteService = connection.remoteObjectInterface else {
+            guard let commService = connection.remoteObjectProxy as? AppCommunicationService else {
                 throw DomainAuthError.nullRemoteObject
             }
-            guard let appCommService = remoteService as? AppCommunicationService else {
-                throw DomainAuthError.nonConformingRemoteService
-            }
-            
-            appCommService.authenticate(
+            commService.authenticate(
                 serverUrl: account.serverUrl, username: account.username, password: account.password
             )
         } catch let error {
