@@ -16,40 +16,59 @@ typealias InternalViewRepresentable = UIViewRepresentable
 #endif
 
 public struct WebViewRepresentable: InternalViewRepresentable {
+    @Observable public class WebViewStateBridge {
+        var isLoading: Bool = true
+        public init() {}
+    }
+
     private let url: URL?
     private let request: URLRequest?
     private let configuration: WKWebViewConfiguration
     private let setup: (WKWebView) -> Void
+    private let bridge: WebViewStateBridge
 
     public init(
+        bridge: WebViewStateBridge = WebViewStateBridge(),
         url: URL? = nil,
         request: URLRequest? = nil,
         configuration: WKWebViewConfiguration = WKWebViewConfiguration(),
         setup: @escaping (WKWebView) -> Void
     ) {
+        self.bridge = bridge
         self.url = url
         self.request = request
         self.configuration = configuration
         self.setup = setup
     }
 
+    public func makeCoordinator() -> Coordinator {
+        Coordinator()
+    }
+
+    public class Coordinator: NSObject {
+        var loadObservation: NSKeyValueObservation?
+    }
+
     #if os(macOS)
     public func makeNSView(context: Context) -> WKWebView {
-        makeView()
+        makeView(context: context)
     }
 
     public func updateNSView(_ view: WKWebView, context: Context) {}
     #else
     public func makeUIView(context: Context) -> WKWebView {
-        makeView()
+        makeView(context: context)
     }
 
     public func updateUIView(_ uiView: WKWebView, context: Context) {}
     #endif
 
 
-    func makeView() -> WKWebView {
+    func makeView(context: Context) -> WKWebView {
         let view = WKWebView(frame: .null, configuration: configuration)
+        context.coordinator.loadObservation = view.observe(\.isLoading) { view, value in
+            self.bridge.isLoading = view.isLoading
+        }
         setup(view)
         tryLoad(into: view)
         return view

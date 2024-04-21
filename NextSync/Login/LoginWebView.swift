@@ -14,6 +14,8 @@ struct LoginWebView: View {
     let configuration = WKWebViewConfiguration()
     let request: URLRequest
 
+    @State var webViewBridge = WebViewRepresentable.WebViewStateBridge()
+
     init(serverUrl: URL, navigationDelegate: LoginWebNavigationDelegate) {
         var request = URLRequest(url: serverUrl)
         request.addValue("true", forHTTPHeaderField: "OCS-APIRequest")
@@ -26,8 +28,10 @@ struct LoginWebView: View {
     }
 
     var body: some View {
-        WebViewRepresentable(request: request, configuration: configuration) { view in
-            view.navigationDelegate = navigationDelegate
+        WebLoadingView(isShowing: $webViewBridge.isLoading) {
+            WebViewRepresentable(
+                bridge: webViewBridge, request: request, configuration: configuration
+            ) { view in view.navigationDelegate = navigationDelegate }
         }
     }
 }
