@@ -67,7 +67,13 @@ class FileProviderExtension: NSObject, NSFileProviderReplicatedExtension {
         return Progress()
     }
     
-    func enumerator(for containerItemIdentifier: NSFileProviderItemIdentifier, request: NSFileProviderRequest) throws -> NSFileProviderEnumerator {
-        return FileProviderEnumerator(enumeratedItemIdentifier: containerItemIdentifier)
+    func enumerator(
+        for containerItemIdentifier: NSFileProviderItemIdentifier,
+        request: NSFileProviderRequest
+    ) throws -> NSFileProviderEnumerator {
+        guard let account else { throw NSFileProviderError(.notAuthenticated) }
+        return Enumerator(
+            enumeratedItemIdentifier: containerItemIdentifier, ncAccount: account, ncKit: ncKit
+        )
     }
 }
