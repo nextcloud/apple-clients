@@ -29,8 +29,10 @@ struct LoginView: View {
                 TextField("Nextcloud server location", text: $serverString)
                     .textFieldStyle(.roundedBorder)
                     .textContentType(.URL)
+                    #if !os(macOS)
                     .keyboardType(.URL)
                     .textInputAutocapitalization(.never)
+                    #endif
                     .autocorrectionDisabled()
                     .onChange(of: serverString) { updateServerUrl() }
                     .onSubmit { path = [.webFlow] }
