@@ -108,11 +108,47 @@ class FileProviderExtension: NSObject, NSFileProviderReplicatedExtension {
         return progress
     }
     
-    func modifyItem(_ item: NSFileProviderItem, baseVersion version: NSFileProviderItemVersion, changedFields: NSFileProviderItemFields, contents newContents: URL?, options: NSFileProviderModifyItemOptions = [], request: NSFileProviderRequest, completionHandler: @escaping (NSFileProviderItem?, NSFileProviderItemFields, Bool, Error?) -> Void) -> Progress {
-        // TODO: an item was modified on disk, process the item's modification
-        
-        completionHandler(nil, [], false, NSError(domain: NSCocoaErrorDomain, code: NSFeatureUnsupportedError, userInfo:[:]))
-        return Progress()
+    func modifyItem(
+        _ item: NSFileProviderItem,
+        baseVersion version: NSFileProviderItemVersion,
+        changedFields: NSFileProviderItemFields,
+        contents newContents: URL?,
+        options: NSFileProviderModifyItemOptions = [],
+        request: NSFileProviderRequest,
+        completionHandler: @escaping (
+            NSFileProviderItem?, NSFileProviderItemFields, Bool, Error?
+        ) -> Void
+    ) -> Progress {
+        // An item was modified on disk, process the item's modification
+        let progress = Progress()
+        guard let account else {
+            logger.error("Not modifying item \(item.filename), not authenticated")
+            completionHandler(nil, [], false, NSFileProviderError(.notAuthenticated))
+            return progress
+        }
+
+        let itemIdentifier = item.itemIdentifier
+        guard let storedItem = Item.storedItem(identifier: itemIdentifier, usingKit: ncKit) else {
+            logger.error("Not modifying item \(item.filename), not found")
+            completionHandler(nil, [], false, NSFileProviderError(.noSuchItem))
+            return progress
+        }
+
+        Task {
+            let (modifiedItem, error) = await storedItem.modify(
+                itemTarget: item,
+                baseVersion: version,
+                changedFields: changedFields,
+                contents: newContents,
+                options: options,
+                request: request,
+                ncAccount: account,
+                domain: domain,
+                progress: progress
+            )
+            completionHandler(modifiedItem, [], false, error)
+        }
+        return progress
     }
     
     func deleteItem(identifier: NSFileProviderItemIdentifier, baseVersion version: NSFileProviderItemVersion, options: NSFileProviderDeleteItemOptions = [], request: NSFileProviderRequest, completionHandler: @escaping (Error?) -> Void) -> Progress {
