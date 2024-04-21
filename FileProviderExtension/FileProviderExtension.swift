@@ -76,12 +76,36 @@ class FileProviderExtension: NSObject, NSFileProviderReplicatedExtension {
         }
         return progress
     }
-    
-    func createItem(basedOn itemTemplate: NSFileProviderItem, fields: NSFileProviderItemFields, contents url: URL?, options: NSFileProviderCreateItemOptions = [], request: NSFileProviderRequest, completionHandler: @escaping (NSFileProviderItem?, NSFileProviderItemFields, Bool, Error?) -> Void) -> Progress {
-        // TODO: a new item was created on disk, process the item's creation
-        
-        completionHandler(itemTemplate, [], false, nil)
-        return Progress()
+
+    func createItem(
+        basedOn itemTemplate: NSFileProviderItem,
+        fields: NSFileProviderItemFields,
+        contents url: URL?,
+        options: NSFileProviderCreateItemOptions = [],
+        request: NSFileProviderRequest,
+        completionHandler: @escaping (
+            NSFileProviderItem?, NSFileProviderItemFields, Bool, Error?
+        ) -> Void
+    ) -> Progress {
+        // A new item was created on disk, process the item's creation
+        let progress = Progress()
+        guard let account else {
+            logger.error("Not creating item \(itemTemplate.filename), not authenticated")
+            completionHandler(itemTemplate, [], false, NSFileProviderError(.notAuthenticated))
+            return progress
+        }
+
+        Task {
+            let (item, error) = await Item.create(
+                basedOn: itemTemplate,
+                contents: url,
+                ncKit: ncKit,
+                ncAccount: account,
+                progress: progress
+            ) // Returns item OR the error as non-nil
+            completionHandler(item, [], false, error)
+        }
+        return progress
     }
     
     func modifyItem(_ item: NSFileProviderItem, baseVersion version: NSFileProviderItemVersion, changedFields: NSFileProviderItemFields, contents newContents: URL?, options: NSFileProviderModifyItemOptions = [], request: NSFileProviderRequest, completionHandler: @escaping (NSFileProviderItem?, NSFileProviderItemFields, Bool, Error?) -> Void) -> Progress {
