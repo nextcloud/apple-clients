@@ -30,6 +30,41 @@ class FileProviderController: ObservableObject {
                 await authenticateDomain(domain, account: account)
             }
         }
+
+        NotificationCenter.default.addObserver(
+            self, 
+            selector: #selector(accountAdded(notification:)),
+            name: AccountAddedNotificationName,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(accountAdded(notification:)),
+            name: AccountRemovedNotificationName,
+            object: nil
+        )
+    }
+
+    @objc func accountAdded(notification: Notification) {
+        guard let accountModel = notification.object as? AccountModel else {
+            logger.critical("Received notification object for accountAdded not an accountmodel!")
+            return
+        }
+        Task {
+            let domain = domain(account: accountModel)
+            await createDomain(domain)
+        }
+    }
+
+    @objc func accountRemoved(notification: Notification) {
+        guard let accountModel = notification.object as? AccountModel else {
+            logger.critical("Received notification object for accountRemoved not an accountmodel!")
+            return
+        }
+        Task {
+            let domain = domain(account: accountModel)
+            await removeDomain(domain)
+        }
     }
 
     func domain(account: AccountModel) -> NSFileProviderDomain {
