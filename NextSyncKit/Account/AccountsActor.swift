@@ -9,6 +9,9 @@ import Foundation
 import SwiftData
 import OSLog
 
+public let AccountAddedNotificationName = Notification.Name("AccountAdded");
+public let AccountRemovedNotificationName = Notification.Name("AccountRemoved");
+
 @ModelActor
 public actor AccountsActor {
     private let logger = Logger(subsystem: Logger.subsystem, category: "accounts-actor")
@@ -23,6 +26,8 @@ public actor AccountsActor {
         do {
             try modelContext.save()
             logger.debug("Saved account \(accountModel.description)")
+            let notificationCenter = NotificationCenter.default
+            notificationCenter.post(name: AccountAddedNotificationName, object: accountModel)
         } catch {
             logger.error("Error saving account: \(error), account: \(accountModel.description)")
         }
@@ -33,6 +38,8 @@ public actor AccountsActor {
         do {
             try modelContext.save()
             logger.debug("Removed account \(accountModel.description)")
+            let notificationCenter = NotificationCenter.default
+            notificationCenter.post(name: AccountRemovedNotificationName, object: accountModel)
         } catch {
             logger.error("Error removing account: \(error), account: \(accountModel.description)")
         }
