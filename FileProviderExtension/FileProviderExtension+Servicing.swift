@@ -18,6 +18,8 @@ extension FileProviderExtension: NSFileProviderServicing {
         for itemIdentifier: NSFileProviderItemIdentifier,
         completionHandler: @escaping ([any NSFileProviderServiceSource]?, (any Error)?) -> Void
     ) -> Progress {
+        logger.info("Services requested on extension handling \(self.domain.rawIdentifier)")
+        
         let appCommunicationService = AppCommunicationServiceSource(
             domainIdentifier: domain.identifier,
             authenticationHandler: { [weak self] serverUrl, username, password in
@@ -25,7 +27,12 @@ extension FileProviderExtension: NSFileProviderServicing {
             }
         )
         completionHandler([appCommunicationService], nil)
-        return Progress()
+
+        let progress = Progress()
+        progress.cancellationHandler = {
+            completionHandler(nil, NSError(domain: NSCocoaErrorDomain, code: NSUserCancelledError))
+        }
+        return progress
     }
 
     private func authenticate(serverUrl: URL, username: String, password: String) {
