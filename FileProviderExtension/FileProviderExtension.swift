@@ -14,7 +14,7 @@ import OSLog
 class FileProviderExtension: NSObject, NSFileProviderReplicatedExtension {
     let domain: NSFileProviderDomain
     let ncKit = NextcloudKit()
-    let logger = Logger(subsystem: Logger.subsystem, category: "file-provider-extensions")
+    private let logger = Logger(subsystem: Logger.subsystem, category: "file-provider-extension")
 
     required init(domain: NSFileProviderDomain) {
         // The containing application must create a domain using
@@ -22,12 +22,13 @@ class FileProviderExtension: NSObject, NSFileProviderReplicatedExtension {
         // The system will then launch the application extension process, call
         // `FileProviderExtension.init(domain:)` to instantiate the extension for that domain, and
         // call methods on the instance.
+        logger.info("Instantiating file provider extension for domain: \(domain.rawIdentifier)")
         self.domain = domain
         super.init()
     }
     
     func invalidate() {
-        // TODO: cleanup any resources
+        logger.info("Invalidating file provider extension for domain \(self.domain.rawIdentifier)")
     }
     
     func item(for identifier: NSFileProviderItemIdentifier, request: NSFileProviderRequest, completionHandler: @escaping (NSFileProviderItem?, Error?) -> Void) -> Progress {
