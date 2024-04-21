@@ -22,7 +22,14 @@ class FileProviderController: ObservableObject {
         let modelContext = ModelContext(modelContainer)
         let fetchDescriptor = FetchDescriptor<AccountModel>()
         let accounts = try? modelContext.fetch(fetchDescriptor)
-        accounts?.forEach { account in Task { await createDomain(account: account) } }
+
+        accounts?.forEach { account in
+            Task {
+                let domain = domain(account: account)
+                await createDomain(domain)
+                await authenticateDomain(domain, account: account)
+            }
+        }
     }
 
     func domain(account: AccountModel) -> NSFileProviderDomain {
@@ -41,16 +48,10 @@ class FileProviderController: ObservableObject {
         }
     }
 
-    func createDomain(account: AccountModel) async {
-        let domain = domain(account: account)
-
-        guard await !domainExists(domain) else {
-            await authenticateDomain(domain, account: account)
-            return
-        }
+    func createDomain(_ domain: NSFileProviderDomain) async {
+        guard await !domainExists(domain) else { return }
         do {
             try await NSFileProviderManager.add(domain)
-            await authenticateDomain(domain, account: account)
         } catch let error {
             logger.error("Could not add domain for \(domain.rawIdentifier): \(error)")
         }
