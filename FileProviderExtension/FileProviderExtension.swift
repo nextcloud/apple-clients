@@ -183,4 +183,32 @@ class FileProviderExtension: NSObject, NSFileProviderReplicatedExtension {
             enumeratedItemIdentifier: containerItemIdentifier, ncAccount: account, ncKit: ncKit
         )
     }
+
+    func materializedItemsDidChange() async {
+        guard let account else {
+            logger.error(
+                """
+                Not cleaning stale local file metadatas for \(self.domain.rawIdentifier):
+                account not set up.
+                """
+            )
+            return
+        }
+
+        guard let manager = NSFileProviderManager(for: domain) else {
+            logger.error(
+                "Could not get file provider manager for domain: \(self.domain.rawIdentifier)"
+            )
+            return
+        }
+
+        let materialisedEnumerator = manager.enumeratorForMaterializedItems()
+        await withCheckedContinuation { continuation in
+            let materialisedObserver = MaterialisedEnumerationObserver(
+                ncKitAccount: account.ncKitAccount // TODO: Just make async in NCFPK
+            ) { _ in continuation.resume() }
+            let startPage = NSFileProviderPage(NSFileProviderPage.initialPageSortedByName as Data)
+            materialisedEnumerator.enumerateItems(for: materialisedObserver, startingAt: startPage)
+        }
+    }
 }
