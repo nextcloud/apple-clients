@@ -57,6 +57,15 @@ class FileProviderController: ObservableObject {
         }
     }
 
+    func removeDomain(_ domain: NSFileProviderDomain) async {
+        guard await domainExists(domain) else { return }
+        do {
+            try await NSFileProviderManager.remove(domain)
+        } catch let error {
+            logger.error("Could not delete domain for \(domain.rawIdentifier): \(error)")
+        }
+    }
+
     func authenticateDomain(_ domain: NSFileProviderDomain, account: AccountModel) async {
         guard let manager = NSFileProviderManager(for: domain) else {
             logger.error("Could not acquire manager for domain: \(domain.rawIdentifier)")
