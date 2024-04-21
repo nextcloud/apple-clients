@@ -19,5 +19,6 @@ struct NextSyncApp: App {
                 .onOpenURL { URLSchemeHandler.handle(url: $0, container: container) }
         }
         .modelContainer(container)
+        .environmentObject(FileProviderController(modelContainer: container))
     }
 }
