@@ -21,7 +21,7 @@ extension FileProviderExtension: NSFileProviderServicing {
                 self?.authenticate(serverUrl: serverUrl, username: username, password: password)
             }
         )
-        completionHandler([], nil)
+        completionHandler([appCommunicationService], nil)
         return Progress()
     }
 
