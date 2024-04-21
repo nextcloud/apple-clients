@@ -27,7 +27,11 @@ struct LoginView: View {
             VStack {
                 Text("Welcome to NextSync!")
                 TextField("Nextcloud server location", text: $serverString)
+                    .textFieldStyle(.roundedBorder)
                     .textContentType(.URL)
+                    .keyboardType(.URL)
+                    .textInputAutocapitalization(.never)
+                    .autocorrectionDisabled()
                     .onChange(of: serverString) { updateServerUrl() }
                     .onSubmit { path = [.webFlow] }
                 NavigationLink("Go", value: LoginType.webFlow)
