@@ -18,6 +18,7 @@ typealias InternalViewRepresentable = UIViewRepresentable
 public struct WebViewRepresentable: InternalViewRepresentable {
     @Observable public class WebViewStateBridge {
         var isLoading: Bool = true
+        var estimatedProgress: Double = 0
         public init() {}
     }
 
@@ -47,6 +48,7 @@ public struct WebViewRepresentable: InternalViewRepresentable {
 
     public class Coordinator: NSObject {
         var loadObservation: NSKeyValueObservation?
+        var progressObservation: NSKeyValueObservation?
     }
 
     #if os(macOS)
@@ -68,6 +70,9 @@ public struct WebViewRepresentable: InternalViewRepresentable {
         let view = WKWebView(frame: .null, configuration: configuration)
         context.coordinator.loadObservation = view.observe(\.isLoading) { view, value in
             self.bridge.isLoading = view.isLoading
+        }
+        context.coordinator.progressObservation = view.observe(\.estimatedProgress) { view, value in
+            self.bridge.estimatedProgress = view.estimatedProgress
         }
         setup(view)
         tryLoad(into: view)

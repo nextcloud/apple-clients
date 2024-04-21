@@ -10,6 +10,7 @@ import SwiftUI
 
 struct WebLoadingView<Content>: View where Content: View {
     @Binding var isShowing: Bool
+    @Binding var progress: Double
     var content: () -> Content
 
     var body: some View {
@@ -24,6 +25,8 @@ struct WebLoadingView<Content>: View where Content: View {
                         .bold()
                     ProgressView()
                         .progressViewStyle(.circular)
+                    ProgressView(value: progress, total: 1.0)
+                        .padding()
                 }
                 .frame(width: geometry.size.width / 2, height: geometry.size.height / 5)
                 .background(Color.secondary.colorInvert())

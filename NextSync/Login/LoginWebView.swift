@@ -28,7 +28,9 @@ struct LoginWebView: View {
     }
 
     var body: some View {
-        WebLoadingView(isShowing: $webViewBridge.isLoading) {
+        WebLoadingView(
+            isShowing: $webViewBridge.isLoading, progress: $webViewBridge.estimatedProgress
+        ) {
             WebViewRepresentable(
                 bridge: webViewBridge, request: request, configuration: configuration
             ) { view in view.navigationDelegate = navigationDelegate }
