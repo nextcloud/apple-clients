@@ -50,11 +50,31 @@ class FileProviderExtension: NSObject, NSFileProviderReplicatedExtension {
         return progress
     }
     
-    func fetchContents(for itemIdentifier: NSFileProviderItemIdentifier, version requestedVersion: NSFileProviderItemVersion?, request: NSFileProviderRequest, completionHandler: @escaping (URL?, NSFileProviderItem?, Error?) -> Void) -> Progress {
-        // TODO: implement fetching of the contents for the itemIdentifier at the specified version
-        
-        completionHandler(nil, nil, NSError(domain: NSCocoaErrorDomain, code: NSFeatureUnsupportedError, userInfo:[:]))
-        return Progress()
+    func fetchContents(
+        for itemIdentifier: NSFileProviderItemIdentifier,
+        version requestedVersion: NSFileProviderItemVersion?,
+        request: NSFileProviderRequest,
+        completionHandler: @escaping (URL?, NSFileProviderItem?, Error?) -> Void)
+    -> Progress {
+        // Fetching of the contents for the itemIdentifier at the specified version
+        let progress = Progress()
+        guard let account else {
+            logger.error("Not fetching contents of \(itemIdentifier.rawValue), not authenticated")
+            completionHandler(nil, nil, NSFileProviderError(.notAuthenticated))
+            return progress
+        }
+
+        guard let item = Item.storedItem(identifier: itemIdentifier, usingKit: ncKit) else {
+            logger.error("Not fetching contents of \(itemIdentifier.rawValue), item not found")
+            completionHandler(nil, nil, NSFileProviderError(.noSuchItem))
+            return progress
+        }
+
+        Task {
+            let (url, item, error) = await item.fetchContents(domain: domain, progress: progress)
+            completionHandler(url, item, error)
+        }
+        return progress
     }
     
     func createItem(basedOn itemTemplate: NSFileProviderItem, fields: NSFileProviderItemFields, contents url: URL?, options: NSFileProviderCreateItemOptions = [], request: NSFileProviderRequest, completionHandler: @escaping (NSFileProviderItem?, NSFileProviderItemFields, Bool, Error?) -> Void) -> Progress {
