@@ -151,11 +151,27 @@ class FileProviderExtension: NSObject, NSFileProviderReplicatedExtension {
         return progress
     }
     
-    func deleteItem(identifier: NSFileProviderItemIdentifier, baseVersion version: NSFileProviderItemVersion, options: NSFileProviderDeleteItemOptions = [], request: NSFileProviderRequest, completionHandler: @escaping (Error?) -> Void) -> Progress {
-        // TODO: an item was deleted on disk, process the item's deletion
-        
-        completionHandler(NSError(domain: NSCocoaErrorDomain, code: NSFeatureUnsupportedError, userInfo:[:]))
-        return Progress()
+    func deleteItem(
+        identifier: NSFileProviderItemIdentifier,
+        baseVersion version: NSFileProviderItemVersion,
+        options: NSFileProviderDeleteItemOptions = [],
+        request: NSFileProviderRequest,
+        completionHandler: @escaping (Error?) -> Void
+    ) -> Progress {
+        // An item was deleted on disk, process the item's deletion
+        let progress = Progress(totalUnitCount: 1)
+        guard let item = Item.storedItem(identifier: identifier, usingKit: ncKit) else {
+            logger.error("Not modifying item \(identifier.rawValue), not found")
+            completionHandler(NSFileProviderError(.noSuchItem))
+            return progress
+        }
+
+        Task {
+            let error = await item.delete()
+            progress.completedUnitCount = progress.totalUnitCount
+            completionHandler(await item.delete())
+        }
+        return progress
     }
     
     func enumerator(
