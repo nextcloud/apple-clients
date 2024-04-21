@@ -16,6 +16,8 @@ class FileProviderExtension: NSObject, NSFileProviderReplicatedExtension {
     let ncKit = NextcloudKit()
     private let logger = Logger(subsystem: Logger.subsystem, category: "file-provider-extension")
 
+    var account: Account?
+
     required init(domain: NSFileProviderDomain) {
         // The containing application must create a domain using
         // `NSFileProviderManager.add(_:, completionHandler:)`. 

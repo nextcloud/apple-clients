@@ -7,8 +7,10 @@
 
 import FileProvider
 import Foundation
+import NextcloudFileProviderKit
 
 extension FileProviderExtension: NSFileProviderServicing {
+
     func supportedServiceSources(
         for itemIdentifier: NSFileProviderItemIdentifier,
         completionHandler: @escaping ([any NSFileProviderServiceSource]?, (any Error)?) -> Void
@@ -31,6 +33,7 @@ extension FileProviderExtension: NSFileProviderServicing {
         }
 
         ncKit.setup(user: username, userId: username, password: password, urlBase: serverString)
+        account = Account(user: username, serverUrl: serverString, password: password) // TODO: Del!
 
         guard let manager = NSFileProviderManager(for: domain) else {
             self.logger.error("Could not get manager for domain \(self.domain.rawIdentifier)")
