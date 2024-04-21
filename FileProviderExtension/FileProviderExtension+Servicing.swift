@@ -8,6 +8,9 @@
 import FileProvider
 import Foundation
 import NextcloudFileProviderKit
+import OSLog
+
+fileprivate let logger = Logger(subsystem: Logger.subsystem, category: "file-provider-extension")
 
 extension FileProviderExtension: NSFileProviderServicing {
 
@@ -36,7 +39,7 @@ extension FileProviderExtension: NSFileProviderServicing {
         account = Account(user: username, serverUrl: serverString, password: password) // TODO: Del!
 
         guard let manager = NSFileProviderManager(for: domain) else {
-            self.logger.error("Could not get manager for domain \(self.domain.rawIdentifier)")
+            logger.error("Could not get manager for domain \(self.domain.rawIdentifier)")
             return
         }
         let resolvedError = NSFileProviderError(.notAuthenticated)
