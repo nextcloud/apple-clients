@@ -8,7 +8,7 @@
 	<true/>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.claucambra.NextSync</string>
+		<string>group.com.claucambra.NextSync</string>
 	</array>
 	<key>com.apple.security.network.client</key>
 	<true/>

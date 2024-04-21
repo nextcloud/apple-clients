@@ -139,6 +139,8 @@
 
 /* Begin PBXFileReference section */
 		532548DB2BD52D0F007B9772 /* WebLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebLoadingView.swift; sourceTree = "<group>"; };
+		532548F12BD53950007B9772 /* FileProviderExtension-iOS.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "FileProviderExtension-iOS.entitlements"; sourceTree = "<group>"; };
+		532548F22BD53950007B9772 /* FileProviderExtension-visionOS.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "FileProviderExtension-visionOS.entitlements"; sourceTree = "<group>"; };
 		5377B1E02BD2B15100D660B8 /* NextSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NextSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5377B1E32BD2B15100D660B8 /* NextSyncApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextSyncApp.swift; sourceTree = "<group>"; };
 		5377B1E52BD2B15100D660B8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -369,6 +371,8 @@
 				53E38F922BD435460095ACFC /* FileProviderExtension+Servicing.swift */,
 				53E38F552BD4017C0095ACFC /* Info.plist */,
 				53E38F562BD4017C0095ACFC /* FileProviderExtension.entitlements */,
+				532548F12BD53950007B9772 /* FileProviderExtension-iOS.entitlements */,
+				532548F22BD53950007B9772 /* FileProviderExtension-visionOS.entitlements */,
 			);
 			path = FileProviderExtension;
 			sourceTree = "<group>";
@@ -1048,7 +1052,10 @@
 		53E38F5B2BD4017C0095ACFC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"ADDITIONAL_SDKS[arch=*]" = "";
 				CODE_SIGN_ENTITLEMENTS = FileProviderExtension/FileProviderExtension.entitlements;
+				"CODE_SIGN_ENTITLEMENTS[sdk=iphoneos*]" = "FileProviderExtension/FileProviderExtension-iOS.entitlements";
+				"CODE_SIGN_ENTITLEMENTS[sdk=xros*]" = "FileProviderExtension/FileProviderExtension-visionOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = C4QUVLMPQU;
@@ -1069,6 +1076,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.claucambra.NextSync.FileProviderExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				"SDKROOT[arch=*]" = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1083,6 +1091,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = FileProviderExtension/FileProviderExtension.entitlements;
+				"CODE_SIGN_ENTITLEMENTS[sdk=iphoneos*]" = "FileProviderExtension/FileProviderExtension-iOS.entitlements";
+				"CODE_SIGN_ENTITLEMENTS[sdk=xros*]" = "FileProviderExtension/FileProviderExtension-visionOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = C4QUVLMPQU;
@@ -1103,6 +1113,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.claucambra.NextSync.FileProviderExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				"SDKROOT[arch=*]" = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
 				SUPPORTS_MACCATALYST = NO;
