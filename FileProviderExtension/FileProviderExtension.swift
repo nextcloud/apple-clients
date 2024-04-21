@@ -33,13 +33,21 @@ class FileProviderExtension: NSObject, NSFileProviderReplicatedExtension {
         logger.info("Invalidating file provider extension for domain \(self.domain.rawIdentifier)")
     }
     
-    func item(for identifier: NSFileProviderItemIdentifier, request: NSFileProviderRequest, completionHandler: @escaping (NSFileProviderItem?, Error?) -> Void) -> Progress {
+    func item(
+        for identifier: NSFileProviderItemIdentifier,
+        request: NSFileProviderRequest,
+        completionHandler: @escaping (NSFileProviderItem?, Error?) -> Void
+    ) -> Progress {
         // resolve the given identifier to a record in the model
-        
-        // TODO: implement the actual lookup
-
-        completionHandler(FileProviderItem(identifier: identifier), nil)
-        return Progress()
+        let progress = Progress(totalUnitCount: 1)
+        if let item = Item.storedItem(identifier: identifier, usingKit: ncKit) {
+            completionHandler(item, nil)
+        } else {
+            logger.error("Not providing item \(identifier.rawValue), not found")
+            completionHandler(nil, NSFileProviderError(.noSuchItem))
+        }
+        progress.completedUnitCount = progress.totalUnitCount
+        return progress
     }
     
     func fetchContents(for itemIdentifier: NSFileProviderItemIdentifier, version requestedVersion: NSFileProviderItemVersion?, request: NSFileProviderRequest, completionHandler: @escaping (URL?, NSFileProviderItem?, Error?) -> Void) -> Progress {

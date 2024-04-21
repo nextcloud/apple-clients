@@ -27,7 +27,6 @@
 		53E38F452BD3E2DF0095ACFC /* FileProviderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F442BD3E2DF0095ACFC /* FileProviderController.swift */; };
 		53E38F4D2BD4017C0095ACFC /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E38F4C2BD4017C0095ACFC /* UniformTypeIdentifiers.framework */; };
 		53E38F502BD4017C0095ACFC /* FileProviderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F4F2BD4017C0095ACFC /* FileProviderExtension.swift */; };
-		53E38F522BD4017C0095ACFC /* FileProviderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F512BD4017C0095ACFC /* FileProviderItem.swift */; };
 		53E38F592BD4017C0095ACFC /* FileProviderExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 53E38F4A2BD4017C0095ACFC /* FileProviderExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		53E38F6A2BD427A40095ACFC /* NextSyncKit.docc in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F692BD427A40095ACFC /* NextSyncKit.docc */; };
 		53E38F702BD427A40095ACFC /* NextSyncKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E38F662BD427A40095ACFC /* NextSyncKit.framework */; };
@@ -165,7 +164,6 @@
 		53E38F4A2BD4017C0095ACFC /* FileProviderExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FileProviderExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		53E38F4C2BD4017C0095ACFC /* UniformTypeIdentifiers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniformTypeIdentifiers.framework; path = System/Library/Frameworks/UniformTypeIdentifiers.framework; sourceTree = SDKROOT; };
 		53E38F4F2BD4017C0095ACFC /* FileProviderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileProviderExtension.swift; sourceTree = "<group>"; };
-		53E38F512BD4017C0095ACFC /* FileProviderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileProviderItem.swift; sourceTree = "<group>"; };
 		53E38F552BD4017C0095ACFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53E38F562BD4017C0095ACFC /* FileProviderExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FileProviderExtension.entitlements; sourceTree = "<group>"; };
 		53E38F662BD427A40095ACFC /* NextSyncKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NextSyncKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -361,7 +359,6 @@
 				53E38F942BD4358D0095ACFC /* Services */,
 				53E38F4F2BD4017C0095ACFC /* FileProviderExtension.swift */,
 				53E38F922BD435460095ACFC /* FileProviderExtension+Servicing.swift */,
-				53E38F512BD4017C0095ACFC /* FileProviderItem.swift */,
 				53E38F552BD4017C0095ACFC /* Info.plist */,
 				53E38F562BD4017C0095ACFC /* FileProviderExtension.entitlements */,
 			);
@@ -695,7 +692,6 @@
 			files = (
 				53E38F502BD4017C0095ACFC /* FileProviderExtension.swift in Sources */,
 				53E38F932BD435460095ACFC /* FileProviderExtension+Servicing.swift in Sources */,
-				53E38F522BD4017C0095ACFC /* FileProviderItem.swift in Sources */,
 				53E38F962BD435AA0095ACFC /* AppCommunicationServiceSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
