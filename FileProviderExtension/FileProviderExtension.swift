@@ -6,10 +6,23 @@
 //
 
 import FileProvider
+import NextcloudFileProviderKit
+import NextcloudKit
+import NextSyncKit
+import OSLog
 
 class FileProviderExtension: NSObject, NSFileProviderReplicatedExtension {
+    let domain: NSFileProviderDomain
+    let ncKit = NextcloudKit()
+    let logger = Logger(subsystem: Logger.subsystem, category: "file-provider-extensions")
+
     required init(domain: NSFileProviderDomain) {
-        // TODO: The containing application must create a domain using `NSFileProviderManager.add(_:, completionHandler:)`. The system will then launch the application extension process, call `FileProviderExtension.init(domain:)` to instantiate the extension for that domain, and call methods on the instance.
+        // The containing application must create a domain using
+        // `NSFileProviderManager.add(_:, completionHandler:)`. 
+        // The system will then launch the application extension process, call
+        // `FileProviderExtension.init(domain:)` to instantiate the extension for that domain, and
+        // call methods on the instance.
+        self.domain = domain
         super.init()
     }
     
