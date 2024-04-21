@@ -45,6 +45,7 @@
 		53E38F962BD435AA0095ACFC /* AppCommunicationServiceSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F952BD435AA0095ACFC /* AppCommunicationServiceSource.swift */; };
 		53E38F992BD435C40095ACFC /* AppCommunicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F982BD435C40095ACFC /* AppCommunicationService.swift */; };
 		53E38F9B2BD443D00095ACFC /* NSFileProviderDomain+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F9A2BD443D00095ACFC /* NSFileProviderDomain+Extensions.swift */; };
+		53E38F9D2BD507660095ACFC /* FileProviderExtension+Thumbnailing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F9C2BD507660095ACFC /* FileProviderExtension+Thumbnailing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,6 +176,7 @@
 		53E38F952BD435AA0095ACFC /* AppCommunicationServiceSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommunicationServiceSource.swift; sourceTree = "<group>"; };
 		53E38F982BD435C40095ACFC /* AppCommunicationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommunicationService.swift; sourceTree = "<group>"; };
 		53E38F9A2BD443D00095ACFC /* NSFileProviderDomain+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSFileProviderDomain+Extensions.swift"; sourceTree = "<group>"; };
+		53E38F9C2BD507660095ACFC /* FileProviderExtension+Thumbnailing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileProviderExtension+Thumbnailing.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -358,6 +360,7 @@
 			children = (
 				53E38F942BD4358D0095ACFC /* Services */,
 				53E38F4F2BD4017C0095ACFC /* FileProviderExtension.swift */,
+				53E38F9C2BD507660095ACFC /* FileProviderExtension+Thumbnailing.swift */,
 				53E38F922BD435460095ACFC /* FileProviderExtension+Servicing.swift */,
 				53E38F552BD4017C0095ACFC /* Info.plist */,
 				53E38F562BD4017C0095ACFC /* FileProviderExtension.entitlements */,
@@ -690,6 +693,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53E38F9D2BD507660095ACFC /* FileProviderExtension+Thumbnailing.swift in Sources */,
 				53E38F502BD4017C0095ACFC /* FileProviderExtension.swift in Sources */,
 				53E38F932BD435460095ACFC /* FileProviderExtension+Servicing.swift in Sources */,
 				53E38F962BD435AA0095ACFC /* AppCommunicationServiceSource.swift in Sources */,
