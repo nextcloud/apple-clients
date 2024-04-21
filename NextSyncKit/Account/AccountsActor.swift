@@ -27,4 +27,14 @@ public actor AccountsActor {
             logger.error("Error saving account: \(error), account: \(accountModel.description)")
         }
     }
+
+    public func removeAccount(_ accountModel: AccountModel) {
+        modelContext.delete(accountModel)
+        do {
+            try modelContext.save()
+            logger.debug("Removed account \(accountModel.description)")
+        } catch {
+            logger.error("Error removing account: \(error), account: \(accountModel.description)")
+        }
+    }
 }
