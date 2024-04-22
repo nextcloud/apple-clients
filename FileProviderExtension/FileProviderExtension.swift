@@ -169,7 +169,7 @@ class FileProviderExtension: NSObject, NSFileProviderReplicatedExtension {
         Task {
             let error = await item.delete()
             progress.completedUnitCount = progress.totalUnitCount
-            completionHandler(await item.delete())
+            completionHandler(error)
         }
         return progress
     }
