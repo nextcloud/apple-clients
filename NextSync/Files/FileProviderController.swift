@@ -26,8 +26,10 @@ class FileProviderController: ObservableObject {
         accounts?.forEach { account in
             Task {
                 let domain = domain(account: account)
-                await createDomain(domain)
-                await authenticateDomain(domain, account: account)
+                if await !domainExists(domain) {
+                    await createDomain(domain)
+                    account.domainIdentifier = domain.rawIdentifier
+                }
             }
         }
 
@@ -53,6 +55,7 @@ class FileProviderController: ObservableObject {
         Task {
             let domain = domain(account: accountModel)
             await createDomain(domain)
+            accountModel.domainIdentifier = domain.rawIdentifier
         }
     }
 
@@ -64,6 +67,7 @@ class FileProviderController: ObservableObject {
         Task {
             let domain = domain(account: accountModel)
             await removeDomain(domain)
+            accountModel.domainIdentifier = nil
         }
     }
 

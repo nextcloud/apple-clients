@@ -14,6 +14,7 @@ public final class AccountModel {
     public var displayname: String
     public var username: String
     @Attribute(.allowsCloudEncryption) public var password: String
+    public var domainIdentifier: String?
 
     @Transient public var description: String {
         """
@@ -21,6 +22,7 @@ public final class AccountModel {
         serverUrl: \(serverUrl),
         displayname: \(displayname),
         username: \(username),
+        domainIdentifier: \(domainIdentifier ?? "NONE"),
         password: \(password.isEmpty ? "EMPTY" : "NON-EMPTY")
         """
     }
@@ -29,11 +31,13 @@ public final class AccountModel {
         serverUrl: URL,
         displayname: String = "",
         username: String,
-        password: String
+        password: String,
+        domainIdentifier: String? = nil
     ) {
         self.serverUrl = serverUrl
         self.displayname = displayname
         self.username = username
         self.password = password
+        self.domainIdentifier = domainIdentifier
     }
 }
