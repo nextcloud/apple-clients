@@ -10,8 +10,11 @@ import NextcloudFileProviderKit
 import NextcloudKit
 import NextSyncKit
 import OSLog
+import SwiftData
 
-class FileProviderExtension: NSObject, NSFileProviderReplicatedExtension {
+class FileProviderExtension:
+    NSObject, NSFileProviderReplicatedExtension, NSFileProviderEnumerating
+{
     let domain: NSFileProviderDomain
     let ncKit = NextcloudKit()
     private let logger = Logger(subsystem: Logger.subsystem, category: "file-provider-extension")
@@ -27,12 +30,40 @@ class FileProviderExtension: NSObject, NSFileProviderReplicatedExtension {
         logger.info("Instantiating file provider extension for domain: \(domain.rawIdentifier)")
         self.domain = domain
         super.init()
+        retrieveAuthentication()
     }
     
     func invalidate() {
         logger.info("Invalidating file provider extension for domain \(self.domain.rawIdentifier)")
     }
-    
+
+    func retrieveAuthentication() {
+        let domainIdRaw = domain.rawIdentifier
+        do {
+            let modelContainer = try ModelContainer(for: AccountModel.self)
+            let modelContext = ModelContext(modelContainer)
+            let fetchDescriptor = FetchDescriptor<AccountModel>(
+                predicate: #Predicate { $0.domainIdentifier == domainIdRaw }
+            )
+            let match = try modelContext.fetch(fetchDescriptor).first!
+
+            account = Account(
+                user: match.username,
+                serverUrl: match.serverUrl.absoluteString,
+                password: match.password
+            )
+            
+            ncKit.setup(
+                user: match.username,
+                userId: match.username,
+                password: match.password,
+                urlBase: match.serverUrl.absoluteString
+            )
+        } catch let error {
+            logger.error("Unable to self authenticate \(self.domain.rawIdentifier): \(error)")
+        }
+    }
+
     func item(
         for identifier: NSFileProviderItemIdentifier,
         request: NSFileProviderRequest,
