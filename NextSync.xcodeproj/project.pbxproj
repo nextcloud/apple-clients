@@ -139,8 +139,8 @@
 
 /* Begin PBXFileReference section */
 		532548DB2BD52D0F007B9772 /* WebLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebLoadingView.swift; sourceTree = "<group>"; };
-		532548F12BD53950007B9772 /* FileProviderExtension-iOS.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "FileProviderExtension-iOS.entitlements"; sourceTree = "<group>"; };
-		532548F22BD53950007B9772 /* FileProviderExtension-visionOS.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "FileProviderExtension-visionOS.entitlements"; sourceTree = "<group>"; };
+		532549452BD66DA9007B9772 /* FileProviderExtension.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = FileProviderExtension.entitlements; sourceTree = "<group>"; };
+		532549462BD66DCB007B9772 /* NextSync.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NextSync.entitlements; sourceTree = "<group>"; };
 		5377B1E02BD2B15100D660B8 /* NextSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NextSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5377B1E32BD2B15100D660B8 /* NextSyncApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextSyncApp.swift; sourceTree = "<group>"; };
 		5377B1E52BD2B15100D660B8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -170,7 +170,7 @@
 		53E38F4C2BD4017C0095ACFC /* UniformTypeIdentifiers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniformTypeIdentifiers.framework; path = System/Library/Frameworks/UniformTypeIdentifiers.framework; sourceTree = SDKROOT; };
 		53E38F4F2BD4017C0095ACFC /* FileProviderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileProviderExtension.swift; sourceTree = "<group>"; };
 		53E38F552BD4017C0095ACFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		53E38F562BD4017C0095ACFC /* FileProviderExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FileProviderExtension.entitlements; sourceTree = "<group>"; };
+		53E38F562BD4017C0095ACFC /* FileProviderExtension-macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "FileProviderExtension-macOS.entitlements"; sourceTree = "<group>"; };
 		53E38F662BD427A40095ACFC /* NextSyncKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NextSyncKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53E38F682BD427A40095ACFC /* NextSyncKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NextSyncKit.h; sourceTree = "<group>"; };
 		53E38F692BD427A40095ACFC /* NextSyncKit.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = NextSyncKit.docc; sourceTree = "<group>"; };
@@ -181,7 +181,7 @@
 		53E38F982BD435C40095ACFC /* AppCommunicationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommunicationService.swift; sourceTree = "<group>"; };
 		53E38F9A2BD443D00095ACFC /* NSFileProviderDomain+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSFileProviderDomain+Extensions.swift"; sourceTree = "<group>"; };
 		53E38F9C2BD507660095ACFC /* FileProviderExtension+Thumbnailing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileProviderExtension+Thumbnailing.swift"; sourceTree = "<group>"; };
-		53E38F9E2BD50FA00095ACFC /* NextSync.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NextSync.entitlements; sourceTree = "<group>"; };
+		53E38F9E2BD50FA00095ACFC /* NextSync-macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "NextSync-macOS.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,7 +267,8 @@
 		5377B1E22BD2B15100D660B8 /* NextSync */ = {
 			isa = PBXGroup;
 			children = (
-				53E38F9E2BD50FA00095ACFC /* NextSync.entitlements */,
+				532549462BD66DCB007B9772 /* NextSync.entitlements */,
+				53E38F9E2BD50FA00095ACFC /* NextSync-macOS.entitlements */,
 				5377B2102BD2B36800D660B8 /* Account */,
 				53E38F432BD3E2B60095ACFC /* Files */,
 				53E38F262BD2BB0D0095ACFC /* Login */,
@@ -370,9 +371,8 @@
 				53E38F9C2BD507660095ACFC /* FileProviderExtension+Thumbnailing.swift */,
 				53E38F922BD435460095ACFC /* FileProviderExtension+Servicing.swift */,
 				53E38F552BD4017C0095ACFC /* Info.plist */,
-				53E38F562BD4017C0095ACFC /* FileProviderExtension.entitlements */,
-				532548F12BD53950007B9772 /* FileProviderExtension-iOS.entitlements */,
-				532548F22BD53950007B9772 /* FileProviderExtension-visionOS.entitlements */,
+				532549452BD66DA9007B9772 /* FileProviderExtension.entitlements */,
+				53E38F562BD4017C0095ACFC /* FileProviderExtension-macOS.entitlements */,
 			);
 			path = FileProviderExtension;
 			sourceTree = "<group>";
@@ -898,6 +898,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = NextSync/NextSync.entitlements;
+				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = "NextSync/NextSync-macOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NextSync/Preview Content\"";
@@ -939,6 +940,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = NextSync/NextSync.entitlements;
+				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = "NextSync/NextSync-macOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NextSync/Preview Content\"";
@@ -1054,8 +1056,7 @@
 			buildSettings = {
 				"ADDITIONAL_SDKS[arch=*]" = "";
 				CODE_SIGN_ENTITLEMENTS = FileProviderExtension/FileProviderExtension.entitlements;
-				"CODE_SIGN_ENTITLEMENTS[sdk=iphoneos*]" = "FileProviderExtension/FileProviderExtension-iOS.entitlements";
-				"CODE_SIGN_ENTITLEMENTS[sdk=xros*]" = "FileProviderExtension/FileProviderExtension-visionOS.entitlements";
+				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = "FileProviderExtension/FileProviderExtension-macOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = C4QUVLMPQU;
@@ -1091,8 +1092,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = FileProviderExtension/FileProviderExtension.entitlements;
-				"CODE_SIGN_ENTITLEMENTS[sdk=iphoneos*]" = "FileProviderExtension/FileProviderExtension-iOS.entitlements";
-				"CODE_SIGN_ENTITLEMENTS[sdk=xros*]" = "FileProviderExtension/FileProviderExtension-visionOS.entitlements";
+				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = "FileProviderExtension/FileProviderExtension-macOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = C4QUVLMPQU;

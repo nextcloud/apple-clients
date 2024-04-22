@@ -4,6 +4,11 @@
 <dict>
 	<key>NCFPKAppGroupIdentifier</key>
 	<string>group.com.claucambra.NextSync</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>NSExtension</key>
 	<dict>
 		<key>NSExtensionFileProviderDocumentGroup</key>

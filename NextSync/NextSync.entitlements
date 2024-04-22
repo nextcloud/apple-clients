@@ -6,5 +6,9 @@
 	<array>
 		<string>group.com.claucambra.NextSync</string>
 	</array>
+	<key>keychain-access-groups</key>
+	<array>
+		<string>$(AppIdentifierPrefix)group.com.claucambra.NextSync</string>
+	</array>
 </dict>
 </plist>
