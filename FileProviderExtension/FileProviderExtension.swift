@@ -54,6 +54,7 @@ class FileProviderExtension:
             )
             
             ncKit.setup(
+                account: account!.ncKitAccount,
                 user: match.username,
                 userId: match.username,
                 password: match.password,
