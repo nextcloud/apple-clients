@@ -110,7 +110,7 @@ class FileProviderExtension:
     -> Progress {
         // Fetching of the contents for the itemIdentifier at the specified version
         let progress = Progress()
-        guard let account else {
+        guard account != nil else {
             logger.error("Not fetching contents of \(itemIdentifier.rawValue), not authenticated")
             completionHandler(nil, nil, NSFileProviderError(.notAuthenticated))
             return progress
