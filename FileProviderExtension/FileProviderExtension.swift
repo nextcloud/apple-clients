@@ -72,7 +72,7 @@ class FileProviderExtension:
     ) -> Progress {
         // resolve the given identifier to a record in the model
         let progress = Progress(totalUnitCount: 1)
-        if let item = Item.storedItem(identifier: identifier, usingKit: ncKit) {
+        if let item = Item.storedItem(identifier: identifier, remoteInterface: ncKit) {
             completionHandler(item, nil)
         } else {
             logger.error("Not providing item \(identifier.rawValue), not found")
@@ -96,7 +96,7 @@ class FileProviderExtension:
             return progress
         }
 
-        guard let item = Item.storedItem(identifier: itemIdentifier, usingKit: ncKit) else {
+        guard let item = Item.storedItem(identifier: itemIdentifier, remoteInterface: ncKit) else {
             logger.error("Not fetching contents of \(itemIdentifier.rawValue), item not found")
             completionHandler(nil, nil, NSFileProviderError(.noSuchItem))
             return progress
@@ -131,7 +131,7 @@ class FileProviderExtension:
             let (item, error) = await Item.create(
                 basedOn: itemTemplate,
                 contents: url,
-                ncKit: ncKit,
+                remoteInterface: ncKit,
                 ncAccount: account,
                 progress: progress
             ) // Returns item OR the error as non-nil
@@ -160,7 +160,9 @@ class FileProviderExtension:
         }
 
         let itemIdentifier = item.itemIdentifier
-        guard let storedItem = Item.storedItem(identifier: itemIdentifier, usingKit: ncKit) else {
+        guard let storedItem = Item.storedItem(
+            identifier: itemIdentifier, remoteInterface: ncKit
+        ) else {
             logger.error("Not modifying item \(item.filename), not found")
             completionHandler(nil, [], false, NSFileProviderError(.noSuchItem))
             return progress
@@ -192,7 +194,7 @@ class FileProviderExtension:
     ) -> Progress {
         // An item was deleted on disk, process the item's deletion
         let progress = Progress(totalUnitCount: 1)
-        guard let item = Item.storedItem(identifier: identifier, usingKit: ncKit) else {
+        guard let item = Item.storedItem(identifier: identifier, remoteInterface: ncKit) else {
             logger.error("Not modifying item \(identifier.rawValue), not found")
             completionHandler(NSFileProviderError(.noSuchItem))
             return progress
@@ -212,7 +214,9 @@ class FileProviderExtension:
     ) throws -> NSFileProviderEnumerator {
         guard let account else { throw NSFileProviderError(.notAuthenticated) }
         return Enumerator(
-            enumeratedItemIdentifier: containerItemIdentifier, ncAccount: account, ncKit: ncKit
+            enumeratedItemIdentifier: containerItemIdentifier,
+            ncAccount: account,
+            remoteInterface: ncKit
         )
     }
 
