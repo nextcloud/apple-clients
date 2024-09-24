@@ -152,7 +152,6 @@ class FileProviderExtension:
                 basedOn: itemTemplate,
                 contents: url,
                 remoteInterface: ncKit,
-                ncAccount: account,
                 progress: progress
             ) // Returns item OR the error as non-nil
             completionHandler(item, [], false, error)
@@ -196,7 +195,6 @@ class FileProviderExtension:
                 contents: newContents,
                 options: options,
                 request: request,
-                ncAccount: account,
                 domain: domain,
                 progress: progress
             )
@@ -234,9 +232,7 @@ class FileProviderExtension:
     ) throws -> NSFileProviderEnumerator {
         guard let account else { throw NSFileProviderError(.notAuthenticated) }
         return Enumerator(
-            enumeratedItemIdentifier: containerItemIdentifier,
-            ncAccount: account,
-            remoteInterface: ncKit
+            enumeratedItemIdentifier: containerItemIdentifier, remoteInterface: ncKit
         )
     }
 
