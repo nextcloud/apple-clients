@@ -13,8 +13,21 @@ import OSLog
 import SwiftData
 
 class FileProviderExtension:
-    NSObject, NSFileProviderReplicatedExtension, NSFileProviderEnumerating
+    NSObject, NSFileProviderReplicatedExtension, NSFileProviderEnumerating, ChangeNotificationInterface
 {
+    func notifyChange() {
+        NSFileProviderManager(for: domain)?.signalEnumerator(for: .workingSet) { error in
+            if let error = error {
+                self.logger.error(
+                    """
+                    Could not signal enumerator for \(self.account?.ncKitAccount ?? "", privacy: .public):
+                    \(error.localizedDescription, privacy: .public)
+                    """
+                )
+            }
+        }
+    }
+    
     let domain: NSFileProviderDomain
     let ncKit = NextcloudKit()
     private let logger = Logger(subsystem: Logger.subsystem, category: "file-provider-extension")
