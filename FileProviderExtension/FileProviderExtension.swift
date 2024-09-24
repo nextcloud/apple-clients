@@ -31,6 +31,7 @@ class FileProviderExtension:
     let domain: NSFileProviderDomain
     let ncKit = NextcloudKit()
     private let logger = Logger(subsystem: Logger.subsystem, category: "file-provider-extension")
+    private var remoteChangeObserver: RemoteChangeObserver?
 
     var account: Account?
 
@@ -73,6 +74,12 @@ class FileProviderExtension:
                 password: match.password,
                 urlBase: match.serverUrl.absoluteString
             )
+
+            remoteChangeObserver = RemoteChangeObserver(
+                remoteInterface: ncKit, changeNotificationInterface: self, domain: domain
+            )
+
+            ncKit.setup(delegate: remoteChangeObserver)
         } catch let error {
             logger.error("Unable to self authenticate \(self.domain.rawIdentifier): \(error)")
         }
