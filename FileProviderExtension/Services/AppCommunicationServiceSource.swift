@@ -15,13 +15,15 @@ class AppCommunicationServiceSource:
 {
     let serviceName = AppCommunicationServiceName
     let domainIdentifier: NSFileProviderDomainIdentifier
-    let authenticationHandler: (_ serverUrl: URL, _ username: String, _ password: String) -> Void
+    let authenticationHandler: (
+        _ serverUrl: URL, _ username: String, _ userId: String, _ password: String
+    ) -> Void
     let listener = NSXPCListener.anonymous()
     private let logger = Logger(subsystem: Logger.subsystem, category: "app-comm-service-source")
 
     init(
         domainIdentifier: NSFileProviderDomainIdentifier,
-        authenticationHandler: @escaping (_: URL, _: String, _: String) -> Void
+        authenticationHandler: @escaping (_: URL, _: String, _: String, _: String) -> Void
     ) {
         self.domainIdentifier = domainIdentifier
         self.authenticationHandler = authenticationHandler
@@ -32,9 +34,9 @@ class AppCommunicationServiceSource:
         domainIdentifier.rawValue
     }
     
-    func authenticate(serverUrl: URL, username: String, password: String) {
+    func authenticate(serverUrl: URL, username: String, userId: String, password: String) {
         logger.info("Received authentication info: \(serverUrl), \(username)")
-        authenticationHandler(serverUrl, username, password)
+        authenticationHandler(serverUrl, username, userId, password)
     }
 
     // MARK: - NSFileProviderServiceSource conformance

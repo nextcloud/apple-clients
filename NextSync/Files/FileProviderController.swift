@@ -127,7 +127,10 @@ class FileProviderController: ObservableObject {
                 throw DomainAuthError.nullRemoteObject
             }
             commService.authenticate(
-                serverUrl: account.serverUrl, username: account.username, password: account.password
+                serverUrl: account.serverUrl,
+                username: account.username,
+                userId: account.userId,
+                password: account.password
             )
         } catch let error {
             logger.error("Could not authenticate domain \(domain.rawIdentifier): \(error)")

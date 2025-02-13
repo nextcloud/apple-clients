@@ -14,5 +14,5 @@ public let AppCommunicationServiceName = NSFileProviderServiceName(
 
 @objc public protocol AppCommunicationService {
     func domainIdentifierString() async -> String
-    func authenticate(serverUrl: URL, username: String, password: String)
+    func authenticate(serverUrl: URL, username: String, userId: String, password: String)
 }
