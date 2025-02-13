@@ -33,7 +33,33 @@ class FileProviderExtension:
     internal let logger = Logger(subsystem: Logger.subsystem, category: "file-provider-extension")
     private var remoteChangeObserver: RemoteChangeObserver?
 
-    var account: Account?
+    var account: Account? {
+        didSet {
+            guard let account, account != oldValue else { return }
+
+            ncKit.appendSession(
+                account: account.ncKitAccount,
+                urlBase: account.serverUrl,
+                user: account.username,
+                userId: account.id,
+                password: account.password,
+                userAgent: "NextSync",
+                nextcloudVersion: 25,
+                groupIdentifier: ""
+            )
+                Task { @MainActor in
+                    self.account = account
+                    remoteChangeObserver = RemoteChangeObserver(
+                        account: account,
+                        remoteInterface: ncKit,
+                        changeNotificationInterface: self,
+                        domain: domain
+                    )
+                    ncKit.setup(delegate: remoteChangeObserver)
+                }
+            }
+        }
+    }
 
     required init(domain: NSFileProviderDomain) {
         // The containing application must create a domain using
@@ -67,20 +93,7 @@ class FileProviderExtension:
                 serverUrl: match.serverUrl.absoluteString,
                 password: match.password
             )
-            
-            ncKit.setup(
-                account: account!.ncKitAccount,
-                user: match.username,
-                userId: match.username,
-                password: match.password,
-                urlBase: match.serverUrl.absoluteString
-            )
 
-            remoteChangeObserver = RemoteChangeObserver(
-                remoteInterface: ncKit, changeNotificationInterface: self, domain: domain
-            )
-
-            ncKit.setup(delegate: remoteChangeObserver)
         } catch let error {
             logger.error("Unable to self authenticate \(self.domain.rawIdentifier): \(error)")
         }
