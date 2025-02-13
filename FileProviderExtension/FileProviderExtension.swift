@@ -29,7 +29,7 @@ class FileProviderExtension:
     }
     
     let domain: NSFileProviderDomain
-    let ncKit = NextcloudKit()
+    let ncKit = NextcloudKit.shared
     private let logger = Logger(subsystem: Logger.subsystem, category: "file-provider-extension")
     private var remoteChangeObserver: RemoteChangeObserver?
 
@@ -92,7 +92,16 @@ class FileProviderExtension:
     ) -> Progress {
         // resolve the given identifier to a record in the model
         let progress = Progress(totalUnitCount: 1)
-        if let item = Item.storedItem(identifier: identifier, remoteInterface: ncKit) {
+        guard let account else {
+            logger.error(
+                "Unauthenticated, cannot provide item. \(identifier.rawValue, privacy: .public)"
+            )
+            completionHandler(nil, NSFileProviderError(.notAuthenticated))
+            return progress
+        }
+        if let item = Item.storedItem(
+            identifier: identifier, account: account, remoteInterface: ncKit
+        ) {
             completionHandler(item, nil)
         } else {
             logger.error("Not providing item \(identifier.rawValue), not found")
@@ -121,13 +130,15 @@ class FileProviderExtension:
         }
 
         let progress = Progress()
-        guard account != nil else {
+        guard let account else {
             logger.error("Not fetching contents of \(itemIdentifier.rawValue), not authenticated")
             completionHandler(nil, nil, NSFileProviderError(.notAuthenticated))
             return progress
         }
 
-        guard let item = Item.storedItem(identifier: itemIdentifier, remoteInterface: ncKit) else {
+        guard let item = Item.storedItem(
+            identifier: itemIdentifier, account: account, remoteInterface: ncKit
+        ) else {
             logger.error("Not fetching contents of \(itemIdentifier.rawValue), item not found")
             completionHandler(nil, nil, NSFileProviderError(.noSuchItem))
             return progress
@@ -161,7 +172,11 @@ class FileProviderExtension:
         Task {
             let (item, error) = await Item.create(
                 basedOn: itemTemplate,
+                fields: fields,
                 contents: url,
+                request: request,
+                domain: domain,
+                account: account,
                 remoteInterface: ncKit,
                 progress: progress
             ) // Returns item OR the error as non-nil
@@ -191,7 +206,7 @@ class FileProviderExtension:
 
         let itemIdentifier = item.itemIdentifier
         guard let storedItem = Item.storedItem(
-            identifier: itemIdentifier, remoteInterface: ncKit
+            identifier: itemIdentifier, account: account, remoteInterface: ncKit
         ) else {
             logger.error("Not modifying item \(item.filename), not found")
             completionHandler(nil, [], false, NSFileProviderError(.noSuchItem))
@@ -223,7 +238,16 @@ class FileProviderExtension:
     ) -> Progress {
         // An item was deleted on disk, process the item's deletion
         let progress = Progress(totalUnitCount: 1)
-        guard let item = Item.storedItem(identifier: identifier, remoteInterface: ncKit) else {
+        guard let account else {
+            logger.error(
+                "Unauthenticated, cannot delete item. \(identifier.rawValue, privacy: .public)"
+            )
+            completionHandler(NSFileProviderError(.notAuthenticated))
+            return progress
+        }
+        guard let item = Item.storedItem(
+            identifier: identifier, account: account, remoteInterface: ncKit
+        ) else {
             logger.error("Not modifying item \(identifier.rawValue), not found")
             completionHandler(NSFileProviderError(.noSuchItem))
             return progress
@@ -241,9 +265,15 @@ class FileProviderExtension:
         for containerItemIdentifier: NSFileProviderItemIdentifier,
         request: NSFileProviderRequest
     ) throws -> NSFileProviderEnumerator {
-        guard let account else { throw NSFileProviderError(.notAuthenticated) }
+        logger.info("Enumerator request for: \(containerItemIdentifier.rawValue, privacy: .public)")
+        guard let account else {
+            logger.error("Unauthenticated, not proceeding with providing enumerator")
+            throw NSFileProviderError(.notAuthenticated)
+        }
         return Enumerator(
-            enumeratedItemIdentifier: containerItemIdentifier, remoteInterface: ncKit
+            enumeratedItemIdentifier: containerItemIdentifier,
+            account: account,
+            remoteInterface: ncKit
         )
     }
 
