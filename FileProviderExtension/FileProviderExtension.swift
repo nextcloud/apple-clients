@@ -30,7 +30,7 @@ class FileProviderExtension:
     
     let domain: NSFileProviderDomain
     let ncKit = NextcloudKit.shared
-    private let logger = Logger(subsystem: Logger.subsystem, category: "file-provider-extension")
+    internal let logger = Logger(subsystem: Logger.subsystem, category: "file-provider-extension")
     private var remoteChangeObserver: RemoteChangeObserver?
 
     var account: Account?
