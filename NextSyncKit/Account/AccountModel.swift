@@ -48,4 +48,8 @@ public final class AccountModel {
         self.password = password
         self.domainIdentifier = domainIdentifier
     }
+
+    public func toFileProviderKitAccount() -> Account {
+        Account(user: username, id: userId, serverUrl: serverUrl.absoluteString, password: password)
+    }
 }
