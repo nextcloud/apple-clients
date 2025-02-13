@@ -82,6 +82,9 @@ class URLSchemeHandler {
 
         let account = AccountModel(serverUrl: serverUrl, username: username, userId: "", password: password)
         let accountsActor = AccountsActor(modelContainer: container)
-        Task { await accountsActor.addAccount(account) }
+        Task { @MainActor in
+            let error = await account.syncWithServer()
+            await accountsActor.addAccount(account)
+        }
     }
 }
