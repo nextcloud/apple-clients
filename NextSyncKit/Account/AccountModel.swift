@@ -7,10 +7,15 @@
 
 import Foundation
 import NextcloudFileProviderKit
+import NextcloudKit
 import SwiftData
 
 @Model
 public final class AccountModel {
+    public enum SyncError: Error {
+        case couldNotGetUserProfile(String)
+    }
+
     public var serverUrl: URL
     public var displayname: String
     public var username: String
@@ -65,5 +70,24 @@ public final class AccountModel {
             nextcloudVersion: 25,
             groupIdentifier: ""
         )
+    }
+
+    public func syncWithServer(
+        options: NKRequestOptions = .init(),
+        taskHandler: @escaping (_ task: URLSessionTask) -> Void = { _ in }
+    ) async -> SyncError? {
+        addToNcKitSessions()
+        assert(NextcloudKit.shared.getSession(account: ncKitAccount) != nil)
+
+        let (_, userProfile, _, error) = await NextcloudKit.shared.fetchUserProfile(
+            account: toFileProviderKitAccount(), options: options, taskHandler: taskHandler
+        )
+        guard error == .success, let userProfile else {
+            return .couldNotGetUserProfile(error.errorDescription)
+        }
+        displayname = userProfile.displayName
+        userId = userProfile.userId
+
+        return nil
     }
 }
