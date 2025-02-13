@@ -80,7 +80,7 @@ class URLSchemeHandler {
             return
         }
 
-        let account = AccountModel(serverUrl: serverUrl, username: username, password: password)
+        let account = AccountModel(serverUrl: serverUrl, username: username, userId: "", password: password)
         let accountsActor = AccountsActor(modelContainer: container)
         Task { await accountsActor.addAccount(account) }
     }

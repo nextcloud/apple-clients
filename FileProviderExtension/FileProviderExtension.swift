@@ -63,6 +63,7 @@ class FileProviderExtension:
 
             account = Account(
                 user: match.username,
+                id: match.userId,
                 serverUrl: match.serverUrl.absoluteString,
                 password: match.password
             )
