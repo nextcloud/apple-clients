@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import NextcloudFileProviderKit
 import SwiftData
 
 @Model
@@ -17,6 +18,9 @@ public final class AccountModel {
     @Attribute(.allowsCloudEncryption) public var password: String
     public var domainIdentifier: String?
 
+    @Transient public var ncKitAccount: String {
+        Account.ncKitAccountString(from: username, serverUrl: serverUrl.absoluteString)
+    }
     @Transient public var description: String {
         """
         AccountModel
