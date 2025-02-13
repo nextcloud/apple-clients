@@ -12,6 +12,10 @@ import NextSyncKit
 import OSLog
 import SwiftData
 
+let AuthenticationTimeouts: [UInt64] = [ // Have progressively longer timeouts to not hammer server
+    3_000_000_000, 6_000_000_000, 30_000_000_000, 60_000_000_000, 120_000_000_000, 300_000_000_000
+]
+
 class FileProviderExtension:
     NSObject, NSFileProviderReplicatedExtension, NSFileProviderEnumerating, ChangeNotificationInterface
 {
@@ -33,9 +37,12 @@ class FileProviderExtension:
     internal let logger = Logger(subsystem: Logger.subsystem, category: "file-provider-extension")
     private var remoteChangeObserver: RemoteChangeObserver?
 
+    var authenticated = false
     var account: Account? {
         didSet {
             guard let account, account != oldValue else { return }
+
+            authenticated = false
 
             ncKit.appendSession(
                 account: account.ncKitAccount,
@@ -47,6 +54,54 @@ class FileProviderExtension:
                 nextcloudVersion: 25,
                 groupIdentifier: ""
             )
+
+            Task {
+                var authAttemptState = AuthenticationAttemptResultState.connectionError // default
+
+                // Retry a few times if we have a connection issue
+                for authTimeout in AuthenticationTimeouts {
+                    authAttemptState = await ncKit.tryAuthenticationAttempt(account: account)
+                    guard authAttemptState == .connectionError else { break }
+
+                    logger.info(
+                        """
+                        \(account.username, privacy: .public) authentication try timed out.
+                            Trying again soon.
+                        """
+                    )
+                    try? await Task.sleep(nanoseconds: authTimeout)
+                }
+
+                switch (authAttemptState) {
+                case .authenticationError:
+                    logger.info(
+                        """
+                        \(account.username, privacy: .public) authentication failed.
+                            Caused by bad creds, stopping.
+                        """
+                    )
+                    return
+                case .connectionError:
+                    // Despite multiple connection attempts we are still getting connection issues.
+                    // Connection error should be provided
+                    logger.info(
+                        """
+                        \(account.username, privacy: .public) authentication try failed.
+                            No connection.
+                        """
+                    )
+                    return
+                case .success:
+                    logger.info(
+                    """
+                        Authenticated! Nextcloud account set up in File Provider extension.
+                            User: \(account.username, privacy: .public)
+                            at server: \(account.serverUrl, privacy: .public)
+                    """
+                    )
+                    authenticated = true
+                }
+
                 Task { @MainActor in
                     self.account = account
                     remoteChangeObserver = RemoteChangeObserver(
