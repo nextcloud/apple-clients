@@ -61,7 +61,6 @@ class URLSchemeHandler {
                 password = value
             }
         }
-        print(server, username, password)
 
         guard !server.isEmpty, !username.isEmpty, !password.isEmpty else {
             Self.logger.error(
