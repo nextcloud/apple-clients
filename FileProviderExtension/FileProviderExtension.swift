@@ -194,7 +194,9 @@ class FileProviderExtension:
         guard requestedVersion == nil else {
             // TODO: Add proper support for file versioning
             logger.error( "Can't return contents for a specific version as this is not supported.")
+#if os(macOS)
             completionHandler(nil, nil, NSFileProviderError(.versionNoLongerAvailable))
+#endif
             return Progress()
         }
 
