@@ -52,4 +52,18 @@ public final class AccountModel {
     public func toFileProviderKitAccount() -> Account {
         Account(user: username, id: userId, serverUrl: serverUrl.absoluteString, password: password)
     }
+
+    public func addToNcKitSessions() {
+        assert(!ncKitAccount.isEmpty)
+        NextcloudKit.shared.appendSession(
+            account: ncKitAccount,
+            urlBase: serverUrl.absoluteString,
+            user: username,
+            userId: userId,
+            password: password,
+            userAgent: "NextSync",
+            nextcloudVersion: 25,
+            groupIdentifier: ""
+        )
+    }
 }
