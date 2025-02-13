@@ -109,6 +109,17 @@ class FileProviderExtension:
         completionHandler: @escaping (URL?, NSFileProviderItem?, Error?) -> Void)
     -> Progress {
         // Fetching of the contents for the itemIdentifier at the specified version
+        logger.debug(
+            "Received fetch contents request for item: \(itemIdentifier.rawValue, privacy: .public)"
+        )
+
+        guard requestedVersion == nil else {
+            // TODO: Add proper support for file versioning
+            logger.error( "Can't return contents for a specific version as this is not supported.")
+            completionHandler(nil, nil, NSFileProviderError(.versionNoLongerAvailable))
+            return Progress()
+        }
+
         let progress = Progress()
         guard account != nil else {
             logger.error("Not fetching contents of \(itemIdentifier.rawValue), not authenticated")
