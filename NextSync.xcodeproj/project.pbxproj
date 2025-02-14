@@ -154,6 +154,8 @@
 		5377B20E2BD2B2CB00D660B8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5377B2112BD2B39000D660B8 /* AccountsActor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsActor.swift; sourceTree = "<group>"; };
 		5377B2132BD2B5B000D660B8 /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
+		53BDE21E2D5EDD7200254560 /* Info-macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-macOS.plist"; sourceTree = "<group>"; };
+		53BDE21F2D5EDF4100254560 /* Info-macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-macOS.plist"; sourceTree = "<group>"; };
 		53E38F272BD2BB280095ACFC /* LoginWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWebView.swift; sourceTree = "<group>"; };
 		53E38F292BD2BD140095ACFC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		53E38F2C2BD2BF000095ACFC /* WebViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewRepresentable.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				53E38F262BD2BB0D0095ACFC /* Login */,
 				53E38F322BD3B5110095ACFC /* Web */,
 				5377B20D2BD2B18C00D660B8 /* Info.plist */,
+				53BDE21F2D5EDF4100254560 /* Info-macOS.plist */,
 				5377B1E52BD2B15100D660B8 /* ContentView.swift */,
 				53E38F3A2BD3CC170095ACFC /* MainDetailView.swift */,
 				53E38F382BD3CC040095ACFC /* MainSidebar.swift */,
@@ -369,6 +372,7 @@
 				53E38F9C2BD507660095ACFC /* FileProviderExtension+Thumbnailing.swift */,
 				53E38F922BD435460095ACFC /* FileProviderExtension+Servicing.swift */,
 				53E38F552BD4017C0095ACFC /* Info.plist */,
+				53BDE21E2D5EDD7200254560 /* Info-macOS.plist */,
 				532549452BD66DA9007B9772 /* FileProviderExtension.entitlements */,
 				53E38F562BD4017C0095ACFC /* FileProviderExtension-macOS.entitlements */,
 			);
@@ -900,6 +904,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NextSync/Info.plist;
+				"INFOPLIST_FILE[sdk=macosx*]" = "NextSync/Info-macOS.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = NextSync;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -941,6 +946,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NextSync/Info.plist;
+				"INFOPLIST_FILE[sdk=macosx*]" = "NextSync/Info-macOS.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = NextSync;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -1050,6 +1056,7 @@
 				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FileProviderExtension/Info.plist;
+				"INFOPLIST_FILE[sdk=macosx*]" = "FileProviderExtension/Info-macOS.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = FileProviderExtension;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -1084,6 +1091,7 @@
 				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FileProviderExtension/Info.plist;
+				"INFOPLIST_FILE[sdk=macosx*]" = "FileProviderExtension/Info-macOS.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = FileProviderExtension;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
