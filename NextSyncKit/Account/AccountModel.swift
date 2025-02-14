@@ -74,7 +74,8 @@ public final class AccountModel {
         )
     }
 
-    public func syncWithServer(
+    @MainActor
+    @discardableResult public func syncWithServer(
         options: NKRequestOptions = .init(),
         taskHandler: @escaping (_ task: URLSessionTask) -> Void = { _ in }
     ) async -> SyncError? {
