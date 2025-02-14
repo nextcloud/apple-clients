@@ -8,6 +8,7 @@
 import Foundation
 import NextcloudFileProviderKit
 import NextcloudKit
+import OSLog
 import SwiftData
 
 @Model
@@ -37,6 +38,7 @@ public final class AccountModel {
         password: \(password.isEmpty ? "EMPTY" : "NON-EMPTY")
         """
     }
+    @Transient private let logger = Logger(subsystem: Logger.subsystem, category: "accountmodel")
 
     public init(
         serverUrl: URL,
@@ -83,8 +85,11 @@ public final class AccountModel {
             account: toFileProviderKitAccount(), options: options, taskHandler: taskHandler
         )
         guard error == .success, let userProfile else {
-            return .couldNotGetUserProfile(error.errorDescription)
+            let errorString = error.errorDescription
+            logger.error("Could not get user details of \(self.ncKitAccount): \(errorString)")
+            return .couldNotGetUserProfile(errorString)
         }
+        logger.debug("Acquired user details for \(self.ncKitAccount)")
         displayname = userProfile.displayName
         userId = userProfile.userId
 
