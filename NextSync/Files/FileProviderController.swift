@@ -105,10 +105,10 @@ class FileProviderController: ObservableObject {
         }
     }
 
-    func authenticateDomain(_ domain: NSFileProviderDomain, account: AccountModel) async {
+    func connectToDomain(_ domain: NSFileProviderDomain) async -> (any AppCommunicationService)? {
         guard let manager = NSFileProviderManager(for: domain) else {
             logger.error("Could not acquire manager for domain: \(domain.rawIdentifier)")
-            return
+            return nil
         }
 
         do {
@@ -123,17 +123,24 @@ class FileProviderController: ObservableObject {
             connection.invalidationHandler = { self.logger.debug("\(logStringPrefix) invalidated") }
             connection.resume()
 
-            guard let commService = connection.remoteObjectProxy as? AppCommunicationService else {
-                throw DomainAuthError.nullRemoteObject
-            }
-            commService.authenticate(
-                serverUrl: account.serverUrl,
-                username: account.username,
-                userId: account.userId,
-                password: account.password
-            )
+            return connection.remoteObjectProxy as? AppCommunicationService
         } catch let error {
-            logger.error("Could not authenticate domain \(domain.rawIdentifier): \(error)")
+            logger.error("Could not connect to domain \(domain.rawIdentifier): \(error)")
+            return nil
         }
+    }
+
+    func authenticateDomain(_ domain: NSFileProviderDomain, account: AccountModel) async {
+        guard let commService = await connectToDomain(domain) else {
+            logger.error("Could not authenticate domain \(domain.rawIdentifier), service is null")
+            return
+        }
+
+        commService.authenticate(
+            serverUrl: account.serverUrl,
+            username: account.username,
+            userId: account.userId,
+            password: account.password
+        )
     }
 }
