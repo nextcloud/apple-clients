@@ -161,7 +161,7 @@ class FileProviderExtension:
     ) -> Progress {
         // resolve the given identifier to a record in the model
         let progress = Progress(totalUnitCount: 1)
-        guard let account else {
+        guard let account, authenticated else {
             logger.error(
                 "Unauthenticated, cannot provide item. \(identifier.rawValue, privacy: .public)"
             )
@@ -201,7 +201,7 @@ class FileProviderExtension:
         }
 
         let progress = Progress()
-        guard let account else {
+        guard let account, authenticated else {
             logger.error("Not fetching contents of \(itemIdentifier.rawValue), not authenticated")
             completionHandler(nil, nil, NSFileProviderError(.notAuthenticated))
             return progress
@@ -234,7 +234,7 @@ class FileProviderExtension:
     ) -> Progress {
         // A new item was created on disk, process the item's creation
         let progress = Progress()
-        guard let account else {
+        guard let account, authenticated else {
             logger.error("Not creating item \(itemTemplate.filename), not authenticated")
             completionHandler(itemTemplate, [], false, NSFileProviderError(.notAuthenticated))
             return progress
@@ -269,7 +269,7 @@ class FileProviderExtension:
     ) -> Progress {
         // An item was modified on disk, process the item's modification
         let progress = Progress()
-        guard let account else {
+        guard let account, authenticated else {
             logger.error("Not modifying item \(item.filename), not authenticated")
             completionHandler(nil, [], false, NSFileProviderError(.notAuthenticated))
             return progress
@@ -309,7 +309,7 @@ class FileProviderExtension:
     ) -> Progress {
         // An item was deleted on disk, process the item's deletion
         let progress = Progress(totalUnitCount: 1)
-        guard let account else {
+        guard let account, authenticated else {
             logger.error(
                 "Unauthenticated, cannot delete item. \(identifier.rawValue, privacy: .public)"
             )
@@ -337,7 +337,7 @@ class FileProviderExtension:
         request: NSFileProviderRequest
     ) throws -> NSFileProviderEnumerator {
         logger.info("Enumerator request for: \(containerItemIdentifier.rawValue, privacy: .public)")
-        guard let account else {
+        guard let account, authenticated else {
             logger.error("Unauthenticated, not proceeding with providing enumerator")
             throw NSFileProviderError(.notAuthenticated)
         }
