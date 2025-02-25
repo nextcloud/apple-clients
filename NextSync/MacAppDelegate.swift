@@ -6,6 +6,8 @@
 //
 
 import AppKit
+import NextSyncKit
+import SwiftData
 import SwiftUI
 
 class MacAppDelegate: NSObject, NSApplicationDelegate {
@@ -13,10 +15,15 @@ class MacAppDelegate: NSObject, NSApplicationDelegate {
     var statusBarItem: NSStatusItem?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        let modelContainer = try! ModelContainer(for: AccountModel.self)
+
         popover.contentSize = NSSize(width: 400, height: 500)
         popover.behavior = .transient
         popover.contentViewController = NSHostingController(
             rootView: StatusBarContentView()
+                .modelContainer(modelContainer)
+                .environmentObject(NextSyncAppState.shared)
+                .environmentObject(FileProviderController(modelContainer: modelContainer))
         )
 
         statusBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
