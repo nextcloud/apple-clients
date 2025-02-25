@@ -8,7 +8,7 @@
 import NextSyncKit
 import SwiftUI
 
-struct StatusBarContentView: View {
+struct MenuBarContentView: View {
     @EnvironmentObject var appState: NextSyncAppState
     @Environment(\.openWindow) private var openWindow
 

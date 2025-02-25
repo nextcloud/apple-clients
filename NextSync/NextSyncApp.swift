@@ -22,7 +22,7 @@ struct NextSyncApp: App {
     var body: some Scene {
 #if os(macOS)
         MenuBarExtra("NextSync", systemImage: "externaldrive.fill.badge.icloud") {
-            configured(mainView: StatusBarContentView())
+            configured(mainView: MenuBarContentView())
         }
         .menuBarExtraStyle(.window)
 #else
