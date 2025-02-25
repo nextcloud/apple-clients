@@ -17,7 +17,7 @@ struct MenuBarContentView: View {
     @State var accountSelection: AccountModel?
 
     var body: some View {
-        VStack {
+        VStack(spacing: 8) {
             HStack {
                 AccountPicker(selection: $accountSelection)
                     .labelsHidden()
@@ -29,6 +29,7 @@ struct MenuBarContentView: View {
                 }
             }
         }
+        .padding(.all, 8)
         .navigationTitle("NextSync")
         .onAppear {
             guard accountSelection == nil else { return }
