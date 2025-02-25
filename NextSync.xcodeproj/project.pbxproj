@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		532548DC2BD52D0F007B9772 /* WebLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532548DB2BD52D0F007B9772 /* WebLoadingView.swift */; };
 		5342B3B32D6D948300DBB57A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5342B3B12D6D948300DBB57A /* SettingsView.swift */; };
+		5342B3B82D6D9B6500DBB57A /* MacAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5342B3B72D6D9B5F00DBB57A /* MacAppDelegate.swift */; };
 		5377B1E42BD2B15100D660B8 /* NextSyncApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5377B1E32BD2B15100D660B8 /* NextSyncApp.swift */; };
 		5377B1E62BD2B15100D660B8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5377B1E52BD2B15100D660B8 /* ContentView.swift */; };
 		5377B1E82BD2B15300D660B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5377B1E72BD2B15300D660B8 /* Assets.xcassets */; };
@@ -142,6 +143,7 @@
 		532549452BD66DA9007B9772 /* FileProviderExtension.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = FileProviderExtension.entitlements; sourceTree = "<group>"; };
 		532549462BD66DCB007B9772 /* NextSync.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NextSync.entitlements; sourceTree = "<group>"; };
 		5342B3B12D6D948300DBB57A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		5342B3B72D6D9B5F00DBB57A /* MacAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacAppDelegate.swift; sourceTree = "<group>"; };
 		5377B1E02BD2B15100D660B8 /* NextSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NextSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5377B1E32BD2B15100D660B8 /* NextSyncApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextSyncApp.swift; sourceTree = "<group>"; };
 		5377B1E52BD2B15100D660B8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				5377B20D2BD2B18C00D660B8 /* Info.plist */,
 				53BDE21F2D5EDF4100254560 /* Info-macOS.plist */,
 				5377B1E52BD2B15100D660B8 /* ContentView.swift */,
+				5342B3B72D6D9B5F00DBB57A /* MacAppDelegate.swift */,
 				53E38F3A2BD3CC170095ACFC /* MainDetailView.swift */,
 				53E38F382BD3CC040095ACFC /* MainSidebar.swift */,
 				53E38F362BD3CBCD0095ACFC /* MainSplitContentView.swift */,
@@ -683,6 +686,7 @@
 				5377B1E42BD2B15100D660B8 /* NextSyncApp.swift in Sources */,
 				53E38F2D2BD2BF000095ACFC /* WebViewRepresentable.swift in Sources */,
 				53E38F452BD3E2DF0095ACFC /* FileProviderController.swift in Sources */,
+				5342B3B82D6D9B6500DBB57A /* MacAppDelegate.swift in Sources */,
 				5342B3B32D6D948300DBB57A /* SettingsView.swift in Sources */,
 				53E38F372BD3CBCD0095ACFC /* MainSplitContentView.swift in Sources */,
 				53E38F422BD3D23C0095ACFC /* AccountPicker.swift in Sources */,

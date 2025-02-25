@@ -15,6 +15,10 @@ class NextSyncAppState: ObservableObject {
 
 @main
 struct NextSyncApp: App {
+#if os(macOS)
+    @NSApplicationDelegateAdaptor(MacAppDelegate.self) var appDelegate
+#endif
+
     var container = try! ModelContainer(for: AccountModel.self)
     @StateObject var appState = NextSyncAppState()
 
