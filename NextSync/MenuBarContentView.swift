@@ -13,6 +13,7 @@ struct MenuBarContentView: View {
     @EnvironmentObject var appState: NextSyncAppState
     @Environment(\.modelContext) var modelContext
     @Environment(\.openWindow) private var openWindow
+    @Environment(\.openSettings) private var openSettings
 
     @State var accountSelection: AccountModel?
 
@@ -26,6 +27,11 @@ struct MenuBarContentView: View {
                     openWindow(id: appState.loginWindowId)
                 } label: {
                     Image(systemName: "person.crop.circle.badge.plus")
+                }
+                Button {
+                    openSettings()
+                } label: {
+                    Image(systemName: "gear")
                 }
             }
         }
