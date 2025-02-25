@@ -16,29 +16,36 @@ class NextSyncAppState: ObservableObject {
 
 @main
 struct NextSyncApp: App {
-#if os(macOS)
-    @NSApplicationDelegateAdaptor(MacAppDelegate.self) var appDelegate
-#endif
-
     var container = try! ModelContainer(for: AccountModel.self)
     @StateObject var appState: NextSyncAppState = .shared
 
     var body: some Scene {
-        WindowGroup {
-            ContentView()
-                .onOpenURL { URLSchemeHandler.handle(url: $0, container: container) }
+#if os(macOS)
+        MenuBarExtra("NextSync", systemImage: "externaldrive.fill.badge.icloud") {
+            configured(mainView: StatusBarContentView())
         }
-        .modelContainer(container)
-        .environmentObject(FileProviderController(modelContainer: container))
-        .environmentObject(appState)
+        .menuBarExtraStyle(.window)
+#else
+        WindowGroup {
+            configured(mainView: ContentView())
+        }
+#endif
 
         Window("Log in", id: appState.loginWindowId) {
             LoginView(isWindow: true)
         }
 
         Settings {
-            SettingsView()
-                .frame(minWidth: 480, minHeight: 240)
+            configured(mainView: SettingsView().frame(minWidth: 480, minHeight: 240))
         }
+    }
+
+    @ViewBuilder
+    func configured(mainView: some View) -> some View {
+        mainView
+            .modelContainer(container)
+            .environmentObject(FileProviderController(modelContainer: container))
+            .environmentObject(appState)
+            .onOpenURL { URLSchemeHandler.handle(url: $0, container: container) }
     }
 }
