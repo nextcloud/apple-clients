@@ -10,6 +10,7 @@ import SwiftData
 import SwiftUI
 
 class NextSyncAppState: ObservableObject {
+    static let shared = NextSyncAppState()
     let loginWindowId = "loginWindow"
 }
 
@@ -20,7 +21,7 @@ struct NextSyncApp: App {
 #endif
 
     var container = try! ModelContainer(for: AccountModel.self)
-    @StateObject var appState = NextSyncAppState()
+    @StateObject var appState: NextSyncAppState = .shared
 
     var body: some Scene {
         WindowGroup {
