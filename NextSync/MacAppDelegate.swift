@@ -30,5 +30,10 @@ class MacAppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @objc func statusBarButtonClicked(_ sender: NSStatusBarButton) {
+        if popover.isShown {
+            popover.performClose(sender)
+        } else {
+            popover.show(relativeTo: sender.bounds, of: sender, preferredEdge: NSRectEdge.minY)
+        }
     }
 }
