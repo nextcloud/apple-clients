@@ -13,6 +13,8 @@ struct LoginView: View {
         case webFlow
     }
 
+    @Environment(\.dismissWindow) var dismissWindow
+    @State var isWindow = false
     @State var serverString = ""
     @State var serverUrl: URL?
     @State private var webNavigationDelegate = LoginWebNavigationDelegate()
@@ -44,6 +46,9 @@ struct LoginView: View {
                         .onChange(of: webNavigationDelegate.finished) {
                             if webNavigationDelegate.finished {
                                 path.removeAll { $0 == .webFlow }
+                                if isWindow {
+                                    dismissWindow()
+                                }
                             }
                         }
                 }
