@@ -30,5 +30,10 @@ struct NextSyncApp: App {
         Window("Log in", id: appState.loginWindowId) {
             LoginView(isWindow: true)
         }
+
+        Settings {
+            SettingsView()
+                .frame(minWidth: 480, minHeight: 240)
+        }
     }
 }
