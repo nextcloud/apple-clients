@@ -14,6 +14,9 @@ struct MainSidebar: View {
         case files, photos, settings
     }
 
+    @EnvironmentObject var appState: NextSyncAppState
+    @Environment(\.openWindow) private var openWindow
+
     @Binding var selection: Panel?
     @Binding var accountSelection: AccountModel?
 
@@ -30,8 +33,16 @@ struct MainSidebar: View {
             }
 
             Section("Accounts") {
-                AccountPicker(selection: $accountSelection)
-                    .labelsHidden()
+                HStack {
+                    AccountPicker(selection: $accountSelection)
+                        .labelsHidden()
+                        .frame(maxWidth: .infinity)
+                    Button {
+                        openWindow(id: appState.loginWindowId)
+                    } label: {
+                        Image(systemName: "person.crop.circle.badge.plus")
+                    }
+                }
             }
         }
         .navigationTitle("NextSync")

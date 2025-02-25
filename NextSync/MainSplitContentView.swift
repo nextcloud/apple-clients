@@ -25,6 +25,7 @@ struct MainSplitContentView: View {
                     accounts?.forEach { print($0.description) }
                     accountSelection = accounts?.first
                 }
+                .navigationSplitViewColumnWidth(ideal: 200)
         } detail: {
             NavigationStack {
                 MainDetailView(selection: $sidebarSelection, accountSelection: $accountSelection)
