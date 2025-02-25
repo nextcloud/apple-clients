@@ -6,11 +6,19 @@
 //
 
 import AppKit
+import SwiftUI
 
 class MacAppDelegate: NSObject, NSApplicationDelegate {
+    let popover = NSPopover()
     var statusBarItem: NSStatusItem?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        popover.contentSize = NSSize(width: 400, height: 500)
+        popover.behavior = .transient
+        popover.contentViewController = NSHostingController(
+            rootView: StatusBarContentView()
+        )
+
         statusBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         if let button = statusBarItem?.button {
             button.action = #selector(statusBarButtonClicked(_:))
