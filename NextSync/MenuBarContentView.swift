@@ -6,10 +6,12 @@
 //
 
 import NextSyncKit
+import SwiftData
 import SwiftUI
 
 struct MenuBarContentView: View {
     @EnvironmentObject var appState: NextSyncAppState
+    @Environment(\.modelContext) var modelContext
     @Environment(\.openWindow) private var openWindow
 
     @State var accountSelection: AccountModel?
@@ -28,5 +30,10 @@ struct MenuBarContentView: View {
             }
         }
         .navigationTitle("NextSync")
+        .onAppear {
+            guard accountSelection == nil else { return }
+            let accounts = try? modelContext.fetch(FetchDescriptor<AccountModel>())
+            accountSelection = accounts?.first
+        }
     }
 }
