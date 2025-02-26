@@ -59,7 +59,7 @@ class ActivitiesDataSource: ObservableObject {
                         return
                     }
                     self.latestFetchedActivityId = max(activityFirstKnown, activityLastGiven)
-                    self.activities = activities
+                    self.activities = activities + self.activities
                     self.logger.info("Retrieved \(activities.count) activities")
                 }
         }
