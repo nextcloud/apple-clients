@@ -20,7 +20,20 @@ class ActivitiesDataSource: ObservableObject {
     let objectType: String?
     let previewSize: CGFloat
 
-    @Published private(set) var activities = [NKActivity]()
+    @Published private(set) var activities = [NKActivity]() {
+        didSet {
+            activities.forEach { activity in
+                Task {
+                    if let image = await preview(for: activity) {
+                        Task { @MainActor in
+                            previews[activity.idActivity] = image
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @Published private(set) var previews = [Int: Image]()
     private var latestFetchedActivityId = 0
     private let logger = Logger(subsystem: Logger.subsystem, category: "ActivitiesDataSource")
 
