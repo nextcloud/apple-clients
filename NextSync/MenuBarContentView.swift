@@ -39,6 +39,7 @@ struct MenuBarContentView: View {
             }
             if let accountSelection {
                 ActivityList(account: accountSelection)
+                    .listStyle(.plain)
                     .frame(minHeight: 400)
                     .background(.regularMaterial)
                     .clipShape(RoundedRectangle(cornerRadius: contentBorderRadius))
