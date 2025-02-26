@@ -34,6 +34,10 @@ struct MenuBarContentView: View {
                     Image(systemName: "gear")
                 }
             }
+            if let accountSelection {
+                ActivityList(account: accountSelection)
+                    .frame(minHeight: 400)
+            }
         }
         .padding(.all, 8)
         .navigationTitle("NextSync")
