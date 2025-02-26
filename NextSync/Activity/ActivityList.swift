@@ -22,10 +22,8 @@ struct ActivityList: View {
         List {
             ForEach(dataSource.activities) { activity in
                 Text(activity.subject)
-                }
             }
         }
-        .border(.separator)
         .onAppear {
             Task { await dataSource.fetch() }
         }

@@ -17,8 +17,11 @@ struct MenuBarContentView: View {
 
     @State var accountSelection: AccountModel?
 
+    let contentSpacing = 8.0
+    let contentBorderRadius = 4.0
+
     var body: some View {
-        VStack(spacing: 8) {
+        VStack(spacing: contentSpacing) {
             HStack {
                 AccountPicker(selection: $accountSelection)
                     .labelsHidden()
@@ -37,9 +40,15 @@ struct MenuBarContentView: View {
             if let accountSelection {
                 ActivityList(account: accountSelection)
                     .frame(minHeight: 400)
+                    .background(.regularMaterial)
+                    .clipShape(RoundedRectangle(cornerRadius: contentBorderRadius))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: contentBorderRadius)
+                            .stroke(.separator, lineWidth: 1)
+                    )
             }
         }
-        .padding(.all, 8)
+        .padding(.all, contentSpacing)
         .navigationTitle("NextSync")
         .onAppear {
             guard accountSelection == nil else { return }
