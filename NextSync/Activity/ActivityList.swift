@@ -14,7 +14,11 @@ struct ActivityList: View {
     let previewSize: CGFloat = 32
     let spacing: CGFloat = 8
     let borderRadius: CGFloat = 4
+    let timer = Timer.publish(every: 5, on: .current, in: .common).autoconnect()
+    let formatter = RelativeDateTimeFormatter()
+
     @ObservedObject var dataSource: ActivitiesDataSource
+    @State var now = Date()
 
     init(account: AccountModel) {
         self.account = account
@@ -26,11 +30,17 @@ struct ActivityList: View {
             ForEach(dataSource.activities) { activity in
                 HStack(spacing: spacing) {
                     previewImage(activity: activity)
-                    Text(activity.subject)
+                    VStack(alignment: .leading) {
+                        Text(activity.subject)
+                        Text(formatter.localizedString(for: activity.date, relativeTo: now))
+                            .font(.footnote)
+                            .foregroundStyle(.secondary)
+                    }
                 }
             }
         }
         .task { await dataSource.fetch() }
+        .onReceive(timer) { _ in now = Date() }
     }
 
     @ViewBuilder
