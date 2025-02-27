@@ -13,14 +13,15 @@ import SwiftUI
 
 extension NKActivity: @retroactive Identifiable {}
 
-class ActivitiesDataSource: ObservableObject {
+@Observable
+class ActivitiesDataSource {
     let account: AccountModel
     let activityLimit: Int
     let objectId: String?
     let objectType: String?
     let previewSize: CGFloat
 
-    @Published private(set) var activities = [NKActivity]() {
+    private(set) var activities = [NKActivity]() {
         didSet {
             activities.forEach { activity in
                 Task {
@@ -33,7 +34,7 @@ class ActivitiesDataSource: ObservableObject {
             }
         }
     }
-    @Published private(set) var previews = [Int: Image]()
+    private(set) var previews = [Int: Image]()
     private var latestFetchedActivityId = 0
     private let logger = Logger(subsystem: Logger.subsystem, category: "ActivitiesDataSource")
 

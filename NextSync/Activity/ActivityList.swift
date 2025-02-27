@@ -17,7 +17,7 @@ struct ActivityList: View {
     let timer = Timer.publish(every: 5, on: .current, in: .common).autoconnect()
     let formatter = RelativeDateTimeFormatter()
 
-    @ObservedObject var dataSource: ActivitiesDataSource
+    var dataSource: ActivitiesDataSource
     @State var now = Date()
 
     init(account: AccountModel) {
