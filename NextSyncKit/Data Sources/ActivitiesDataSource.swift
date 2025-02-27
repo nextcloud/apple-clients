@@ -6,7 +6,6 @@
 //
 
 import NextcloudKit
-import NextSyncKit
 import OSLog
 import SwiftyJSON
 import SwiftUI
@@ -14,14 +13,14 @@ import SwiftUI
 extension NKActivity: @retroactive Identifiable {}
 
 @Observable
-class ActivitiesDataSource {
-    let account: AccountModel
-    let activityLimit: Int
-    let objectId: String?
-    let objectType: String?
-    let previewSize: CGFloat
+public class ActivitiesDataSource {
+    public let account: AccountModel
+    public let activityLimit: Int
+    public let objectId: String?
+    public let objectType: String?
+    public let previewSize: CGFloat
 
-    private(set) var activities = [NKActivity]() {
+    private(set) public var activities = [NKActivity]() {
         didSet {
             activities.forEach { activity in
                 Task {
@@ -34,11 +33,12 @@ class ActivitiesDataSource {
             }
         }
     }
-    private(set) var previews = [Int: Image]()
+    private(set) public var previews = [Int: Image]()
+    
     private var latestFetchedActivityId = 0
     private let logger = Logger(subsystem: Logger.subsystem, category: "ActivitiesDataSource")
 
-    required init(
+    required public init(
         account: AccountModel,
         activityLimit: Int = 50,
         objectId: String? = nil,
@@ -54,7 +54,7 @@ class ActivitiesDataSource {
         account.addToNcKitSessions()
     }
 
-    @discardableResult func preview(for activity: NKActivity) async -> Image? {
+    @discardableResult public func preview(for activity: NKActivity) async -> Image? {
         guard previews[activity.idActivity] == nil else {
             logger.debug("Not fetching preview for \(activity.idActivity), already acquired")
             return previews[activity.idActivity]
@@ -120,7 +120,7 @@ class ActivitiesDataSource {
         }
     }
 
-    @discardableResult func fetch() async -> NKError {
+    @discardableResult public func fetch() async -> NKError {
         logger.info("Retrieving activities for \(self.account.ncKitAccount, privacy: .public)")
         return await withCheckedContinuation { continuation in
             NextcloudKit.shared.getActivity(
