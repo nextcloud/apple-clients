@@ -16,6 +16,7 @@ struct MenuBarContentView: View {
     @Environment(\.openSettings) private var openSettings
 
     @State var accountSelection: AccountModel?
+    @State var showingNotifications = false
 
     let contentSpacing = 8.0
     let contentBorderRadius = 4.0
@@ -31,6 +32,19 @@ struct MenuBarContentView: View {
                 } label: {
                     Image(systemName: "person.crop.circle.badge.plus")
                 }
+
+                Button {
+                    showingNotifications.toggle()
+                } label: {
+                    Image(systemName: "bell.fill")
+                }
+                .popover(isPresented: $showingNotifications) {
+                    if let accountSelection {
+                        NotificationsList(account: accountSelection)
+                            .frame(minHeight: 250)
+                    }
+                }
+
                 Button {
                     openSettings()
                 } label: {
