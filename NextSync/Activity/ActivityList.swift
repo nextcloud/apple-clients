@@ -26,15 +26,21 @@ struct ActivityList: View {
     }
 
     var body: some View {
-        List {
-            ForEach(dataSource.activities) { activity in
-                HStack(spacing: spacing) {
-                    previewImage(activity: activity)
-                    VStack(alignment: .leading) {
-                        Text(activity.subject)
-                        Text(formatter.localizedString(for: activity.date, relativeTo: now))
-                            .font(.footnote)
-                            .foregroundStyle(.secondary)
+        ZStack {
+            if (dataSource.activities.isEmpty && dataSource.loading) {
+                ProgressView()
+                    .frame(alignment: .center)
+            }
+            List {
+                ForEach(dataSource.activities) { activity in
+                    HStack(spacing: spacing) {
+                        previewImage(activity: activity)
+                        VStack(alignment: .leading) {
+                            Text(activity.subject)
+                            Text(formatter.localizedString(for: activity.date, relativeTo: now))
+                                .font(.footnote)
+                                .foregroundStyle(.secondary)
+                        }
                     }
                 }
             }

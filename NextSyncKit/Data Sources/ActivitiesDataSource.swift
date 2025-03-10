@@ -34,7 +34,8 @@ public class ActivitiesDataSource {
         }
     }
     private(set) public var previews = [Int: Image]()
-    
+    private(set) public var loading = false
+
     private var latestFetchedActivityId = 0
     private let logger = Logger(subsystem: Logger.subsystem, category: "ActivitiesDataSource")
 
@@ -121,6 +122,7 @@ public class ActivitiesDataSource {
     }
 
     @discardableResult public func fetch() async -> NKError {
+        loading = true
         logger.info("Retrieving activities for \(self.account.ncKitAccount, privacy: .public)")
         return await withCheckedContinuation { continuation in
             NextcloudKit.shared.getActivity(
@@ -144,6 +146,7 @@ public class ActivitiesDataSource {
                     }
                     self.latestFetchedActivityId = max(activityFirstKnown, activityLastGiven)
                     self.activities = activities + self.activities
+                    self.loading = false
                     self.logger.info("Retrieved \(activities.count) activities")
                 }
         }
