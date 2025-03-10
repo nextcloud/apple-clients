@@ -10,6 +10,9 @@ import SwiftUI
 
 struct NotificationsList: View {
     let account: AccountModel
+    let timer = Timer.publish(every: 5, on: .current, in: .common).autoconnect()
+    let formatter = RelativeDateTimeFormatter()
+
     var dataSource: NotificationsDataSource
     @State var now = Date()
 
@@ -26,10 +29,31 @@ struct NotificationsList: View {
             }
             List {
                 ForEach(dataSource.notifications) { notification in
-                    Text(notification.subject)
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Text(notification.app)
+                                .font(.footnote)
+                                .multilineTextAlignment(.leading)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                            Text(formatter.localizedString(for: notification.date, relativeTo: now))
+                                .font(.footnote)
+                                .multilineTextAlignment(.trailing)
+                                .foregroundStyle(.secondary)
+                                .frame(alignment: .trailing)
+                            Button {
+                                Task { await dataSource.delete(notification: notification) }
+                            } label: {
+                                Image(systemName: "xmark.circle")
+                            }
+                            .frame(alignment: .trailing)
+                        }
+                        Text(notification.subject).bold()
+                        Text(notification.message)
+                    }
                 }
             }
         }
         .task { await dataSource.fetch() }
+        .onReceive(timer) { _ in now = Date() }
     }
 }
