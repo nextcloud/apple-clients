@@ -6,6 +6,7 @@
 //
 
 import NextSyncKit
+import SDWebImageSVGCoder
 import SwiftData
 import SwiftUI
 
@@ -38,6 +39,10 @@ struct NextSyncApp: App {
         Settings {
             configured(mainView: SettingsView().frame(minWidth: 480, minHeight: 240))
         }
+    }
+
+    init() {
+        SDImageCodersManager.shared.addCoder(SDImageSVGCoder.shared)
     }
 
     @ViewBuilder
