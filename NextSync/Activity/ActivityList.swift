@@ -7,6 +7,7 @@
 
 import NextcloudKit
 import NextSyncKit
+import SDWebImageSwiftUI
 import SwiftUI
 
 struct ActivityList: View {
@@ -58,13 +59,19 @@ struct ActivityList: View {
     private func previewImage(activity: NKActivity) -> some View {
         if let previewImage = dataSource.previews[activity.idActivity] {
             previewImageWithModifiers(previewImage.resizable())
+        } else if !activity.icon.isEmpty, let iconUrl = URL(string: activity.icon) {
+            previewImageWithModifiers(WebImage(url: iconUrl) { image in
+                image.resizable()
+            } placeholder: {
+                ProgressView()
+            })
         } else {
             previewImageWithModifiers(Image(systemName: "bolt.fill"))
         }
     }
 
     @ViewBuilder
-    private func previewImageWithModifiers(_ image: Image) -> some View {
+    private func previewImageWithModifiers(_ image: some View) -> some View {
         image
             .frame(width: previewSize, height: previewSize)
             .clipShape(RoundedRectangle(cornerRadius: borderRadius))
