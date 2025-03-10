@@ -36,7 +36,12 @@ struct ActivityList: View {
                     HStack(spacing: spacing) {
                         previewImage(activity: activity)
                         VStack(alignment: .leading) {
-                            Text(activity.subject)
+                            if activity.message.isEmpty {
+                                Text(activity.subject)
+                            } else {
+                                Text(activity.message).bold()
+                                Text(activity.subject)
+                            }
                             Text(formatter.localizedString(for: activity.date, relativeTo: now))
                                 .font(.footnote)
                                 .foregroundStyle(.secondary)
