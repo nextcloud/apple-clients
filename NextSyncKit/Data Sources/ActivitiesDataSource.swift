@@ -146,6 +146,7 @@ public class ActivitiesDataSource {
                     }
                     self.latestFetchedActivityId = max(activityFirstKnown, activityLastGiven)
                     self.activities = activities + self.activities
+                    self.activities.sort(by: { a1, a2 in a1.date > a2.date })
                     self.loading = false
                     self.logger.info("Retrieved \(activities.count) activities")
                 }
