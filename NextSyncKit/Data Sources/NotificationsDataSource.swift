@@ -15,6 +15,7 @@ extension NKNotifications: @retroactive Identifiable {}
 public class NotificationsDataSource {
     public let account: AccountModel
     private(set) public var notifications = [NKNotifications]()
+    private(set) public var loading = false
     private let logger = Logger(subsystem: Logger.subsystem, category: "NotificationsDataSource")
 
     required public init(account: AccountModel) {
@@ -23,6 +24,8 @@ public class NotificationsDataSource {
     }
 
     @discardableResult public func fetch() async -> NKError {
+        loading = true
+
         return await withCheckedContinuation { continuation in
             NextcloudKit.shared.getNotifications(
                 account: account.ncKitAccount
@@ -41,6 +44,7 @@ public class NotificationsDataSource {
                     return
                 }
                 self.notifications = receivedNotifications
+                self.loading = false
             }
         }
     }
