@@ -54,6 +54,12 @@ struct MenuBarContentView: View {
                     } label: {
                         Image(systemName: "gear")
                     }
+
+                    Button {
+                        NSApplication.shared.terminate(nil)
+                    } label: {
+                        Image(systemName: "power.circle")
+                    }
                 }
             }
             if let accountSelection {
