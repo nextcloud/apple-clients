@@ -6,12 +6,14 @@
 //
 
 import NextSyncKit
+import SDWebImageSwiftUI
 import SwiftUI
 
 struct NotificationsList: View {
     let account: AccountModel
     let timer = Timer.publish(every: 5, on: .current, in: .common).autoconnect()
     let formatter = RelativeDateTimeFormatter()
+    let iconSize = 12.0;
 
     var dataSource: NotificationsDataSource
     @State var now = Date()
@@ -31,6 +33,19 @@ struct NotificationsList: View {
                 ForEach(dataSource.notifications) { notification in
                     VStack(alignment: .leading) {
                         HStack {
+                            if let imageUrlString = notification.icon,
+                               let imageUrl = URL(string: imageUrlString)
+                            {
+                                WebImage(url: imageUrl) { image in
+                                    image.resizable()
+                                } placeholder: {
+                                    ProgressView()
+                                }
+                                .frame(width: iconSize, height: iconSize)
+                            } else {
+                                Image(systemName: "bell.fill")
+                                    .frame(width: iconSize, height: iconSize)
+                            }
                             Text(notification.app)
                                 .font(.footnote)
                                 .multilineTextAlignment(.leading)
