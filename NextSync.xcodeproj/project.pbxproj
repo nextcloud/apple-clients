@@ -14,6 +14,8 @@
 		5342B3D02D705DAE00DBB57A /* ActivitiesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5342B3CF2D705DAA00DBB57A /* ActivitiesDataSource.swift */; };
 		5342B3D32D705FCE00DBB57A /* NotificationsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5342B3D22D705FCE00DBB57A /* NotificationsList.swift */; };
 		5342B3D52D70625A00DBB57A /* NotificationsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5342B3D42D70625500DBB57A /* NotificationsDataSource.swift */; };
+		534F27122D7ECCBE00C7D299 /* SDWebImageSVGCoder in Frameworks */ = {isa = PBXBuildFile; productRef = 534F27112D7ECCBE00C7D299 /* SDWebImageSVGCoder */; };
+		534F27152D7ECD8400C7D299 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 534F27142D7ECD8400C7D299 /* SDWebImageSwiftUI */; };
 		5377B1E42BD2B15100D660B8 /* NextSyncApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5377B1E32BD2B15100D660B8 /* NextSyncApp.swift */; };
 		5377B1E62BD2B15100D660B8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5377B1E52BD2B15100D660B8 /* ContentView.swift */; };
 		5377B1E82BD2B15300D660B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5377B1E72BD2B15300D660B8 /* Assets.xcassets */; };
@@ -202,6 +204,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				534F27152D7ECD8400C7D299 /* SDWebImageSwiftUI in Frameworks */,
+				534F27122D7ECCBE00C7D299 /* SDWebImageSVGCoder in Frameworks */,
 				53E38F7B2BD427A40095ACFC /* NextSyncKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -647,6 +651,8 @@
 			mainGroup = 5377B1D72BD2B15100D660B8;
 			packageReferences = (
 				53E38F5E2BD40F9C0095ACFC /* XCRemoteSwiftPackageReference "NextcloudFileProviderKit" */,
+				534F27102D7ECCBE00C7D299 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */,
+				534F27132D7ECD8400C7D299 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 5377B1E12BD2B15100D660B8 /* Products */;
 			projectDirPath = "";
@@ -1365,6 +1371,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		534F27102D7ECCBE00C7D299 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSVGCoder.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.8.0;
+			};
+		};
+		534F27132D7ECD8400C7D299 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.3;
+			};
+		};
 		53E38F5E2BD40F9C0095ACFC /* XCRemoteSwiftPackageReference "NextcloudFileProviderKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/claucambra/NextcloudFileProviderKit.git";
@@ -1376,6 +1398,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		534F27112D7ECCBE00C7D299 /* SDWebImageSVGCoder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 534F27102D7ECCBE00C7D299 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */;
+			productName = SDWebImageSVGCoder;
+		};
+		534F27142D7ECD8400C7D299 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 534F27132D7ECD8400C7D299 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
 		53BDE1A52D5DB89000254560 /* NextcloudFileProviderKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 53E38F5E2BD40F9C0095ACFC /* XCRemoteSwiftPackageReference "NextcloudFileProviderKit" */;
