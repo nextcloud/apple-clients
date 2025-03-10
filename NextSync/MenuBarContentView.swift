@@ -19,36 +19,41 @@ struct MenuBarContentView: View {
     @State var showingNotifications = false
 
     let contentSpacing = 8.0
+    let smallContentSpacing = 4.0
     let contentBorderRadius = 4.0
 
     var body: some View {
         VStack(spacing: contentSpacing) {
-            HStack {
-                AccountPicker(selection: $accountSelection)
-                    .labelsHidden()
-                    .frame(maxWidth: .infinity)
-                Button {
-                    openWindow(id: appState.loginWindowId)
-                } label: {
-                    Image(systemName: "person.crop.circle.badge.plus")
-                }
-
-                Button {
-                    showingNotifications.toggle()
-                } label: {
-                    Image(systemName: "bell.fill")
-                }
-                .popover(isPresented: $showingNotifications) {
-                    if let accountSelection {
-                        NotificationsList(account: accountSelection)
-                            .frame(minHeight: 250)
+            HStack(spacing: contentSpacing) {
+                HStack(spacing: smallContentSpacing) {
+                    Button {
+                        openWindow(id: appState.loginWindowId)
+                    } label: {
+                        Image(systemName: "person.crop.circle.badge.plus")
                     }
+                    AccountPicker(selection: $accountSelection)
+                        .labelsHidden()
+                        .frame(maxWidth: .infinity)
                 }
 
-                Button {
-                    openSettings()
-                } label: {
-                    Image(systemName: "gear")
+                HStack(spacing: smallContentSpacing) {
+                    Button {
+                        showingNotifications.toggle()
+                    } label: {
+                        Image(systemName: "bell.fill")
+                    }
+                    .popover(isPresented: $showingNotifications) {
+                        if let accountSelection {
+                            NotificationsList(account: accountSelection)
+                                .frame(minHeight: 250)
+                        }
+                    }
+
+                    Button {
+                        openSettings()
+                    } label: {
+                        Image(systemName: "gear")
+                    }
                 }
             }
             if let accountSelection {
