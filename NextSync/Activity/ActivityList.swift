@@ -50,7 +50,19 @@ struct ActivityList: View {
                         }
                     }
                 } header: {
-                    Label("Activity", systemImage: "bolt.fill")
+                    HStack(spacing: Measurements.spacing) {
+                        Label("Activity", systemImage: "bolt.fill")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        if !dataSource.activities.isEmpty && dataSource.loading {
+                            ProgressView()
+                                .controlSize(.small)
+                                .frame(
+                                    width: Measurements.smallIconDimension,
+                                    height: Measurements.smallIconDimension,
+                                    alignment: .trailing
+                                )
+                        }
+                    }
                 }
             }
         }
