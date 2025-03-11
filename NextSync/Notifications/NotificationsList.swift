@@ -29,46 +29,62 @@ struct NotificationsList: View {
                     .frame(alignment: .center)
             }
             List {
-                ForEach(dataSource.notifications) { notification in
-                    VStack(alignment: .leading) {
-                        HStack {
-                            if let imageUrlString = notification.icon,
-                               let imageUrl = URL(string: imageUrlString)
-                            {
-                                WebImage(url: imageUrl) { image in
-                                    image.resizable()
-                                } placeholder: {
-                                    ProgressView()
-                                }
-                                .frame(
-                                    width: Measurements.smallIconDimension,
-                                    height: Measurements.smallIconDimension
-                                )
-                            } else {
-                                Image(systemName: "bell.fill")
+                Section {
+                    ForEach(dataSource.notifications) { notification in
+                        VStack(alignment: .leading) {
+                            HStack {
+                                if let imageUrlString = notification.icon,
+                                   let imageUrl = URL(string: imageUrlString)
+                                {
+                                    WebImage(url: imageUrl) { image in
+                                        image.resizable()
+                                    } placeholder: {
+                                        ProgressView()
+                                    }
                                     .frame(
                                         width: Measurements.smallIconDimension,
                                         height: Measurements.smallIconDimension
                                     )
-                            }
-                            Text(notification.app)
-                                .font(.footnote)
-                                .multilineTextAlignment(.leading)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                            Text(formatter.localizedString(for: notification.date, relativeTo: now))
-                                .font(.footnote)
-                                .multilineTextAlignment(.trailing)
-                                .foregroundStyle(.secondary)
+                                } else {
+                                    Image(systemName: "bell.fill")
+                                        .frame(
+                                            width: Measurements.smallIconDimension,
+                                            height: Measurements.smallIconDimension
+                                        )
+                                }
+                                Text(notification.app)
+                                    .font(.footnote)
+                                    .multilineTextAlignment(.leading)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                Text(formatter.localizedString(for: notification.date, relativeTo: now))
+                                    .font(.footnote)
+                                    .multilineTextAlignment(.trailing)
+                                    .foregroundStyle(.secondary)
+                                    .frame(alignment: .trailing)
+                                Button {
+                                    Task { await dataSource.delete(notification: notification) }
+                                } label: {
+                                    Image(systemName: "xmark.circle")
+                                }
                                 .frame(alignment: .trailing)
-                            Button {
-                                Task { await dataSource.delete(notification: notification) }
-                            } label: {
-                                Image(systemName: "xmark.circle")
                             }
-                            .frame(alignment: .trailing)
+                            Text(notification.subject).bold()
+                            Text(notification.message)
                         }
-                        Text(notification.subject).bold()
-                        Text(notification.message)
+                    }
+                } header: {
+                    HStack(spacing: Measurements.spacing) {
+                        Label("Notifications", systemImage: "bell.fill")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        if !dataSource.notifications.isEmpty && dataSource.loading {
+                            ProgressView()
+                                .controlSize(.small)
+                                .frame(
+                                    width: Measurements.smallIconDimension,
+                                    height: Measurements.smallIconDimension,
+                                    alignment: .trailing
+                                )
+                        }
                     }
                 }
             }
