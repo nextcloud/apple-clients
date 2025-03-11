@@ -10,10 +10,7 @@ import SwiftData
 import SwiftUI
 
 struct MenuBarContentView: View {
-    @EnvironmentObject var appState: NextSyncAppState
     @Environment(\.modelContext) var modelContext
-    @Environment(\.openWindow) private var openWindow
-    @Environment(\.openSettings) private var openSettings
 
     @State var accountSelection: AccountModel?
     @State var showingNotifications = false
@@ -24,45 +21,9 @@ struct MenuBarContentView: View {
 
     var body: some View {
         VStack(spacing: contentSpacing) {
-            HStack(spacing: contentSpacing) {
-                HStack(spacing: smallContentSpacing) {
-                    AccountPicker(selection: $accountSelection)
-                        .labelsHidden()
-                        .frame(maxWidth: .infinity)
-
-                    Button {
-                        openWindow(id: appState.loginWindowId)
-                    } label: {
-                        Image(systemName: "person.crop.circle.badge.plus")
-                    }
-                }
-
-                HStack(spacing: smallContentSpacing) {
-                    Button {
-                        showingNotifications.toggle()
-                    } label: {
-                        Image(systemName: "bell.fill")
-                    }
-                    .popover(isPresented: $showingNotifications) {
-                        if let accountSelection {
-                            NotificationsList(account: accountSelection)
-                                .frame(minHeight: 250)
-                        }
-                    }
-
-                    Button {
-                        openSettings()
-                    } label: {
-                        Image(systemName: "gear")
-                    }
-
-                    Button {
-                        NSApplication.shared.terminate(nil)
-                    } label: {
-                        Image(systemName: "power.circle")
-                    }
-                }
-            }
+            MenuBarHeaderView(
+                accountSelection: $accountSelection,showingNotifications: $showingNotifications
+            )
             if let accountSelection {
                 ActivityList(account: accountSelection)
                     .listStyle(.plain)

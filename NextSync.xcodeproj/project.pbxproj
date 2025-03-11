@@ -16,6 +16,7 @@
 		5342B3D52D70625A00DBB57A /* NotificationsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5342B3D42D70625500DBB57A /* NotificationsDataSource.swift */; };
 		534F27122D7ECCBE00C7D299 /* SDWebImageSVGCoder in Frameworks */ = {isa = PBXBuildFile; productRef = 534F27112D7ECCBE00C7D299 /* SDWebImageSVGCoder */; };
 		534F27152D7ECD8400C7D299 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 534F27142D7ECD8400C7D299 /* SDWebImageSwiftUI */; };
+		534F27192D800F4C00C7D299 /* MenuBarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F27182D800F4C00C7D299 /* MenuBarHeaderView.swift */; };
 		5377B1E42BD2B15100D660B8 /* NextSyncApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5377B1E32BD2B15100D660B8 /* NextSyncApp.swift */; };
 		5377B1E62BD2B15100D660B8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5377B1E52BD2B15100D660B8 /* ContentView.swift */; };
 		5377B1E82BD2B15300D660B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5377B1E72BD2B15300D660B8 /* Assets.xcassets */; };
@@ -154,6 +155,7 @@
 		5342B3CF2D705DAA00DBB57A /* ActivitiesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesDataSource.swift; sourceTree = "<group>"; };
 		5342B3D22D705FCE00DBB57A /* NotificationsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsList.swift; sourceTree = "<group>"; };
 		5342B3D42D70625500DBB57A /* NotificationsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsDataSource.swift; sourceTree = "<group>"; };
+		534F27182D800F4C00C7D299 /* MenuBarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarHeaderView.swift; sourceTree = "<group>"; };
 		5377B1E02BD2B15100D660B8 /* NextSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NextSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5377B1E32BD2B15100D660B8 /* NextSyncApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextSyncApp.swift; sourceTree = "<group>"; };
 		5377B1E52BD2B15100D660B8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 				53E38F382BD3CC040095ACFC /* MainSidebar.swift */,
 				53E38F362BD3CBCD0095ACFC /* MainSplitContentView.swift */,
 				5342B3B92D6DA34D00DBB57A /* MenuBarContentView.swift */,
+				534F27182D800F4C00C7D299 /* MenuBarHeaderView.swift */,
 				5377B1E32BD2B15100D660B8 /* NextSyncApp.swift */,
 				5377B1E72BD2B15300D660B8 /* Assets.xcassets */,
 				5377B1E92BD2B15300D660B8 /* Preview Content */,
@@ -728,6 +731,7 @@
 				53E38F392BD3CC040095ACFC /* MainSidebar.swift in Sources */,
 				5377B1E42BD2B15100D660B8 /* NextSyncApp.swift in Sources */,
 				53E38F2D2BD2BF000095ACFC /* WebViewRepresentable.swift in Sources */,
+				534F27192D800F4C00C7D299 /* MenuBarHeaderView.swift in Sources */,
 				5342B3D32D705FCE00DBB57A /* NotificationsList.swift in Sources */,
 				53E38F452BD3E2DF0095ACFC /* FileProviderController.swift in Sources */,
 				5342B3B32D6D948300DBB57A /* SettingsView.swift in Sources */,
