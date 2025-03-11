@@ -15,12 +15,8 @@ struct MenuBarContentView: View {
     @State var accountSelection: AccountModel?
     @State var showingNotifications = false
 
-    let contentSpacing = 8.0
-    let smallContentSpacing = 2.0
-    let contentBorderRadius = 4.0
-
     var body: some View {
-        VStack(spacing: contentSpacing) {
+        VStack(spacing: Measurements.spacing) {
             MenuBarHeaderView(
                 accountSelection: $accountSelection,showingNotifications: $showingNotifications
             )
@@ -29,14 +25,14 @@ struct MenuBarContentView: View {
                     .listStyle(.plain)
                     .frame(minWidth: 360, minHeight: 400)
                     .background(.regularMaterial)
-                    .clipShape(RoundedRectangle(cornerRadius: contentBorderRadius))
+                    .clipShape(RoundedRectangle(cornerRadius: Measurements.cornerRadius))
                     .overlay(
-                        RoundedRectangle(cornerRadius: contentBorderRadius)
-                            .stroke(.separator, lineWidth: 1)
+                        RoundedRectangle(cornerRadius: Measurements.cornerRadius)
+                            .stroke(.separator, lineWidth: Measurements.separatorWidth)
                     )
             }
         }
-        .padding(.all, contentSpacing)
+        .padding(.all, Measurements.spacing)
         .navigationTitle("NextSync")
         .onAppear {
             guard accountSelection == nil else { return }

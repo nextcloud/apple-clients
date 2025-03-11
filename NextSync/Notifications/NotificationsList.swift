@@ -13,7 +13,6 @@ struct NotificationsList: View {
     let account: AccountModel
     let timer = Timer.publish(every: 5, on: .current, in: .common).autoconnect()
     let formatter = RelativeDateTimeFormatter()
-    let iconSize = 12.0;
 
     var dataSource: NotificationsDataSource
     @State var now = Date()
@@ -41,10 +40,16 @@ struct NotificationsList: View {
                                 } placeholder: {
                                     ProgressView()
                                 }
-                                .frame(width: iconSize, height: iconSize)
+                                .frame(
+                                    width: Measurements.smallIconDimension,
+                                    height: Measurements.smallIconDimension
+                                )
                             } else {
                                 Image(systemName: "bell.fill")
-                                    .frame(width: iconSize, height: iconSize)
+                                    .frame(
+                                        width: Measurements.smallIconDimension,
+                                        height: Measurements.smallIconDimension
+                                    )
                             }
                             Text(notification.app)
                                 .font(.footnote)

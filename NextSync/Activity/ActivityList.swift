@@ -12,9 +12,6 @@ import SwiftUI
 
 struct ActivityList: View {
     let account: AccountModel
-    let previewSize: CGFloat = 32
-    let spacing: CGFloat = 8
-    let borderRadius: CGFloat = 4
     let timer = Timer.publish(every: 5, on: .current, in: .common).autoconnect()
     let formatter = RelativeDateTimeFormatter()
 
@@ -23,7 +20,9 @@ struct ActivityList: View {
 
     init(account: AccountModel) {
         self.account = account
-        self.dataSource = ActivitiesDataSource(account: account, previewSize: previewSize)
+        self.dataSource = ActivitiesDataSource(
+            account: account, previewSize: Measurements.previewDimension
+        )
     }
 
     var body: some View {
@@ -34,7 +33,7 @@ struct ActivityList: View {
             }
             List {
                 ForEach(dataSource.activities) { activity in
-                    HStack(spacing: spacing) {
+                    HStack(spacing: Measurements.spacing) {
                         previewImage(activity: activity)
                         VStack(alignment: .leading) {
                             if activity.message.isEmpty {
@@ -73,7 +72,7 @@ struct ActivityList: View {
     @ViewBuilder
     private func previewImageWithModifiers(_ image: some View) -> some View {
         image
-            .frame(width: previewSize, height: previewSize)
-            .clipShape(RoundedRectangle(cornerRadius: borderRadius))
+            .frame(width: Measurements.previewDimension, height: Measurements.previewDimension)
+            .clipShape(RoundedRectangle(cornerRadius: Measurements.cornerRadius))
     }
 }

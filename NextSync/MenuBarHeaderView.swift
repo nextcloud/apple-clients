@@ -16,14 +16,9 @@ struct MenuBarHeaderView: View {
     @Binding var accountSelection: AccountModel?
     @Binding var showingNotifications: Bool
 
-    // TODO: Move me elsewhere
-    let contentSpacing = 8.0
-    let smallContentSpacing = 2.0
-    let contentBorderRadius = 4.0
-
     var body: some View {
-        HStack(spacing: contentSpacing) {
-            HStack(spacing: smallContentSpacing) {
+        HStack(spacing: Measurements.spacing) {
+            HStack(spacing: Measurements.smallSpacing) {
                 AccountPicker(selection: $accountSelection)
                     .labelsHidden()
                     .frame(maxWidth: .infinity)
@@ -35,7 +30,7 @@ struct MenuBarHeaderView: View {
                 }
             }
 
-            HStack(spacing: smallContentSpacing) {
+            HStack(spacing: Measurements.smallSpacing) {
                 Button {
                     showingNotifications.toggle()
                 } label: {
