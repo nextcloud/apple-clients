@@ -32,21 +32,25 @@ struct ActivityList: View {
                     .frame(alignment: .center)
             }
             List {
-                ForEach(dataSource.activities) { activity in
-                    HStack(spacing: Measurements.spacing) {
-                        previewImage(activity: activity)
-                        VStack(alignment: .leading) {
-                            if activity.message.isEmpty {
-                                Text(activity.subject)
-                            } else {
-                                Text(activity.message).bold()
-                                Text(activity.subject)
+                Section {
+                    ForEach(dataSource.activities) { activity in
+                        HStack(spacing: Measurements.spacing) {
+                            previewImage(activity: activity)
+                            VStack(alignment: .leading) {
+                                if activity.message.isEmpty {
+                                    Text(activity.subject)
+                                } else {
+                                    Text(activity.message).bold()
+                                    Text(activity.subject)
+                                }
+                                Text(formatter.localizedString(for: activity.date, relativeTo: now))
+                                    .font(.footnote)
+                                    .foregroundStyle(.secondary)
                             }
-                            Text(formatter.localizedString(for: activity.date, relativeTo: now))
-                                .font(.footnote)
-                                .foregroundStyle(.secondary)
                         }
                     }
+                } header: {
+                    Label("Activity", systemImage: "bolt.fill")
                 }
             }
         }
