@@ -9,7 +9,7 @@ import FileProvider
 import Foundation
 
 public let AppCommunicationServiceName = NSFileProviderServiceName(
-    "com.claucambra.NextSync.AppCommunicationService"
+    "com.nextcloud.client.AppCommunicationService"
 )
 
 @objc public protocol AppCommunicationService {

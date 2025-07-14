@@ -8,5 +8,5 @@
 import OSLog
 
 public extension Logger {
-    static let subsystem = Bundle.main.bundleIdentifier ?? "com.claucambra.NextSync"
+    static let subsystem = Bundle.main.bundleIdentifier ?? "com.nextcloud.client"
 }
