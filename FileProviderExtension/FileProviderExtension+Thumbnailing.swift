@@ -27,11 +27,17 @@ extension FileProviderExtension: NSFileProviderThumbnailing {
             completionHandler(NSFileProviderError(.notAuthenticated))
             return Progress()
         }
+        guard let dbManager else {
+            completionHandler(NSFileProviderError(.cannotSynchronize))
+            return Progress()
+        }
+
         return NextcloudFileProviderKit.fetchThumbnails(
             for: itemIdentifiers,
             requestedSize: size,
             account: account,
             usingRemoteInterface: ncKit,
+            andDatabase: dbManager,
             perThumbnailCompletionHandler: perThumbnailCompletionHandler,
             completionHandler: completionHandler
         )
