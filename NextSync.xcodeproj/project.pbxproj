@@ -56,6 +56,7 @@
 		53E38F992BD435C40095ACFC /* AppCommunicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F982BD435C40095ACFC /* AppCommunicationService.swift */; };
 		53E38F9B2BD443D00095ACFC /* NSFileProviderDomain+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F9A2BD443D00095ACFC /* NSFileProviderDomain+Extensions.swift */; };
 		53E38F9D2BD507660095ACFC /* FileProviderExtension+Thumbnailing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E38F9C2BD507660095ACFC /* FileProviderExtension+Thumbnailing.swift */; };
+		AAC79D102E2509DF006D6845 /* BuildSettings.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = AAC79D0F2E2509DA006D6845 /* BuildSettings.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,8 +173,6 @@
 		5377B20E2BD2B2CB00D660B8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5377B2112BD2B39000D660B8 /* AccountsActor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsActor.swift; sourceTree = "<group>"; };
 		5377B2132BD2B5B000D660B8 /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
-		53BDE21E2D5EDD7200254560 /* Info-macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-macOS.plist"; sourceTree = "<group>"; };
-		53BDE21F2D5EDF4100254560 /* Info-macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-macOS.plist"; sourceTree = "<group>"; };
 		53E38F272BD2BB280095ACFC /* LoginWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWebView.swift; sourceTree = "<group>"; };
 		53E38F292BD2BD140095ACFC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		53E38F2C2BD2BF000095ACFC /* WebViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewRepresentable.swift; sourceTree = "<group>"; };
@@ -189,7 +188,6 @@
 		53E38F4C2BD4017C0095ACFC /* UniformTypeIdentifiers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniformTypeIdentifiers.framework; path = System/Library/Frameworks/UniformTypeIdentifiers.framework; sourceTree = SDKROOT; };
 		53E38F4F2BD4017C0095ACFC /* FileProviderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileProviderExtension.swift; sourceTree = "<group>"; };
 		53E38F552BD4017C0095ACFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		53E38F562BD4017C0095ACFC /* FileProviderExtension-macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "FileProviderExtension-macOS.entitlements"; sourceTree = "<group>"; };
 		53E38F662BD427A40095ACFC /* NextSyncKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NextSyncKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53E38F682BD427A40095ACFC /* NextSyncKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NextSyncKit.h; sourceTree = "<group>"; };
 		53E38F692BD427A40095ACFC /* NextSyncKit.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = NextSyncKit.docc; sourceTree = "<group>"; };
@@ -200,7 +198,7 @@
 		53E38F982BD435C40095ACFC /* AppCommunicationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommunicationService.swift; sourceTree = "<group>"; };
 		53E38F9A2BD443D00095ACFC /* NSFileProviderDomain+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSFileProviderDomain+Extensions.swift"; sourceTree = "<group>"; };
 		53E38F9C2BD507660095ACFC /* FileProviderExtension+Thumbnailing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileProviderExtension+Thumbnailing.swift"; sourceTree = "<group>"; };
-		53E38F9E2BD50FA00095ACFC /* NextSync-macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "NextSync-macOS.entitlements"; sourceTree = "<group>"; };
+		AAC79D0F2E2509DA006D6845 /* BuildSettings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = BuildSettings.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,8 +318,8 @@
 		5377B1E22BD2B15100D660B8 /* NextSync */ = {
 			isa = PBXGroup;
 			children = (
+				AAC79D0F2E2509DA006D6845 /* BuildSettings.xcconfig */,
 				532549462BD66DCB007B9772 /* NextSync.entitlements */,
-				53E38F9E2BD50FA00095ACFC /* NextSync-macOS.entitlements */,
 				5342B3C72D6ED4BC00DBB57A /* Activity */,
 				5377B2102BD2B36800D660B8 /* Account */,
 				53E38F432BD3E2B60095ACFC /* Files */,
@@ -330,7 +328,6 @@
 				5342B3B22D6D948300DBB57A /* Settings */,
 				53E38F322BD3B5110095ACFC /* Web */,
 				5377B20D2BD2B18C00D660B8 /* Info.plist */,
-				53BDE21F2D5EDF4100254560 /* Info-macOS.plist */,
 				5377B1E52BD2B15100D660B8 /* ContentView.swift */,
 				53E38F3A2BD3CC170095ACFC /* MainDetailView.swift */,
 				53E38F382BD3CC040095ACFC /* MainSidebar.swift */,
@@ -431,9 +428,7 @@
 				53E38F9C2BD507660095ACFC /* FileProviderExtension+Thumbnailing.swift */,
 				53E38F922BD435460095ACFC /* FileProviderExtension+Servicing.swift */,
 				53E38F552BD4017C0095ACFC /* Info.plist */,
-				53BDE21E2D5EDD7200254560 /* Info-macOS.plist */,
 				532549452BD66DA9007B9772 /* FileProviderExtension.entitlements */,
-				53E38F562BD4017C0095ACFC /* FileProviderExtension-macOS.entitlements */,
 			);
 			path = FileProviderExtension;
 			sourceTree = "<group>";
@@ -681,6 +676,7 @@
 			files = (
 				5377B20F2BD2B2CB00D660B8 /* README.md in Resources */,
 				5377B1EB2BD2B15300D660B8 /* Preview Assets.xcassets in Resources */,
+				AAC79D102E2509DF006D6845 /* BuildSettings.xcconfig in Resources */,
 				5377B1E82BD2B15300D660B8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -843,6 +839,7 @@
 /* Begin XCBuildConfiguration section */
 		5377B2022BD2B15300D660B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AAC79D0F2E2509DA006D6845 /* BuildSettings.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -906,6 +903,7 @@
 		};
 		5377B2032BD2B15300D660B8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AAC79D0F2E2509DA006D6845 /* BuildSettings.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -966,15 +964,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = NextSync/NextSync.entitlements;
-				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = "NextSync/NextSync-macOS.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NextSync/Preview Content\"";
-				DEVELOPMENT_TEAM = C4QUVLMPQU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NextSync/Info.plist;
-				"INFOPLIST_FILE[sdk=macosx*]" = "NextSync/Info-macOS.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = NextSync;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -989,8 +982,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.claucambra.NextSync;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BASE_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
@@ -1010,15 +1002,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = NextSync/NextSync.entitlements;
-				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = "NextSync/NextSync-macOS.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NextSync/Preview Content\"";
-				DEVELOPMENT_TEAM = C4QUVLMPQU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NextSync/Info.plist;
-				"INFOPLIST_FILE[sdk=macosx*]" = "NextSync/Info-macOS.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = NextSync;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -1033,8 +1020,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.claucambra.NextSync;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BASE_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
@@ -1053,13 +1039,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C4QUVLMPQU;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.claucambra.NextSyncTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BASE_BUNDLE_IDENTIFIER).tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -1073,13 +1055,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C4QUVLMPQU;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.claucambra.NextSyncTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BASE_BUNDLE_IDENTIFIER).tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -1091,12 +1069,8 @@
 		5377B20B2BD2B15300D660B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C4QUVLMPQU;
 				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.claucambra.NextSyncUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BASE_BUNDLE_IDENTIFIER).ui-tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = NextSync;
@@ -1106,12 +1080,8 @@
 		5377B20C2BD2B15300D660B8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C4QUVLMPQU;
 				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.claucambra.NextSyncUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BASE_BUNDLE_IDENTIFIER).ui-tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = NextSync;
@@ -1122,15 +1092,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = FileProviderExtension/FileProviderExtension.entitlements;
-				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = "FileProviderExtension/FileProviderExtension-macOS.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C4QUVLMPQU;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FileProviderExtension/Info.plist;
-				"INFOPLIST_FILE[sdk=macosx*]" = "FileProviderExtension/Info-macOS.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = FileProviderExtension;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -1141,8 +1106,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.claucambra.NextSync.FileProviderExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BASE_BUNDLE_IDENTIFIER).provider";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
@@ -1157,15 +1121,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = FileProviderExtension/FileProviderExtension.entitlements;
-				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = "FileProviderExtension/FileProviderExtension-macOS.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C4QUVLMPQU;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FileProviderExtension/Info.plist;
-				"INFOPLIST_FILE[sdk=macosx*]" = "FileProviderExtension/Info-macOS.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = FileProviderExtension;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -1176,8 +1135,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.claucambra.NextSync.FileProviderExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BASE_BUNDLE_IDENTIFIER).provider";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
@@ -1191,9 +1149,6 @@
 		53E38F7E2BD427A40095ACFC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C4QUVLMPQU;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1205,13 +1160,8 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.claucambra.NextSync.NextSyncKit;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BASE_BUNDLE_IDENTIFIER).kit";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx watchos watchsimulator xros xrsimulator";
@@ -1229,9 +1179,6 @@
 		53E38F7F2BD427A40095ACFC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C4QUVLMPQU;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1243,13 +1190,8 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.claucambra.NextSync.NextSyncKit;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BASE_BUNDLE_IDENTIFIER).kit";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx watchos watchsimulator xros xrsimulator";
@@ -1269,14 +1211,10 @@
 			buildSettings = {
 				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C4QUVLMPQU;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				MACOSX_DEPLOYMENT_TARGET = 14.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.claucambra.NextSync.NextSyncKitTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BASE_BUNDLE_IDENTIFIER).kit.tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -1292,14 +1230,10 @@
 			buildSettings = {
 				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C4QUVLMPQU;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				MACOSX_DEPLOYMENT_TARGET = 14.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.claucambra.NextSync.NextSyncKitTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BASE_BUNDLE_IDENTIFIER).kit.tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -1397,7 +1331,7 @@
 		};
 		53E38F5E2BD40F9C0095ACFC /* XCRemoteSwiftPackageReference "NextcloudFileProviderKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/claucambra/NextcloudFileProviderKit.git";
+			repositoryURL = "https://github.com/nextcloud/NextcloudFileProviderKit.git";
 			requirement = {
 				branch = main;
 				kind = branch;

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NCFPKAppGroupIdentifier</key>
-	<string>group.com.claucambra.NextSync</string>
+	<string>group.com.nextcloud.client</string>
 	<key>LSMultipleInstancesProhibited</key>
 	<true/>
 	<key>CFBundleURLTypes</key>
@@ -12,7 +12,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.claucambra.NextSync</string>
+			<string>com.nextcloud.client</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>nc</string>
